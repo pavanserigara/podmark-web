@@ -52,7 +52,7 @@ const App: React.FC = () => {
             <Footer />
           </div>
         </div>
-        )}
+        <Splash onComplete={handleSplashComplete} />
       </div>
     </Router>
   );
