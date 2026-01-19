@@ -1,8 +1,8 @@
 
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-// Optimization for mobile performance
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,56 +15,64 @@ const SERVICES = [
     description: "We help brands grow through strategic content creation and data-driven campaigns designed to increase reach and engagement.",
     features: ["Content Strategy", "Community Management", "Paid Growth", "Analytics"],
     accent: "podPurple",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1000",
+    link: "/social-media"
   },
   {
     title: "Real Estate Shoots",
     description: "Professional real estate photography showcasing interiors and architectural spaces with cinematic clarity and broker-ready impact.",
     features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
     accent: "podGold",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
+    link: "/creative"
   },
   {
     title: "Web Design",
     description: "Architecting modern, responsive digital homes that convert visitors into brand advocates through premium UI/UX design.",
     features: ["UI/UX Engineering", "Conversion Optimization", "Brand Identity", "SEO Mastery"],
     accent: "podCyan",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000",
+    link: "/development"
   },
   {
     title: "Jewellery Shoots",
     description: "Ultra-high-detail photography that captures the fire and craftsmanship of luxury pieces with precision lighting.",
     features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
     accent: "podPurple",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
+    link: "/creative"
   },
   {
     title: "Product Shoots",
     description: "High-end product imagery that highlights every texture. Perfect for high-conversion e-commerce and premium catalogs.",
     features: ["Studio Styling", "E-com Integration", "Detail Focus", "Batch Delivery"],
     accent: "podGold",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
+    link: "/creative"
   },
   {
     title: "Pre & Post Wedding",
     description: "Capturing the raw emotion of your journey through editorial photography and cinematic, mood-driven storytelling.",
     features: ["Editorial Glow", "Cinematic Noir", "Motion Storytelling", "Event Coverage"],
     accent: "podPurple",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
+    link: "/creative"
   },
   {
     title: "Interior Design",
     description: "Transforming physical environments into branded experiences that blend aesthetics with functional dominance.",
     features: ["Space Planning", "Identity Reflection", "3D Rendering", "Material Curation"],
     accent: "podCyan",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
+    link: "/creative"
   },
   {
     title: "Meta & Google Ads",
     description: "Data-driven performance marketing campaigns engineered to maximize ROI and capture market share effectively.",
     features: ["Campaign Architecture", "A/B Testing", "Retargeting Pros", "Performance Reporting"],
     accent: "podGold",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+    link: "/ppc-advertising"
   }
 ];
 
@@ -92,7 +100,7 @@ export const Services: React.FC = () => {
       // 1. Move Title Up aggressively to clear space for the centered cards
       tl.to(headerRef.current, {
         y: -350,
-        opacity: 0,
+        autoAlpha: 0,
         scale: 0.85,
         duration: 2,
         ease: "power2.inOut"
@@ -100,8 +108,8 @@ export const Services: React.FC = () => {
 
       // 2. Initial Card Entrance
       tl.fromTo(cards[0],
-        { scale: 0.7, opacity: 0, y: 400 },
-        { scale: 1, opacity: 1, y: 0, duration: 2, ease: "power2.out" },
+        { scale: 0.7, autoAlpha: 0, y: 400 },
+        { scale: 1, autoAlpha: 1, y: 0, duration: 2, ease: "power2.out" },
         "-=1.5"
       );
 
@@ -114,7 +122,7 @@ export const Services: React.FC = () => {
 
           // Current card fades out & moves slightly
           tl.to(card, {
-            opacity: 0,
+            autoAlpha: 0,
             y: -40, // Slight movement up
             filter: "blur(10px)",
             duration: 1.5,
@@ -132,8 +140,8 @@ export const Services: React.FC = () => {
 
           // Next card Enter
           tl.fromTo(nextCard,
-            { opacity: 0, y: 150, filter: "blur(10px)" },
-            { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.5, ease: "power2.out" },
+            { autoAlpha: 0, y: 150, filter: "blur(10px)" },
+            { autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 1.5, ease: "power2.out" },
             "-=1.2"
           );
 
@@ -164,7 +172,7 @@ export const Services: React.FC = () => {
 
       // 1. Fade out header - Giving it standalone time
       tl.to(headerRef.current, {
-        opacity: 0,
+        autoAlpha: 0,
         y: -100,
         duration: 0.5, // Slower fade out to appreciate title
         ease: "power1.out"
@@ -172,9 +180,9 @@ export const Services: React.FC = () => {
 
       // 2. Initial Card Entrance - Starts HIDDEN so title is alone
       tl.fromTo(cards[0],
-        { opacity: 0, scale: 0.9, y: 100 }, // Start hidden
+        { autoAlpha: 0, scale: 0.9, y: 100 }, // Start hidden
         {
-          opacity: 1,
+          autoAlpha: 1,
           scale: 1,
           y: 0,
           duration: 0.5, // Smooth entry
@@ -192,7 +200,7 @@ export const Services: React.FC = () => {
 
           // Current card fades out
           tl.to(card, {
-            opacity: 0,
+            autoAlpha: 0,
             scale: 0.95, // Subtle scale down of container
             duration: 1,
             ease: "power1.inOut"
@@ -209,8 +217,8 @@ export const Services: React.FC = () => {
 
           // Next card enters
           tl.fromTo(nextCard,
-            { opacity: 0, y: 50, scale: 1 },
-            { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" },
+            { autoAlpha: 0, y: 50, scale: 1 },
+            { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" },
             "<"
           );
 
@@ -271,6 +279,7 @@ export const Services: React.FC = () => {
               style={{
                 zIndex: 10 + index,
                 opacity: index === 0 ? 1 : 0,
+                visibility: index === 0 ? 'visible' : 'hidden',
                 ...willChangeStyle
               }}
             >
@@ -326,10 +335,10 @@ export const Services: React.FC = () => {
                 </div>
 
                 <div className="mt-auto lg:mt-0">
-                  <a href="#contact" className="group inline-flex items-center gap-6 text-podGold text-[10px] md:text-[13px] font-black tracking-[0.6em] uppercase transition-all hover:gap-10">
-                    GET STARTED
+                  <Link to={service.link} className="group inline-flex items-center gap-6 text-podGold text-[10px] md:text-[13px] font-black tracking-[0.6em] uppercase transition-all hover:gap-10">
+                    KNOW MORE
                     <span className="text-2xl md:text-4xl group-hover:translate-x-4 transition-transform leading-none">→</span>
-                  </a>
+                  </Link>
                 </div>
               </div>
 

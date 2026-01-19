@@ -49,13 +49,7 @@ export const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
-        <div className="flex flex-col items-center gap-3 animate-bounce opacity-50 hover:opacity-100 transition-opacity">
-          <span className="text-[8px] font-black uppercase text-white/60 block text-center tracking-[0.4em]">Scroll to Explore</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-podPurple to-transparent"></div>
-        </div>
-      </div>
+
 
       {/* Bottom Visual Element */}
       <div className="absolute bottom-12 right-12 flex space-x-4 opacity-30 hidden lg:flex">
