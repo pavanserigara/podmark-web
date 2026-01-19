@@ -9,6 +9,7 @@ import { Development } from './components/Development';
 import { Creative } from './components/Creative';
 import { SocialMedia } from './components/SocialMedia';
 import { PPCAdvertising } from './components/PPCAdvertising';
+import { MetaGoogleAds } from './components/MetaGoogleAds';
 import { SEO } from './components/SEO';
 import { Footer } from './components/Footer';
 import { BackgroundAnimation } from './components/BackgroundAnimation';
@@ -42,6 +43,7 @@ const App: React.FC = () => {
               <Route path="/creative" element={<Creative />} />
               <Route path="/social-media" element={<SocialMedia />} />
               <Route path="/ppc-advertising" element={<PPCAdvertising />} />
+              <Route path="/meta-google-ads" element={<MetaGoogleAds />} />
               <Route path="/seo-organic-growth" element={<SEO />} />
               <Route path="/real-estate-shoots" element={<RealEstateShoots />} />
               <Route path="/jewellery-shoots" element={<JewelleryShoots />} />
