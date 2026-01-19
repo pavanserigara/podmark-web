@@ -22,9 +22,8 @@ const SERVICES = [
     title: "Real Estate Shoots",
     description: "Professional real estate photography showcasing interiors and architectural spaces with cinematic clarity and broker-ready impact.",
     features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
-    accent: "podGold",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
-    link: "/creative"
+    link: "/real-estate-shoots"
   },
   {
     title: "Web Design",
@@ -40,7 +39,7 @@ const SERVICES = [
     features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
     accent: "podPurple",
     image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
-    link: "/creative"
+    link: "/jewellery-shoots"
   },
   {
     title: "Product Shoots",
@@ -48,15 +47,15 @@ const SERVICES = [
     features: ["Studio Styling", "E-com Integration", "Detail Focus", "Batch Delivery"],
     accent: "podGold",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
-    link: "/creative"
+    link: "/product-shoots"
   },
   {
     title: "Pre & Post Wedding",
     description: "Capturing the raw emotion of your journey through editorial photography and cinematic, mood-driven storytelling.",
     features: ["Editorial Glow", "Cinematic Noir", "Motion Storytelling", "Event Coverage"],
     accent: "podPurple",
-    image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=1000",
-    link: "/creative"
+    image: "imgs/wed.jpg",
+    link: "/wedding-shoots"
   },
   {
     title: "Interior Design",
@@ -64,7 +63,7 @@ const SERVICES = [
     features: ["Space Planning", "Identity Reflection", "3D Rendering", "Material Curation"],
     accent: "podCyan",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
-    link: "/creative"
+    link: "/interior-design"
   },
   {
     title: "Meta & Google Ads",

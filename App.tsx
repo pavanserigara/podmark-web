@@ -12,6 +12,11 @@ import { PPCAdvertising } from './components/PPCAdvertising';
 import { SEO } from './components/SEO';
 import { Footer } from './components/Footer';
 import { BackgroundAnimation } from './components/BackgroundAnimation';
+import { RealEstateShoots } from './components/RealEstateShoots';
+import { JewelleryShoots } from './components/JewelleryShoots';
+import { ProductShoots } from './components/ProductShoots';
+import { WeddingShoots } from './components/WeddingShoots';
+import { InteriorDesign } from './components/InteriorDesign';
 
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState(true);
@@ -38,13 +43,16 @@ const App: React.FC = () => {
               <Route path="/social-media" element={<SocialMedia />} />
               <Route path="/ppc-advertising" element={<PPCAdvertising />} />
               <Route path="/seo-organic-growth" element={<SEO />} />
+              <Route path="/real-estate-shoots" element={<RealEstateShoots />} />
+              <Route path="/jewellery-shoots" element={<JewelleryShoots />} />
+              <Route path="/product-shoots" element={<ProductShoots />} />
+              <Route path="/wedding-shoots" element={<WeddingShoots />} />
+              <Route path="/interior-design" element={<InteriorDesign />} />
             </Routes>
             <Footer />
           </div>
         </div>
-
-        {/* Splash Screen Overlay */}
-        <Splash onComplete={handleSplashComplete} />
+        )}
       </div>
     </Router>
   );

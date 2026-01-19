@@ -76,10 +76,9 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-xs">Services</h4>
             <ul className="space-y-3 text-sm text-white/40">
-              <li><a href="/strategy-consulting" onClick={(e) => handleNavigation('/strategy-consulting', e)} className="hover:text-podPurple transition-colors cursor-pointer">Strategy & Consulting</a></li>
+              <li><a href="/social-media" onClick={(e) => handleNavigation('/social-media', e)} className="hover:text-podPurple transition-colors cursor-pointer">Social Media Marketing</a></li>
               <li><a href="/development" onClick={(e) => handleNavigation('/development', e)} className="hover:text-podPurple transition-colors cursor-pointer">Development</a></li>
               <li><a href="/creative" onClick={(e) => handleNavigation('/creative', e)} className="hover:text-podPurple transition-colors cursor-pointer">Creative Services</a></li>
-              <li><a href="/social-media" onClick={(e) => handleNavigation('/social-media', e)} className="hover:text-podPurple transition-colors cursor-pointer">Social Media Marketing</a></li>
               <li><a href="/ppc-advertising" onClick={(e) => handleNavigation('/ppc-advertising', e)} className="hover:text-podPurple transition-colors cursor-pointer">PPC Advertising</a></li>
               <li><a href="/seo-organic-growth" onClick={(e) => handleNavigation('/seo-organic-growth', e)} className="hover:text-podPurple transition-colors cursor-pointer">SEO & Organic Growth</a></li>
             </ul>
