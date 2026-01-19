@@ -198,24 +198,26 @@ export const Navbar: React.FC = () => {
             {showDropdown && (
               <div
                 ref={dropdownRef}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[650px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-8"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[550px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-5"
               >
-                <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-4">
                   {DROPDOWN_SERVICES.map((item, idx) => (
                     <a
                       key={idx}
                       href={item.path}
                       onClick={(e) => handleNavigation(item.path, e)}
-                      className="group flex gap-5 items-start p-4 rounded-2xl hover:bg-white/5 transition-all"
+                      className="group flex gap-3 items-start p-2 rounded-xl hover:bg-white/5 transition-all"
                     >
-                      <div className="shrink-0 p-3 rounded-xl bg-white/5 border border-white/5 group-hover:scale-110 group-hover:border-white/10 transition-all duration-300">
-                        {item.icon}
+                      <div className="shrink-0 p-2 rounded-lg bg-white/5 border border-white/5 group-hover:scale-110 group-hover:border-white/10 transition-all duration-300">
+                        {React.cloneElement(item.icon as React.ReactElement, {
+                          className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-6 h-6')
+                        })}
                       </div>
                       <div>
-                        <h4 className="text-sm font-black text-white tracking-tight uppercase mb-1.5 group-hover:text-podGold transition-colors">
+                        <h4 className="text-xs font-black text-white tracking-tight uppercase mb-0.5 group-hover:text-podGold transition-colors">
                           {item.title}
                         </h4>
-                        <p className="text-[10px] leading-relaxed text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors">
+                        <p className="text-[10px] leading-relaxed text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors line-clamp-2">
                           {item.desc}
                         </p>
                       </div>
@@ -223,7 +225,7 @@ export const Navbar: React.FC = () => {
                   ))}
                 </div>
                 {/* Dropdown Footer */}
-                <div className="mt-8 pt-6 border-t border-white/5 flex justify-between items-center">
+                <div className="mt-5 pt-4 border-t border-white/5 flex justify-between items-center">
                   <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Bespoke Digital Arsenals</span>
                   <a
                     href="#services"
