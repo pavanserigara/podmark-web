@@ -3,60 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 
-const DROPDOWN_SERVICES = [
+const MAIN_SERVICES = [
   {
-    title: "Strategy And Consulting",
-    desc: "Marketing Strategy & Consulting That Aligns With Growth.",
-    path: "/strategy-consulting",
-    icon: (
-      <svg className="w-10 h-10 text-podCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83m0 0a1.5 1.5 0 10-2.122-2.122 1.5 1.5 0 002.122 2.122z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19 14.5l-2.5-2.5m-5.5-5.5L8.5 4M4 8.5L6.5 11m1.5 1.5L4 16.5m7-7l4.5 4.5m-7-7l-4.5-4.5" />
-      </svg>
-    )
-  },
-  {
-    title: "Development",
-    desc: "Web Development Services For Scalable Digital Experiences.",
-    path: "/development",
-    icon: (
-      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-      </svg>
-    )
-  },
-  {
-    title: "Creative",
-    desc: "Creative Services For Effective Brand Communication.",
-    path: "/creative",
-    icon: (
-      <svg className="w-10 h-10 text-podGold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.013 1.62c-.14-.347-.22-.728-.22-1.128 0-1.591.93-2.966 2.274-3.597m0 0A15.997 15.997 0 0014.227 8.13m2.547 9.043a6.002 6.002 0 01-11.45 0" />
-      </svg>
-    )
-  },
-  {
-    title: "Social Media Management",
-    desc: "Social Media Marketing That Builds Engagement & Trust.",
-    path: "/social-media",
-    icon: (
-      <svg className="w-10 h-10 text-podCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
-      </svg>
-    )
-  },
-  {
-    title: "PPC Advertising",
-    desc: "PPC Advertising Services That Drive Qualified Traffic.",
-    path: "/ppc-advertising",
-    icon: (
-      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.066-1.386-.115-2.09-.149m5.466 0c.704.034 1.402.083 2.09.149m0 0a48.11 48.11 0 011.487 1.677c.31.374.334.914.057 1.303a30.13 30.13 0 01-3.048 3.587 30.13 30.13 0 01-3.048-3.587c-.277-.389-.253-.929.057-1.303a48.114 48.114 0 011.487-1.677zM4.5 5.25h15a2.25 2.25 0 012.25 2.25v6.75a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 14.25V7.5A2.25 2.25 0 014.5 5.25z" />
-      </svg>
-    )
-  },
-  {
-    title: "Meta & Google Ads",
+    title: "Meta and Google Ads",
     desc: "Paid campaigns that scale revenue.",
     path: "/meta-google-ads",
     icon: (
@@ -66,17 +15,27 @@ const DROPDOWN_SERVICES = [
     )
   },
   {
-    title: "SEO & Organic Growth",
-    desc: "SEO Services For Sustainable Organic Growth.",
-    path: "/seo-organic-growth",
+    title: "Web Design",
+    desc: "Web Development Services For Scalable Digital Experiences.",
+    path: "/development",
     icon: (
-      <svg className="w-10 h-10 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.5 4.5L21.75 7M21.75 7h-5.25M21.75 7v5.25" />
+      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
       </svg>
     )
   },
   {
-    title: "Real Estate Photography",
+    title: "Social Media Marketing",
+    desc: "Social Media Marketing That Builds Engagement & Trust.",
+    path: "/social-media",
+    icon: (
+      <svg className="w-10 h-10 text-podCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+      </svg>
+    )
+  },
+  {
+    title: "Real Estate Shoots",
     desc: "Showcase Properties in Their Best Light.",
     path: "/real-estate-shoots",
     icon: (
@@ -91,7 +50,7 @@ const DROPDOWN_SERVICES = [
     path: "/jewellery-shoots",
     icon: (
       <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M6 12L12 3L18 12L12 21L6 12Z M6 12H18 M12 3V21 M9 7.5H15 M9 16.5H15" />
       </svg>
     )
   },
@@ -106,7 +65,7 @@ const DROPDOWN_SERVICES = [
     )
   },
   {
-    title: "Pre & Post Wedding",
+    title: "Pre n post wedding",
     desc: "Capturing love with cinematic visuals.",
     path: "/wedding-shoots",
     icon: (
@@ -127,13 +86,59 @@ const DROPDOWN_SERVICES = [
   }
 ];
 
+const DETAILED_SERVICES = [
+  {
+    title: "Strategy And Consulting",
+    desc: "Marketing Strategy & Consulting That Aligns With Growth.",
+    path: "/strategy-consulting",
+    icon: (
+      <svg className="w-10 h-10 text-podCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.83-5.83m0 0a1.5 1.5 0 10-2.122-2.122 1.5 1.5 0 002.122 2.122z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19 14.5l-2.5-2.5m-5.5-5.5L8.5 4M4 8.5L6.5 11m1.5 1.5L4 16.5m7-7l4.5 4.5m-7-7l-4.5-4.5" />
+      </svg>
+    )
+  },
+  {
+    title: "Creative",
+    desc: "Creative Services For Effective Brand Communication.",
+    path: "/creative",
+    icon: (
+      <svg className="w-10 h-10 text-podGold" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.013 1.62c-.14-.347-.22-.728-.22-1.128 0-1.591.93-2.966 2.274-3.597m0 0A15.997 15.997 0 0014.227 8.13m2.547 9.043a6.002 6.002 0 01-11.45 0" />
+      </svg>
+    )
+  },
+  {
+    title: "PPC Advertising",
+    desc: "PPC Advertising Services That Drive Qualified Traffic.",
+    path: "/ppc-advertising",
+    icon: (
+      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M10.34 15.84c-.688-.066-1.386-.115-2.09-.149m5.466 0c.704.034 1.402.083 2.09.149m0 0a48.11 48.11 0 011.487 1.677c.31.374.334.914.057 1.303a30.13 30.13 0 01-3.048 3.587 30.13 30.13 0 01-3.048-3.587c-.277-.389-.253-.929.057-1.303a48.114 48.114 0 011.487-1.677zM4.5 5.25h15a2.25 2.25 0 012.25 2.25v6.75a2.25 2.25 0 01-2.25 2.25H4.5A2.25 2.25 0 012.25 14.25V7.5A2.25 2.25 0 014.5 5.25z" />
+      </svg>
+    )
+  },
+  {
+    title: "SEO & Organic Growth",
+    desc: "SEO Services For Sustainable Organic Growth.",
+    path: "/seo-organic-growth",
+    icon: (
+      <svg className="w-10 h-10 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.5 4.5L21.75 7M21.75 7h-5.25M21.75 7v5.25" />
+      </svg>
+    )
+  }
+];
+
 export const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showDetailed, setShowDetailed] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const detailedRef = useRef<HTMLDivElement>(null);
 
   const handleNavigation = (path: string, e: React.MouseEvent) => {
     if (path.startsWith('#')) {
@@ -158,6 +163,21 @@ export const Navbar: React.FC = () => {
   };
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+
+    if (showDropdown) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showDropdown]);
+
+  useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -169,8 +189,19 @@ export const Navbar: React.FC = () => {
         { opacity: 0, y: 10, scale: 0.98 },
         { opacity: 1, y: 0, scale: 1, duration: 0.3, ease: "power2.out" }
       );
+    } else {
+      setShowDetailed(false);
     }
   }, [showDropdown]);
+
+  useEffect(() => {
+    if (showDetailed && detailedRef.current) {
+      gsap.fromTo(detailedRef.current,
+        { opacity: 0, x: -20, scale: 0.95 },
+        { opacity: 1, x: 0, scale: 1, duration: 0.4, ease: "expo.out" }
+      );
+    }
+  }, [showDetailed]);
 
   return (
     <nav
@@ -193,7 +224,7 @@ export const Navbar: React.FC = () => {
           <a href="#story" onClick={(e) => handleNavigation('#story', e)} className="nav-link text-[10px] font-black uppercase tracking-[0.3em] text-white/60 hover:text-white transition-colors py-2">Story</a>
 
           {/* Services Dropdown Trigger */}
-          <div className="relative">
+          <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowDropdown(!showDropdown)}
               className={`nav-link text-[10px] font-black uppercase tracking-[0.3em] py-2 transition-colors flex items-center gap-1.5 ${showDropdown ? 'text-white' : 'text-white/60 hover:text-white'}`}
@@ -207,11 +238,10 @@ export const Navbar: React.FC = () => {
             {/* Dropdown Menu */}
             {showDropdown && (
               <div
-                ref={dropdownRef}
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[550px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl overflow-hidden shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-5"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[550px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-5"
               >
-                <div className="grid grid-cols-2 gap-x-4 gap-y-4">
-                  {DROPDOWN_SERVICES.map((item, idx) => (
+                <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-4">
+                  {MAIN_SERVICES.map((item, idx) => (
                     <a
                       key={idx}
                       href={item.path}
@@ -237,14 +267,47 @@ export const Navbar: React.FC = () => {
                 {/* Dropdown Footer */}
                 <div className="mt-5 pt-4 border-t border-white/5 flex justify-between items-center">
                   <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Bespoke Digital Arsenals</span>
-                  <a
-                    href="#services"
-                    onClick={() => setShowDropdown(false)}
-                    className="text-[9px] font-black text-podGold uppercase tracking-[0.2em] flex items-center gap-2 hover:gap-4 transition-all"
+                  <button
+                    onClick={() => setShowDetailed(!showDetailed)}
+                    className={`text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-2 hover:gap-4 transition-all ${showDetailed ? 'text-white' : 'text-podGold'}`}
                   >
-                    View Detailed List <span>→</span>
-                  </a>
+                    View Detailed List <span className={showDetailed ? 'rotate-90 transition-transform' : 'transition-transform'}>→</span>
+                  </button>
                 </div>
+
+                {/* Side Sub-dropdown */}
+                {showDetailed && (
+                  <div
+                    ref={detailedRef}
+                    className="absolute left-[calc(100%+10px)] top-0 w-[280px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-6 z-[110]"
+                  >
+                    <h5 className="text-[10px] font-black text-white/30 uppercase tracking-[0.4em] mb-6 border-b border-white/5 pb-2">Premium Strategies</h5>
+                    <div className="flex flex-col gap-6">
+                      {DETAILED_SERVICES.map((item, idx) => (
+                        <a
+                          key={idx}
+                          href={item.path}
+                          onClick={(e) => handleNavigation(item.path, e)}
+                          className="group flex gap-4 items-start transition-all"
+                        >
+                          <div className="shrink-0 group-hover:scale-110 transition-transform duration-300 text-white/70">
+                            {React.cloneElement(item.icon as React.ReactElement, {
+                              className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-5 h-5')
+                            })}
+                          </div>
+                          <div>
+                            <h4 className="text-[10px] font-black text-white group-hover:text-podGold transition-colors uppercase tracking-widest leading-none mb-1">
+                              {item.title}
+                            </h4>
+                            <p className="text-[8px] text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors line-clamp-1">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
@@ -303,10 +366,10 @@ export const Navbar: React.FC = () => {
                   </button>
 
                   {mobileServicesOpen && (
-                    <div className="mt-6 flex flex-col gap-4 pl-4 border-l border-white/10 animate-fade-in">
-                      {DROPDOWN_SERVICES.map((service, sHeight) => (
+                    <div className="mt-6 flex flex-col gap-6 pl-4 border-l border-white/10 animate-fade-in">
+                      {MAIN_SERVICES.map((service, sIndex) => (
                         <a
-                          key={sHeight}
+                          key={`main-${sIndex}`}
                           href={service.path}
                           onClick={(e) => handleNavigation(service.path, e)}
                           className="flex items-center gap-4 group"
@@ -319,6 +382,27 @@ export const Navbar: React.FC = () => {
                           </span>
                         </a>
                       ))}
+
+                      <div className="mt-4 pt-4 border-t border-white/5">
+                        <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.4em] mb-4">Detailed Services</p>
+                        <div className="grid grid-cols-1 gap-4">
+                          {DETAILED_SERVICES.map((service, dIndex) => (
+                            <a
+                              key={`det-${dIndex}`}
+                              href={service.path}
+                              onClick={(e) => handleNavigation(service.path, e)}
+                              className="flex items-center gap-4 group"
+                            >
+                              <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-podGold/60 group-hover:text-podGold group-hover:bg-podGold/10 transition-colors">
+                                {React.cloneElement(service.icon as React.ReactElement, { className: "w-4 h-4" })}
+                              </div>
+                              <span className="text-sm font-bold text-white/40 group-hover:text-white uppercase tracking-wider transition-colors">
+                                {service.title}
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
