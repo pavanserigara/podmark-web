@@ -205,7 +205,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-6 py-4 min-h-[72px] ${scrolled ? 'bg-black/95 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 px-4 md:px-6 py-4 min-h-[72px] ${scrolled ? 'bg-podDark/95 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto flex justify-between items-center h-full">
@@ -347,10 +347,10 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-black transition-all duration-500 z-[90] ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
+        className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-podDark transition-all duration-500 z-[90] ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
           }`}
       >
-        <div className="flex flex-col p-10 pt-24 space-y-7 h-full bg-black/95 backdrop-blur-3xl overflow-y-auto">
+        <div className="flex flex-col p-10 pt-24 space-y-7 h-full bg-podDark/95 backdrop-blur-3xl overflow-y-auto">
           {['Home', 'Story', 'Services', 'Contact'].map((item) => {
             if (item === 'Services') {
               return (
