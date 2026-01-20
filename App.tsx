@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Splash } from './components/Splash';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { StrategyConsulting } from './components/StrategyConsulting';
@@ -18,19 +16,16 @@ import { JewelleryShoots } from './components/JewelleryShoots';
 import { ProductShoots } from './components/ProductShoots';
 import { WeddingShoots } from './components/WeddingShoots';
 import { InteriorDesign } from './components/InteriorDesign';
+import { Splash } from './components/Splash';
 
 const App: React.FC = () => {
-  const [loading, setLoading] = React.useState(true);
-
-  const handleSplashComplete = React.useCallback(() => {
-    setLoading(false);
-  }, []);
+  const [loading, setLoading] = useState(true);
 
   return (
     <Router>
       <div className="relative font-sans antialiased text-white selection:bg-podPurple selection:text-white min-h-screen overflow-x-hidden">
-        {/* Main Content - Always rendered but covered by Splash initially */}
-        <div className={`transition-opacity duration-1000 ${loading ? 'opacity-0' : 'opacity-100'} bg-black min-h-screen`}>
+        {/* Main Content */}
+        <div className={`transition-opacity duration-1000 ease-in-out ${loading ? 'opacity-0' : 'opacity-100'} bg-black min-h-screen`}>
           {/* Global Staggered Background */}
           <BackgroundAnimation />
 
@@ -54,7 +49,9 @@ const App: React.FC = () => {
             <Footer />
           </div>
         </div>
-        <Splash onComplete={handleSplashComplete} />
+
+        {/* Loading Splash Screen */}
+        {loading && <Splash onComplete={() => setLoading(false)} />}
       </div>
     </Router>
   );
