@@ -238,26 +238,26 @@ export const Navbar: React.FC = () => {
             {/* Dropdown Menu */}
             {showDropdown && (
               <div
-                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[550px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-5"
+                className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[420px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] py-6 px-4"
               >
-                <div className="relative z-10 grid grid-cols-2 gap-x-4 gap-y-4">
+                <div className="relative z-10 grid grid-cols-2 gap-y-5 gap-x-4">
                   {MAIN_SERVICES.map((item, idx) => (
                     <a
                       key={idx}
                       href={item.path}
                       onClick={(e) => handleNavigation(item.path, e)}
-                      className="group flex gap-3 items-start p-2 rounded-xl hover:bg-white/5 transition-all"
+                      className="group flex gap-3 items-center py-2 px-1.5 rounded-lg hover:bg-white/5 transition-all"
                     >
-                      <div className="shrink-0 p-2 rounded-lg bg-white/5 border border-white/5 group-hover:scale-110 group-hover:border-white/10 transition-all duration-300">
+                      <div className="shrink-0 p-1.5 rounded-md bg-white/5 border border-white/5 group-hover:scale-105 transition-all duration-300">
                         {React.cloneElement(item.icon as React.ReactElement, {
-                          className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-6 h-6')
+                          className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-4 h-4')
                         })}
                       </div>
-                      <div>
-                        <h4 className="text-xs font-black text-white tracking-tight uppercase mb-0.5 group-hover:text-podGold transition-colors">
+                      <div className="min-w-0">
+                        <h4 className="text-[11px] font-black text-white tracking-wider uppercase group-hover:text-podGold transition-colors truncate">
                           {item.title}
                         </h4>
-                        <p className="text-[10px] leading-relaxed text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors line-clamp-2">
+                        <p className="text-[9px] leading-tight text-white/30 font-bold uppercase tracking-widest group-hover:text-white/50 transition-colors line-clamp-1">
                           {item.desc}
                         </p>
                       </div>
@@ -265,13 +265,13 @@ export const Navbar: React.FC = () => {
                   ))}
                 </div>
                 {/* Dropdown Footer */}
-                <div className="mt-5 pt-4 border-t border-white/5 flex justify-between items-center">
-                  <span className="text-[9px] font-black text-white/30 uppercase tracking-[0.3em]">Bespoke Digital Arsenals</span>
+                <div className="mt-6 pt-4 border-t border-white/5 flex justify-between items-center">
+                  <span className="text-[9px] font-black text-white/20 uppercase tracking-[0.3em]">Bespoke Digital Arsenals</span>
                   <button
                     onClick={() => setShowDetailed(!showDetailed)}
-                    className={`text-[9px] font-black uppercase tracking-[0.2em] flex items-center gap-2 hover:gap-4 transition-all ${showDetailed ? 'text-white' : 'text-podGold'}`}
+                    className={`text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2 hover:gap-3 transition-all ${showDetailed ? 'text-white' : 'text-podGold'}`}
                   >
-                    View Detailed List <span className={showDetailed ? 'rotate-90 transition-transform' : 'transition-transform'}>→</span>
+                    Detailed <span className={showDetailed ? 'rotate-90 transition-transform' : 'transition-transform'}>→</span>
                   </button>
                 </div>
 
@@ -279,27 +279,27 @@ export const Navbar: React.FC = () => {
                 {showDetailed && (
                   <div
                     ref={detailedRef}
-                    className="absolute left-[calc(100%+10px)] top-0 w-[280px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] p-6 z-[110]"
+                    className="absolute left-[calc(100%+8px)] top-0 w-[240px] bg-[#0E0516]/95 backdrop-blur-3xl border border-white/10 rounded-2xl shadow-[0_30px_100px_rgba(0,0,0,0.8)] py-6 px-4 z-[110]"
                   >
-                    <h5 className="text-[10px] font-black text-white/30 uppercase tracking-[0.4em] mb-6 border-b border-white/5 pb-2">Premium Strategies</h5>
+                    <h5 className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em] mb-5 border-b border-white/5 pb-2">Strategies</h5>
                     <div className="flex flex-col gap-6">
                       {DETAILED_SERVICES.map((item, idx) => (
                         <a
                           key={idx}
                           href={item.path}
                           onClick={(e) => handleNavigation(item.path, e)}
-                          className="group flex gap-4 items-start transition-all"
+                          className="group flex gap-3 items-center transition-all"
                         >
-                          <div className="shrink-0 group-hover:scale-110 transition-transform duration-300 text-white/70">
+                          <div className="shrink-0 group-hover:scale-110 transition-transform duration-300 text-white/50">
                             {React.cloneElement(item.icon as React.ReactElement, {
-                              className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-5 h-5')
+                              className: (item.icon as React.ReactElement).props.className.replace('w-10 h-10', 'w-4 h-4')
                             })}
                           </div>
-                          <div>
+                          <div className="min-w-0">
                             <h4 className="text-[10px] font-black text-white group-hover:text-podGold transition-colors uppercase tracking-widest leading-none mb-1">
                               {item.title}
                             </h4>
-                            <p className="text-[8px] text-white/40 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors line-clamp-1">
+                            <p className="text-[8.5px] text-white/30 font-bold uppercase tracking-wider group-hover:text-white/60 transition-colors line-clamp-1">
                               {item.desc}
                             </p>
                           </div>

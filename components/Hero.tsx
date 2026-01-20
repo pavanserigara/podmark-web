@@ -16,9 +16,13 @@ export const Hero: React.FC = () => {
 
       {/* Hero Content */}
       <div className="container mx-auto px-6 relative z-10 text-center animate-fade-in flex-grow flex flex-col justify-center items-center">
-        <div className="inline-block mb-8 px-6 py-2 rounded-full border border-podPurple/30 bg-podPurple/5 backdrop-blur-sm">
-          <h3 className="text-lg md:text-2xl font-bold tracking-[0.4em] text-podPurple uppercase">
-            WE DON'T JUST MARKET
+        <div className="inline-block mb-10 px-10 py-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-2xl shadow-[0_0_60px_rgba(139,92,246,0.2)] group hover:border-podPurple/50 transition-all duration-700">
+          <h3 className="text-sm md:text-lg font-black tracking-[0.5em] uppercase flex items-center gap-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-podPurple animate-pulse shadow-[0_0_15px_#8b5cf6]"></span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-podPurple to-podCyan drop-shadow-[0_2px_10px_rgba(255,255,255,0.3)]">
+              WE DON'T JUST MARKET
+            </span>
+            <span className="w-2.5 h-2.5 rounded-full bg-podCyan animate-pulse shadow-[0_0_15px_#38BDF8]"></span>
           </h3>
         </div>
 
