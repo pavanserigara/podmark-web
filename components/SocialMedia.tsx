@@ -13,7 +13,7 @@ const PROCESS_STEPS = [
     },
     {
         title: "Platform Planning & Strategy",
-        desc: "We craft channel-specific calendars with content buckets, creative themes, and posting cadence."
+        desc: "We craft channel-specific calendars with content buckets, creative themes, and posting shedules."
     },
     {
         title: "Content Production",
