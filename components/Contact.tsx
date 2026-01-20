@@ -7,7 +7,8 @@ export const Contact: React.FC = () => {
     email: '',
     phone: '',
     company: '',
-    service: 'Strategy & Consulting',
+    gmbLink: '',
+    service: 'Creative Services',
     message: ''
   });
 
@@ -15,7 +16,7 @@ export const Contact: React.FC = () => {
     e.preventDefault();
 
     // Format message for WhatsApp
-    const whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Company:* ${formData.company}%0A*Service:* ${formData.service}%0A*Message:* ${formData.message}`;
+    const whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Company:* ${formData.company}%0A${formData.gmbLink ? `*GMB Link:* ${formData.gmbLink}%0A` : ''}*Service:* ${formData.service}%0A*Message:* ${formData.message}`;
 
     // WhatsApp number (using the first number from your list)
     const whatsappNumber = '918105575795';
@@ -142,6 +143,18 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
+                <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Google My Business (GMB) Profile Link</label>
+                <input
+                  type="url"
+                  name="gmbLink"
+                  value={formData.gmbLink}
+                  onChange={handleChange}
+                  className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-podGold transition-colors"
+                  placeholder="https://g.page/your-brand"
+                />
+              </div>
+
+              <div>
                 <label className="block text-xs font-bold uppercase tracking-widest text-white/40 mb-2">Service Required</label>
                 <select
                   name="service"
@@ -149,12 +162,9 @@ export const Contact: React.FC = () => {
                   onChange={handleChange}
                   className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-podGold transition-colors appearance-none"
                 >
-                  <option className="bg-podDark">Strategy & Consulting</option>
-                  <option className="bg-podDark">Development</option>
                   <option className="bg-podDark">Creative Services</option>
                   <option className="bg-podDark">Social Media Marketing</option>
-                  <option className="bg-podDark">PPC Advertising</option>
-                  <option className="bg-podDark">SEO & Organic Growth</option>
+                  <option className="bg-podDark">Development</option>
                   <option className="bg-podDark">Other</option>
                 </select>
               </div>
