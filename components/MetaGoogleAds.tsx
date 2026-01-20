@@ -79,60 +79,7 @@ const ADS_SERVICES = [
     }
 ];
 
-const BUSINESS_BENEFITS = [
-    {
-        title: "Instant Traffic",
-        desc: [
-            "Immediate visibility on search",
-            "Quick audience reach on social",
-            "Fast data accumulation"
-        ],
-        icon: (
-            <svg className="w-10 h-10 text-podPurple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        )
-    },
-    {
-        title: "Targeted Reach",
-        desc: [
-            "Demographic and interest precision",
-            "Intent-based targeting",
-            "Lookalike audience expansion"
-        ],
-        icon: (
-            <svg className="w-10 h-10 text-podPurple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        )
-    },
-    {
-        title: "Scalable Growth",
-        desc: [
-            "Predictable revenue streams",
-            "Flexible budget management",
-            "Market share expansion"
-        ],
-        icon: (
-            <svg className="w-10 h-10 text-podPurple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-        )
-    },
-    {
-        title: "Brand Dominance",
-        desc: [
-            "Top-of-mind awareness",
-            "Cross-platform consistency",
-            "Authority in your niche"
-        ],
-        icon: (
-            <svg className="w-10 h-10 text-podPurple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
-        )
-    }
-]
+
 
 export const MetaGoogleAds: React.FC = () => {
     const headerRef = useRef<HTMLDivElement>(null);
@@ -186,7 +133,7 @@ export const MetaGoogleAds: React.FC = () => {
                         </span>
                     </h1>
                     <p className="text-2xl md:text-3xl font-bold text-white mb-6">
-                        Capture Demand & Generating Leads
+                        Capture Demand & Generate Leads
                     </p>
                     <p className="text-white/60 text-lg max-w-2xl mx-auto font-medium leading-relaxed mb-10">
                         We blend the high intent of Google Search with the visual power of Meta to drive comprehensive growth.

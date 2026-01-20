@@ -77,10 +77,13 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold mb-6 text-white uppercase tracking-widest text-xs">Services</h4>
             <ul className="space-y-3 text-sm text-white/40">
               <li><a href="/social-media" onClick={(e) => handleNavigation('/social-media', e)} className="hover:text-podPurple transition-colors cursor-pointer">Social Media Marketing</a></li>
-              <li><a href="/development" onClick={(e) => handleNavigation('/development', e)} className="hover:text-podPurple transition-colors cursor-pointer">Development</a></li>
-              <li><a href="/creative" onClick={(e) => handleNavigation('/creative', e)} className="hover:text-podPurple transition-colors cursor-pointer">Creative Services</a></li>
-              <li><a href="/ppc-advertising" onClick={(e) => handleNavigation('/ppc-advertising', e)} className="hover:text-podPurple transition-colors cursor-pointer">PPC Advertising</a></li>
-              <li><a href="/seo-organic-growth" onClick={(e) => handleNavigation('/seo-organic-growth', e)} className="hover:text-podPurple transition-colors cursor-pointer">SEO & Organic Growth</a></li>
+              <li><a href="/development" onClick={(e) => handleNavigation('/development', e)} className="hover:text-podPurple transition-colors cursor-pointer">Web Design</a></li>
+              <li><a href="/meta-google-ads" onClick={(e) => handleNavigation('/meta-google-ads', e)} className="hover:text-podPurple transition-colors cursor-pointer">Meta & Google Ads</a></li>
+              <li><a href="/product-shoots" onClick={(e) => handleNavigation('/product-shoots', e)} className="hover:text-podPurple transition-colors cursor-pointer">Product Shoots</a></li>
+              <li><a href="/real-estate-shoots" onClick={(e) => handleNavigation('/real-estate-shoots', e)} className="hover:text-podPurple transition-colors cursor-pointer">Real Estate Shoots</a></li>
+              <li><a href="/jewellery-shoots" onClick={(e) => handleNavigation('/jewellery-shoots', e)} className="hover:text-podPurple transition-colors cursor-pointer">Jewellery Shoots</a></li>
+              <li><a href="/wedding-shoots" onClick={(e) => handleNavigation('/wedding-shoots', e)} className="hover:text-podPurple transition-colors cursor-pointer">Pre & Post Wedding</a></li>
+              <li><a href="/interior-design" onClick={(e) => handleNavigation('/interior-design', e)} className="hover:text-podPurple transition-colors cursor-pointer">Interior Design</a></li>
             </ul>
           </div>
 

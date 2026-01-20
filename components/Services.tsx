@@ -19,13 +19,6 @@ const SERVICES = [
     link: "/social-media"
   },
   {
-    title: "Real Estate Shoots",
-    description: "Professional real estate photography showcasing interiors and architectural spaces with cinematic clarity and broker-ready impact.",
-    features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
-    link: "/real-estate-shoots"
-  },
-  {
     title: "Web Design",
     description: "Architecting modern, responsive digital homes that convert visitors into brand advocates through premium UI/UX design.",
     features: ["UI/UX Engineering", "Conversion Optimization", "Brand Identity", "SEO Mastery"],
@@ -34,12 +27,12 @@ const SERVICES = [
     link: "/development"
   },
   {
-    title: "Jewellery Shoots",
-    description: "Ultra-high-detail photography that captures the fire and craftsmanship of luxury pieces with precision lighting.",
-    features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
-    accent: "podPurple",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
-    link: "/jewellery-shoots"
+    title: "Meta & Google Ads",
+    description: "Multi-channel performance marketing blending Google's search intent with Meta's visual reach to scale growth.",
+    features: ["Full-Funnel Strategy", "Google Search & Shopping", "Meta (FB/IG) Mastery", "ROI-Driven Scaling"],
+    accent: "podCyan",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+    link: "/meta-google-ads"
   },
   {
     title: "Product Shoots",
@@ -48,6 +41,21 @@ const SERVICES = [
     accent: "podGold",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
     link: "/product-shoots"
+  },
+  {
+    title: "Real Estate Shoots",
+    description: "Professional real estate photography showcasing interiors and architectural spaces with cinematic clarity and broker-ready impact.",
+    features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
+    link: "/real-estate-shoots"
+  },
+  {
+    title: "Jewellery Shoots",
+    description: "Ultra-high-detail photography that captures the fire and craftsmanship of luxury pieces with precision lighting.",
+    features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
+    accent: "podPurple",
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
+    link: "/jewellery-shoots"
   },
   {
     title: "Pre & Post Wedding",
@@ -64,14 +72,6 @@ const SERVICES = [
     accent: "podCyan",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
     link: "/interior-design"
-  },
-  {
-    title: "Meta & Google Ads",
-    description: "Data-driven performance marketing campaigns engineered to maximize ROI and capture market share effectively.",
-    features: ["Campaign Architecture", "A/B Testing", "Retargeting Pros", "Performance Reporting"],
-    accent: "podGold",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
-    link: "/ppc-advertising"
   }
 ];
 
