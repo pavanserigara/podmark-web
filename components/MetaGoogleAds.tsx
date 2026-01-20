@@ -222,7 +222,7 @@ export const MetaGoogleAds: React.FC = () => {
                             },
                             {
                                 title: "ROI Focused",
-                                desc: "Every dollar spent is tracked and optimized for profitable returns."
+                                desc: "Every money spent is tracked and optimized for profitable returns."
                             }
                         ].map((item, i) => (
                             <div key={i} className="p-8 border border-white/10 rounded-2xl bg-[#0E0516] hover:border-podCyan/50 transition-all group overflow-hidden relative">
@@ -302,7 +302,7 @@ export const MetaGoogleAds: React.FC = () => {
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">Get a free strategy audit for your Google and Meta ad accounts today.</p>
                     <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
-                        Schedule Audit
+                        Lets Get Connected
                     </a>
                 </div>
             </section>

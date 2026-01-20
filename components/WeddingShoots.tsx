@@ -130,7 +130,7 @@ export const WeddingShoots: React.FC = () => {
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-8 leading-[0.9]">
                         PRE & POST <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-podPurple to-pink-500">
-                            WEDDING
+                            WEDDING SHOOTS
                         </span>
                     </h1>
                     <p className="text-2xl md:text-3xl font-bold text-white mb-6">
@@ -141,7 +141,7 @@ export const WeddingShoots: React.FC = () => {
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
                         <a href="#contact" className="inline-block px-10 py-4 bg-podPurple text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25">
-                            Book Your Date
+                            Book Your Shoot********************************************************
                         </a>
                     </div>
                 </div>

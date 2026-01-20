@@ -21,7 +21,7 @@ const PROCESS_STEPS = [
     },
     {
         title: "Delivery & Review",
-        desc: "Receive print-ready and web-optimized assets via a secure gallery within 24-48 hours."
+        desc: "Receive print-ready and web-optimized assets via a secure gallery ."
     }
 ];
 
@@ -52,35 +52,9 @@ const WHAT_WE_OFFER = [
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
             </svg>
         )
-    },
-    {
-        title: "360° Virtual Tours",
-        desc: "Interactive tours compatible with Zillow, Realtor.com, and Google Street View.",
-        icon: (
-            <svg className="w-10 h-10 text-podGold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-        )
-    },
-    {
-        title: "Virtual Staging",
-        desc: "Digitally furnishing empty rooms to help buyers visualize the potential.",
-        icon: (
-            <svg className="w-10 h-10 text-podGold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-        )
-    },
-    {
-        title: "Floor Plans",
-        desc: "Accurate 2D and 3D floor plans with dimensions to complement visuals.",
-        icon: (
-            <svg className="w-10 h-10 text-podGold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" />
-            </svg>
-        )
     }
+
+
 ]
 
 export const RealEstateShoots: React.FC = () => {
@@ -266,7 +240,7 @@ export const RealEstateShoots: React.FC = () => {
                         READY TO SELL <br /> YOUR LISTING?
                     </h2>
                     <a href="#contact" className="inline-block px-12 py-5 bg-gradient-to-r from-podGold to-amber-600 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
-                        Schedule Now
+                        Schedule Your Shoot
                     </a>
                 </div>
             </section>
