@@ -350,17 +350,17 @@ export const Navbar: React.FC = () => {
         className={`lg:hidden fixed top-0 left-0 w-full h-screen bg-black transition-all duration-500 z-[90] ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
           }`}
       >
-        <div className="flex flex-col p-10 pt-32 space-y-8 h-full bg-black/95 backdrop-blur-3xl overflow-y-auto">
+        <div className="flex flex-col p-10 pt-24 space-y-7 h-full bg-black/95 backdrop-blur-3xl overflow-y-auto">
           {['Home', 'Story', 'Services', 'Contact'].map((item) => {
             if (item === 'Services') {
               return (
                 <div key={item} className="flex flex-col">
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="text-4xl font-black tracking-tighter hover:text-podPurple transition-colors uppercase leading-none flex items-center justify-between text-left"
+                    className="text-2xl font-black tracking-tighter hover:text-podPurple transition-colors uppercase leading-none flex items-center justify-between text-left"
                   >
                     {item}
-                    <svg className={`w-6 h-6 transform transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className={`w-5 h-5 transform transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
@@ -413,7 +413,7 @@ export const Navbar: React.FC = () => {
                 key={item}
                 href={`#${item.toLowerCase().replace(' ', '-')}`}
                 onClick={(e) => handleNavigation(`#${item.toLowerCase().replace(' ', '-')}`, e)}
-                className="text-4xl font-black tracking-tighter hover:text-podPurple transition-colors uppercase leading-none"
+                className="text-2xl font-black tracking-tighter hover:text-podPurple transition-colors uppercase leading-none"
               >
                 {item}
               </a>
