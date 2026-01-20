@@ -140,8 +140,13 @@ export const WeddingShoots: React.FC = () => {
                         We capture the chemistry, the laughter, and the quiet moments before and after your big day.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 bg-podPurple text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25">
-                            Book Your Shoot********************************************************
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Wedding%20Shoots%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 bg-podPurple text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
+                        >
+                            Book Your Shoot
                         </a>
                     </div>
                 </div>
@@ -263,7 +268,12 @@ export const WeddingShoots: React.FC = () => {
                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 max-w-4xl mx-auto leading-tight">
                         READY TO TELL <br /> YOUR STORY?
                     </h2>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-gradient-to-r from-podPurple to-fuchsia-600 text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Wedding%20Shoots%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-gradient-to-r from-podPurple to-fuchsia-600 text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
                         Inquire Now
                     </a>
                 </div>

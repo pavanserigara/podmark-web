@@ -139,7 +139,12 @@ export const MetaGoogleAds: React.FC = () => {
                         We blend the high intent of Google Search with the visual power of Meta to drive comprehensive growth.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 blue-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-blue-500/25">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Meta%20and%20Google%20Ads%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 blue-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-blue-500/25"
+                        >
                             Start Your Campaign
                         </a>
                     </div>
@@ -248,7 +253,12 @@ export const MetaGoogleAds: React.FC = () => {
                         READY TO SCALE YOUR REVENUE?
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">Get a free strategy audit for your Google and Meta ad accounts today.</p>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Meta%20and%20Google%20Ads%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
                         Lets Get Connected
                     </a>
                 </div>

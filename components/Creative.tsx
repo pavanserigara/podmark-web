@@ -129,7 +129,12 @@ export const Creative: React.FC = () => {
                         Design visuals, videos, and content that speak your brand's language and leave a lasting impression.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 bg-podGold text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podGold/25">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Creative%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 bg-podGold text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podGold/25"
+                        >
                             Know More
                         </a>
                     </div>
@@ -280,7 +285,12 @@ export const Creative: React.FC = () => {
                         TELL US WHAT YOU NEED,<br /> WE'LL SHOW YOU HOW TO BUILD IT.
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">From idea to launch, we handle your digital development end-to-end.</p>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Creative%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
                         Start Your Project
                     </a>
                 </div>

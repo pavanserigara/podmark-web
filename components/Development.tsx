@@ -138,8 +138,13 @@ export const Development: React.FC = () => {
                         Maximize conversions and ROI with data-driven code. We build fast, secure, and marketing-ready websites.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25">
-                            Get a Free Dev Audit
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Web%20Development%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
+                        >
+                            Book Appointment
                         </a>
                     </div>
                 </div>
@@ -257,23 +262,6 @@ export const Development: React.FC = () => {
                 </div>
             </section>
 
-            {/* Our Works Placeholder */}
-            <section className="py-24 relative border-t border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl font-black tracking-tight mb-4">OUR WORKS</h2>
-                        <p className="text-white/50">Recent Deployments</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[1, 2, 3, 4, 5, 6].map((item) => (
-                            <div key={item} className="aspect-video bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center group overflow-hidden cursor-pointer">
-                                <span className="text-white/20 font-black text-xl group-hover:scale-110 transition-transform">Project Preview {item}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* Final CTA */}
             <section className="py-32 text-center bg-gradient-to-b from-transparent to-podPurple/10">
@@ -282,8 +270,13 @@ export const Development: React.FC = () => {
                         TELL US WHAT YOU NEED,<br /> WE'LL SHOW YOU HOW TO BUILD IT.
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">From idea to launch, we handle your digital development end-to-end.</p>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
-                        Request a Free Dev Consultation
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Web%20Development%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
+                        Book Appointment
                     </a>
                 </div>
             </section>

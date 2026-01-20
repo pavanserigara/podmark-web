@@ -139,7 +139,12 @@ export const ProductShoots: React.FC = () => {
                         Elevate your brand with studio-quality imagery designed for e-commerce, catalogs, and social impact.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 bg-podGold text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podGold/25">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Product%20Shoots%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 bg-podGold text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podGold/25"
+                        >
                             Get a Quote
                         </a>
                     </div>
@@ -262,7 +267,12 @@ export const ProductShoots: React.FC = () => {
                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 max-w-4xl mx-auto leading-tight">
                         READY TO ELEVATE <br /> YOUR PRODUCTS?
                     </h2>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-gradient-to-r from-podGold to-yellow-600 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Product%20Shoots%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-gradient-to-r from-podGold to-yellow-600 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
                         Start Project
                     </a>
                 </div>

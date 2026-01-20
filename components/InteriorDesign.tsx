@@ -140,8 +140,13 @@ export const InteriorDesign: React.FC = () => {
                         Professional photography for architects and designers that highlights space, form, and light.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 bg-podCyan text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podCyan/25">
-                            Book a Shot
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Interior%20Design%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 bg-podCyan text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podCyan/25"
+                        >
+                            Book Appointment
                         </a>
                     </div>
                 </div>
@@ -263,8 +268,13 @@ export const InteriorDesign: React.FC = () => {
                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 max-w-4xl mx-auto leading-tight">
                         READY TO SHOWCASE <br /> YOUR PORTFOLIO?
                     </h2>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-gradient-to-r from-podCyan to-teal-600 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
-                        Schedule Shoot
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Interior%20Design%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-gradient-to-r from-podCyan to-teal-600 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
+                        Book Appointment
                     </a>
                 </div>
             </section>

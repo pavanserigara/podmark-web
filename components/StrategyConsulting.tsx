@@ -203,7 +203,12 @@ export const StrategyConsulting: React.FC = () => {
                     <h2 className="text-4xl md:text-6xl font-black tracking-tighter mb-8 max-w-3xl mx-auto">
                         READY TO OUTSMART <br /> THE COMPETITION?
                     </h2>
-                    <a href="#contact" className="inline-block px-12 py-4 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Strategy%20and%20Consulting%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-4 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform"
+                    >
                         Book A Consultation
                     </a>
                 </div>

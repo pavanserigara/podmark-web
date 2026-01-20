@@ -197,7 +197,12 @@ export const PPCAdvertising: React.FC = () => {
                         Maximize conversions and ROI with data-driven Google, Meta & LinkedIn ads.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20PPC%20Advertising%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
+                        >
                             Get a Free PPC Audit
                         </a>
                     </div>
@@ -352,7 +357,12 @@ export const PPCAdvertising: React.FC = () => {
                         REDEFINE YOUR <br /> ONLINE PRESENCE
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">Experience next-level digital marketing and transformation services to unleash your online potential.</p>
-                    <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl">
+                    <a
+                        href="https://wa.me/918105575795?text=I%27m%20interested%20in%20PPC%20Advertising%20services."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                    >
                         Book a Call
                     </a>
                 </div>

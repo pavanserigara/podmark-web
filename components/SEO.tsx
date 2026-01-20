@@ -159,7 +159,12 @@ export const SEO: React.FC = () => {
                         Boost rankings, grow organic traffic, and generate leads with full-spectrum SEO strategies.
                     </p>
                     <div className='flex flex-col md:flex-row gap-6 justify-center'>
-                        <a href="#contact" className="inline-block px-10 py-4 bg-emerald-500 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-emerald-500/25">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20SEO%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 bg-emerald-500 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-emerald-500/25"
+                        >
                             Get a Free SEO Audit
                         </a>
                     </div>
@@ -287,7 +292,12 @@ export const SEO: React.FC = () => {
                         <p className="text-white/60 mb-10 max-w-2xl mx-auto relative z-10 text-lg">
                             Uncover quick wins and long-term opportunities for organic growth. No strings attached.
                         </p>
-                        <a href="#contact" className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl relative z-10">
+                        <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20SEO%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl relative z-10"
+                        >
                             Get My Audit
                         </a>
                     </div>
