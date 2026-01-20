@@ -157,79 +157,22 @@ export const Services: React.FC = () => {
       tl.to({}, { duration: 0.5 });
     });
 
-    // Mobile Animation (New - 1 Scroll = 1 Card)
+    // Mobile Animation (Simple fade-in)
     mm.add("(max-width: 768px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: `+=${cards.length * 100}%`,
-          pin: true,
-          scrub: 0.3, // Faster, more responsive scrub to reduce "lag" feeling
-        }
-      });
-
-      // 1. Fade out header - Giving it standalone time
-      tl.to(headerRef.current, {
-        autoAlpha: 0,
-        y: -100,
-        duration: 0.5, // Slower fade out to appreciate title
-        ease: "power1.out"
-      });
-
-      // 2. Initial Card Entrance - Starts HIDDEN so title is alone
-      tl.fromTo(cards[0],
-        { autoAlpha: 0, scale: 0.9, y: 100 }, // Start hidden
-        {
-          autoAlpha: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.5, // Smooth entry
-          ease: "power2.out"
-        },
-        "-=0.2" // Slight overlap with header fade, but mostly after
-      );
-
-      // 3. Iterate through cards for simple "slide up and replace" effect
-      cards.forEach((card, index) => {
-        if (index < cards.length - 1) {
-          const nextCard = cards[index + 1];
-          const cardImg = card.querySelector('.service-img');
-          const nextCardImg = nextCard.querySelector('.service-img');
-
-          // Current card fades out
-          tl.to(card, {
-            autoAlpha: 0,
-            scale: 0.95, // Subtle scale down of container
-            duration: 1,
-            ease: "power1.inOut"
-          });
-
-          // Image Zoom In (Current: 1.1 -> 1.25)
-          if (cardImg) {
-            tl.to(cardImg, {
-              scale: 1.25,
-              duration: 1,
-              ease: "power1.inOut"
-            }, "<");
+      cards.forEach((card: any) => {
+        gsap.fromTo(card,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            scrollTrigger: {
+              trigger: card,
+              start: "top bottom-=50",
+              toggleActions: "play none none reverse",
+            }
           }
-
-          // Next card enters
-          tl.fromTo(nextCard,
-            { autoAlpha: 0, y: 50, scale: 1 },
-            { autoAlpha: 1, y: 0, scale: 1, duration: 1, ease: "power2.out" },
-            "<"
-          );
-
-          // Next Card Image Pre-Zoom (1.0 -> 1.1)
-          if (nextCardImg) {
-            tl.fromTo(nextCardImg,
-              { scale: 1.0 },
-              { scale: 1.1, duration: 1, ease: "power2.out" },
-              "<"
-            );
-          }
-        }
+        );
       });
     });
 
@@ -237,7 +180,7 @@ export const Services: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="relative h-screen bg-podDark overflow-hidden flex items-center justify-center">
+    <section ref={sectionRef} id="services" className="relative min-h-screen lg:h-screen bg-podDark overflow-x-hidden lg:overflow-hidden flex flex-col items-center py-24 lg:py-0 lg:justify-center">
       {/* Background Visuals */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
 
@@ -250,7 +193,7 @@ export const Services: React.FC = () => {
       {/* Intro Header - Positioned with top offset for spacing */}
       <div
         ref={headerRef}
-        className="absolute top-[5%] md:top-[12%] z-50 w-full max-w-6xl px-6 text-center flex flex-col items-center justify-center pointer-events-none"
+        className="relative lg:absolute lg:top-[12%] z-50 w-full max-w-6xl px-6 text-center flex flex-col items-center justify-center pointer-events-none mb-16 lg:mb-0"
       >
         <div className="flex items-center justify-center gap-4 md:gap-6 mb-4">
           <div className="w-8 md:w-16 h-px bg-podGold/40"></div>
@@ -268,17 +211,17 @@ export const Services: React.FC = () => {
       {/* Cards Stack Container - Centered Vertically and Horizontally */}
       <div
         ref={cardsContainerRef}
-        className="absolute inset-0 z-10 w-full flex items-end pb-16 md:pb-0 md:items-center justify-center px-4 md:px-6"
+        className="relative lg:absolute lg:inset-0 z-10 w-full flex flex-col items-center lg:justify-center px-4 md:px-6"
       >
-        <div className="relative w-full max-w-5xl h-[480px] md:h-[450px] lg:h-[500px] flex items-center justify-center">
+        <div className="relative w-full max-w-5xl flex flex-col gap-8 lg:block lg:h-[500px]">
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="service-card absolute w-full h-full bg-[#12071d] rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] border border-white/10 shadow-[0_60px_160px_-40px_rgba(0,0,0,1)] flex flex-col lg:flex-row-reverse overflow-hidden group"
+              className="service-card relative lg:absolute w-full h-auto lg:h-full bg-[#12071d] rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] border border-white/10 shadow-[0_60px_160px_-40px_rgba(0,0,0,1)] flex flex-col lg:flex-row-reverse overflow-hidden group"
               style={{
                 zIndex: 10 + index,
-                opacity: index === 0 ? 1 : 0,
-                visibility: index === 0 ? 'visible' : 'hidden',
+                opacity: 1, // Let GSAP handle initial state per screen size if needed, but defaults to visible for flow
+                visibility: 'visible',
                 ...willChangeStyle
               }}
             >

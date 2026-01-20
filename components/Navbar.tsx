@@ -423,6 +423,7 @@ export const Navbar: React.FC = () => {
             <a
               href="https://wa.me/918105575795"
               target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="w-full inline-block text-center py-5 purple-gradient rounded-2xl text-sm font-black tracking-widest uppercase shadow-2xl shadow-podPurple/20"
             >

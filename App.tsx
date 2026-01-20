@@ -21,6 +21,14 @@ import { Splash } from './components/Splash';
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
+  React.useEffect(() => {
+    if (loading) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [loading]);
+
   return (
     <Router>
       <div className="relative font-sans antialiased text-white selection:bg-podPurple selection:text-white min-h-screen overflow-x-hidden">
