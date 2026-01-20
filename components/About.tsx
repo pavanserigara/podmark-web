@@ -27,7 +27,7 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <section id="story" ref={containerRef} className="relative py-32 md:py-48 bg-podDark overflow-hidden">
+    <section id="story" ref={containerRef} className="relative py-20 md:py-48 bg-podDark overflow-hidden">
       {/* Decorative Elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-podGold/5 to-transparent pointer-events-none"></div>
       <div className="absolute top-1/2 left-10 -translate-y-1/2 text-[20vw] font-black text-white/[0.02] select-none pointer-events-none uppercase">
@@ -36,18 +36,18 @@ export const About: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-center">
-          
+
           {/* Left Visual/Founding Mark */}
           <div className="relative">
             <div className="inline-block mb-8">
               <span className="text-podGold text-xs font-black tracking-[0.5em] uppercase reveal-text">The Origin</span>
             </div>
             <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white leading-[0.85] mb-8 reveal-text">
-              EST. <br/>
-              <span className="impact-gradient">MARCH <br/> 2025.</span>
+              EST. <br />
+              <span className="impact-gradient">MARCH <br /> 2025.</span>
             </h2>
             <div className="w-24 h-1 bg-podGold reveal-text"></div>
-            
+
             <div className="mt-16 space-y-10 reveal-text">
               <div className="flex items-start gap-6">
                 <span className="text-podGold font-black text-xl italic">01.</span>
@@ -71,13 +71,13 @@ export const About: React.FC = () => {
             <h3 className="text-2xl md:text-4xl font-bold text-white/90 leading-tight reveal-text">
               Founded in <span className="text-podGold">March 2025</span>, PODMARK is a creative-driven digital company built on trust and teamwork.
             </h3>
-            
+
             <div className="h-px w-full bg-white/10 reveal-text"></div>
-            
+
             <p className="text-white/60 text-lg md:text-xl leading-relaxed reveal-text">
               We don’t work for you, we work <span className="text-white font-bold underline decoration-podGold underline-offset-8">with you</span>, as part of your brand. At PODMARK, we go beyond traditional marketing. We partner with you to grow your brand through creativity, strategy, and trust.
             </p>
-            
+
             <p className="text-white/60 text-lg md:text-xl leading-relaxed reveal-text">
               Whether you're a startup or an established business, we help you build a strong and impactful digital presence. Let’s grow your business together.
             </p>

@@ -152,7 +152,7 @@ export const MetaGoogleAds: React.FC = () => {
             </section>
 
             {/* Why Brands Choose Us */}
-            <section className="py-24 relative bg-black/50">
+            <section className="py-16 md:py-24 relative bg-black/50">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight mb-4">Why Our Approach Works</h2>
@@ -197,7 +197,7 @@ export const MetaGoogleAds: React.FC = () => {
             </section>
 
             {/* Our Process - Step Cards */}
-            <section className="py-24 bg-[#0E0516] relative overflow-hidden">
+            <section className="py-16 md:py-24 bg-[#0E0516] relative overflow-hidden">
                 <div className="absolute inset-0 grid-pattern opacity-5 pointer-events-none"></div>
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center mb-20">
@@ -218,7 +218,7 @@ export const MetaGoogleAds: React.FC = () => {
             </section>
 
             {/* What is Included */}
-            <section className="py-24 bg-black">
+            <section className="py-16 md:py-24 bg-black">
                 <div className="container mx-auto px-6">
                     <div className="flex flex-col md:flex-row gap-16">
                         <div className="md:w-1/3">
@@ -247,7 +247,7 @@ export const MetaGoogleAds: React.FC = () => {
             </section>
 
             {/* Final CTA */}
-            <section className="py-32 text-center bg-gradient-to-br from-black via-black to-podCyan/20">
+            <section className="py-20 md:py-32 text-center bg-gradient-to-br from-black via-black to-podCyan/20">
                 <div className="container mx-auto px-6">
                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 max-w-4xl mx-auto leading-tight">
                         READY TO SCALE YOUR REVENUE?

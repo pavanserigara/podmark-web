@@ -23,7 +23,7 @@ export const Home: React.FC = () => {
 
             <div className="h-20"></div>
 
-            <section className="py-40 bg-transparent text-center relative overflow-hidden border-t border-white/5">
+            <section className="py-20 md:py-40 bg-transparent text-center relative overflow-hidden border-t border-white/5">
                 <div className="absolute inset-0 grid-pattern opacity-5"></div>
                 <div className="container mx-auto px-6 relative z-10">
                     <h2 className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-none">

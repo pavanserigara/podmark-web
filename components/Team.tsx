@@ -72,7 +72,7 @@ export const Team: React.FC = () => {
   }, []);
 
   return (
-    <section id="team" ref={sectionRef} className="py-24 md:py-32 bg-podDark relative overflow-hidden min-h-screen flex flex-col justify-center">
+    <section id="team" ref={sectionRef} className="py-12 md:py-32 bg-podDark relative overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Background visual depth */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full grid-pattern"></div>

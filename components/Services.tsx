@@ -180,7 +180,7 @@ export const Services: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="services" className="relative min-h-screen lg:h-screen bg-podDark overflow-x-hidden lg:overflow-hidden flex flex-col items-center py-24 lg:py-0 lg:justify-center">
+    <section ref={sectionRef} id="services" className="relative min-h-screen lg:h-screen bg-podDark overflow-x-hidden lg:overflow-hidden flex flex-col items-center py-12 lg:py-0 lg:justify-center">
       {/* Background Visuals */}
       <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"></div>
 
