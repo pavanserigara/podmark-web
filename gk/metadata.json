@@ -1,0 +1,8 @@
+{
+  "name": "Gautham Kamath Portfolio - MCT & Cloud Architect",
+  "description": "A high-end, professional portfolio for Gautham Kamath, a Microsoft Certified Trainer specializing in Azure, Windows Server, and Cybersecurity.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
