@@ -16,6 +16,9 @@ $portfolio_data = $db->getFullPortfolio();
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- AnimeJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -23,12 +26,8 @@ $portfolio_data = $db->getFullPortfolio();
 
 <body>
 
-    <!-- ANIMATED BACKGROUND -->
-    <div class="animated-bg">
-        <div class="bg-gradient-orb orb-1"></div>
-        <div class="bg-gradient-orb orb-2"></div>
-        <div class="bg-gradient-orb orb-3"></div>
-    </div>
+    <!-- ANIMATED BACKGROUND (Matched to Main Project) -->
+    <div id="anime-bg" class="animated-bg-grid"></div>
 
     <!-- NAVIGATION BAR -->
     <nav class="navbar" id="navbar">
@@ -56,17 +55,21 @@ $portfolio_data = $db->getFullPortfolio();
     <!-- HERO SECTION -->
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-badge">
-                EST. 2025
+            <!-- Premium Badge with Pulsing Dots -->
+            <div class="hero-badge-premium">
+                <span class="dot dot-purple"></span>
+                <span class="badge-text">WE DON'T JUST MARKET</span>
+                <span class="dot dot-cyan"></span>
             </div>
 
             <h1 class="title-hero">
                 WE CREATE<br>
-                <span class="gradient-text">IMPACT</span>
+                <span class="gradient-text gradient-glow">IMPACT.</span>
             </h1>
 
             <p class="hero-subtitle">
-                A digital agency crafting bespoke digital arsenals for brands that dare to be different.
+                A creative-driven digital powerhouse. We partner with elite brands to architect growth
+                through high-impact strategy and cinematic storytelling.
             </p>
 
             <div class="cta-group">
@@ -79,7 +82,17 @@ $portfolio_data = $db->getFullPortfolio();
             </div>
         </div>
 
+        <!-- Scroll Indicator -->
         <div class="scroll-indicator"></div>
+
+        <!-- Bottom Dots -->
+        <div class="hero-bottom-dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
     </header>
 
     <!-- WORK SECTION -->
@@ -391,25 +404,64 @@ $portfolio_data = $db->getFullPortfolio();
             }
         });
 
-        // Parallax effect for background orbs
-        gsap.to('.orb-1', {
-            y: 300,
-            scrollTrigger: {
-                trigger: 'body',
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: 1
-            }
-        });
+        // ===== ANIME.JS GRID BACKGROUND =====
+        const bgGrid = document.getElementById('anime-bg');
 
-        gsap.to('.orb-2', {
-            y: -200,
-            scrollTrigger: {
-                trigger: 'body',
-                start: 'top top',
-                end: 'bottom bottom',
-                scrub: 1
+        function createGrid() {
+            if (!bgGrid) return;
+            bgGrid.innerHTML = '';
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            // Optimize for mobile by increasing box size (fewer elements)
+            const boxSize = width < 768 ? 80 : 50;
+            const cols = Math.ceil(width / boxSize);
+            const rows = Math.ceil(height / boxSize);
+
+            bgGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            bgGrid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+            const totalItems = cols * rows;
+            const fragment = document.createDocumentFragment();
+
+            for (let i = 0; i < totalItems; i++) {
+                const box = document.createElement('div');
+                box.classList.add('stagger-box');
+                box.style.backgroundColor = '#1a103c';
+                fragment.appendChild(box);
             }
+            bgGrid.appendChild(fragment);
+
+            animateGrid(cols, rows);
+        }
+
+        function animateGrid(cols, rows) {
+            anime.remove('.stagger-box');
+            anime({
+                targets: '.stagger-box',
+                scale: [
+                    { value: 0.1, easing: 'easeOutSine', duration: 500 },
+                    { value: 1, easing: 'easeInOutQuad', duration: 1200 }
+                ],
+                delay: anime.stagger(200, {
+                    grid: [cols, rows],
+                    from: 'center'
+                }),
+                loop: true,
+                direction: 'alternate',
+                background: [
+                    { value: '#1a103c', easing: 'easeOutSine', duration: 500 },
+                    { value: '#4c1d95', easing: 'easeInOutQuad', duration: 1200 }
+                ]
+            });
+        }
+
+        // Initialize Grid
+        createGrid();
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(createGrid, 400);
         });
     </script>
 </body>
