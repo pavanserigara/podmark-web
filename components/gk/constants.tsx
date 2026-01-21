@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { 
-  Cloud, Server, Shield, Cpu, GraduationCap, Briefcase, 
-  Terminal, Monitor, Network, Database, Globe, Zap, Code, 
+import {
+  Cloud, Server, Shield, Cpu, GraduationCap, Briefcase,
+  Terminal, Monitor, Network, Database, Globe, Zap, Code,
   Layers, Lock, Workflow, HardDrive, Share2, Award, ShieldAlert,
   Wrench, Building2
 } from 'lucide-react';
@@ -39,7 +39,7 @@ export const EXPERIENCE = [
     location: "Bengaluru, India",
     description: "Delivering high-end technical solutions and training for global businesses. Focused on maximizing analytical quest and organizational growth through specialized Azure, CompTIA, and Microsoft 365 workshops.",
     icon: "GraduationCap",
-    color: "pod-purple",
+    color: "podPurple",
     skills: ["Azure", "CompTIA", "M365", "Consultancy"]
   },
   {
@@ -49,7 +49,7 @@ export const EXPERIENCE = [
     location: "Hisar, Haryana",
     description: "Conducted specialized training for the Indian Army personnel. Focused on networking fundamentals, secure network management, and protection against cyber threats for critical infrastructure.",
     icon: "ShieldAlert",
-    color: "pod-gold",
+    color: "podGold",
     skills: ["CCNA", "Cyber Security", "Network Defense"]
   },
   {
@@ -59,7 +59,7 @@ export const EXPERIENCE = [
     location: "Bengaluru, India",
     description: "Provided high-end technical training and recruitment services across India, Africa, and the Middle East. Specialized in enterprise-scale IT infrastructure and systems training.",
     icon: "Building2",
-    color: "pod-cyan",
+    color: "podCyan",
     skills: ["Enterprise Training", "Consultancy", "Global Delivery"]
   },
   {
@@ -69,7 +69,7 @@ export const EXPERIENCE = [
     location: "Global",
     description: "Empowering students and professionals through intensive IT infrastructure management and systems training programs.",
     icon: "Award",
-    color: "pod-purple",
+    color: "podPurple",
     skills: ["IT Infrastructure", "Training Delivery"]
   },
   {
@@ -79,7 +79,7 @@ export const EXPERIENCE = [
     location: "Udupi, India",
     description: "Hands-on engineering: installing new IT systems, upgrading hardware/software, and servicing enterprise-grade printers and scanners. Solid foundational hardware roots.",
     icon: "Wrench",
-    color: "pod-gold",
+    color: "podGold",
     skills: ["Hardware Engineering", "PC Repair", "Systems Upgrade"]
   }
 ];
@@ -112,8 +112,8 @@ export const SERVICES: Service[] = [
 ];
 
 export const RUNNING_SERVICES = [
-  "Windows Server 2022", "Azure Cloud Architecting", "VMware Virtualization", 
-  "CompTIA Security+", "Microsoft 365 Mastery", "Exchange Server Admin", 
+  "Windows Server 2022", "Azure Cloud Architecting", "VMware Virtualization",
+  "CompTIA Security+", "Microsoft 365 Mastery", "Exchange Server Admin",
   "Generative AI on Azure", "Endpoint Management (MD-102)", "Network Infrastructure",
   "Identity & Access Management", "Azure VDI Solutions", "Cloud Governance"
 ];
