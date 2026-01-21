@@ -165,7 +165,7 @@ export const SEO: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block px-10 py-4 bg-emerald-500 text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-emerald-500/25"
                         >
-                            Get a Free SEO Audit
+                            KNOW MORE
                         </a>
                     </div>
                 </div>
@@ -287,7 +287,7 @@ export const SEO: React.FC = () => {
                     <div className="bg-gradient-to-r from-emerald-900/40 to-black border border-emerald-500/20 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden group">
                         <div className="absolute inset-0 bg-emerald-500/5 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
                         <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6 relative z-10">
-                            BOOK A FREE <span className="text-emerald-400">SEO AUDIT</span>
+                            BOOK A  <span className="text-emerald-400">APPOINTMENT</span>
                         </h2>
                         <p className="text-white/60 mb-10 max-w-2xl mx-auto relative z-10 text-lg">
                             Uncover quick wins and long-term opportunities for organic growth. No strings attached.
@@ -298,7 +298,7 @@ export const SEO: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl relative z-10"
                         >
-                            Get My Audit
+                            KNOW MORE
                         </a>
                     </div>
                 </div>

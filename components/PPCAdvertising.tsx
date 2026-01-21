@@ -203,7 +203,7 @@ export const PPCAdvertising: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
                         >
-                            Get a Free PPC Audit
+                            KNOW MORE
                         </a>
                     </div>
                 </div>
@@ -363,7 +363,7 @@ export const PPCAdvertising: React.FC = () => {
                         rel="noopener noreferrer"
                         className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
                     >
-                        Book a Call
+                        Book a Appointment
                     </a>
                 </div>
             </section>

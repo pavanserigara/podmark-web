@@ -213,7 +213,7 @@ export const Creative: React.FC = () => {
             </section>
 
             {/* Our Creative Works (Portfolio) */}
-            <section className="py-24 relative border-t border-white/5">
+            {/* <section className="py-24 relative border-t border-white/5">
                 <div className="absolute inset-0 grid-pattern opacity-5"></div>
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center mb-16">
@@ -239,10 +239,10 @@ export const Creative: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Process Steps - Horizontal Flow */}
-            <section className="py-24 bg-[#0E0516] relative overflow-hidden">
+            {/* <section className="py-24 bg-[#0E0516] relative overflow-hidden">
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="text-center mb-20">
                         <h2 className="text-4xl font-black tracking-tight mb-4">OUR PROCESS</h2>
@@ -276,7 +276,7 @@ export const Creative: React.FC = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {/* Final CTA */}
             <section className="py-32 text-center bg-gradient-to-t from-podGold/5 to-transparent">

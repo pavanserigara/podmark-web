@@ -8,8 +8,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PROCESS_STEPS = [
     {
-        title: "Concept & Moodboarding",
-        desc: "We define the visual style—minimalist, luxury, or editorial—to match your brand identity."
+        title: "Concept & Creative Direction",
+        desc: "Shaping a clear visual language that reflects your brand’s personality."
     },
     {
         title: "Styling & Set Design",
@@ -145,7 +145,7 @@ export const JewelleryShoots: React.FC = () => {
                             rel="noopener noreferrer"
                             className="inline-block px-10 py-4 bg-podPurple text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
                         >
-                            Book a Session
+                            Book a Appointment
                         </a>
                     </div>
                 </div>
