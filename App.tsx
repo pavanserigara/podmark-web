@@ -18,6 +18,7 @@ import { WeddingShoots } from './components/WeddingShoots';
 import { InteriorDesign } from './components/InteriorDesign';
 import { Splash } from './components/Splash';
 import { GKPage } from './components/GKPage';
+import { Careers } from './components/Careers';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -55,6 +56,7 @@ const App: React.FC = () => {
               <Route path="/wedding-shoots" element={<WeddingShoots />} />
               <Route path="/interior-design" element={<InteriorDesign />} />
               <Route path="/gk" element={<GKPage />} />
+              <Route path="/careers" element={<Careers />} />
             </Routes>
             <Footer />
           </div>
