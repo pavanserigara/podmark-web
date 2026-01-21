@@ -5,16 +5,6 @@ import { gsap } from 'gsap';
 
 const MAIN_SERVICES = [
   {
-    title: "Gautham Kamath",
-    desc: "Cloud Architect & Microsoft Certified Trainer.",
-    path: "/gk",
-    icon: (
-      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-      </svg>
-    )
-  },
-  {
     title: "Social Media Marketing",
     desc: "Social Media Marketing That Builds Engagement & Trust.",
     path: "/social-media",
@@ -91,6 +81,16 @@ const MAIN_SERVICES = [
     icon: (
       <svg className="w-10 h-10 text-podCyan" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205l3 1m1.5.5l-1.5-.5M6.75 7.364V3h-3v18m3-13.636l10.5-3.819" />
+      </svg>
+    )
+  },
+  {
+    title: "IT Training & Consultant",
+    desc: "Cloud Architect & Microsoft Certified Trainer.",
+    path: "/gk",
+    icon: (
+      <svg className="w-10 h-10 text-podPurple" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
       </svg>
     )
   }
@@ -256,7 +256,7 @@ export const Navbar: React.FC = () => {
                       key={idx}
                       href={item.path}
                       onClick={(e) => handleNavigation(item.path, e)}
-                      className="group flex gap-3 items-center py-2 px-1.5 rounded-lg hover:bg-white/5 transition-all"
+                      className={`group flex gap-3 items-center py-2 px-1.5 rounded-lg hover:bg-white/5 transition-all ${item.path === '/gk' ? 'col-span-2 bg-white/5 border border-white/5 py-4 px-4' : ''}`}
                     >
                       <div className="shrink-0 p-1.5 rounded-md bg-white/5 border border-white/5 group-hover:scale-105 transition-all duration-300">
                         {React.cloneElement(item.icon as React.ReactElement, {
@@ -382,7 +382,7 @@ export const Navbar: React.FC = () => {
                           key={`main-${sIndex}`}
                           href={service.path}
                           onClick={(e) => handleNavigation(service.path, e)}
-                          className="flex items-center gap-4 group"
+                          className={`flex items-center gap-4 group ${service.path === '/gk' ? 'bg-white/5 p-4 rounded-xl border border-white/5 mt-4' : ''}`}
                         >
                           <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-white/60 group-hover:text-white group-hover:bg-podPurple/20 transition-colors">
                             {React.cloneElement(service.icon as React.ReactElement, { className: "w-4 h-4" })}

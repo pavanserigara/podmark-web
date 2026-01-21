@@ -72,6 +72,14 @@ const SERVICES = [
     accent: "podCyan",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
     link: "/interior-design"
+  },
+  {
+    title: "IT Training & Consultant",
+    description: "Empowering next-gen IT professionals with expert-led Microsoft Azure training and strategic infrastructure consulting.",
+    features: ["Cloud Architecting", "MCT Certification", "Azure AI/DevOps", "IT Infrastructure"],
+    accent: "podPurple",
+    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
+    link: "/gk"
   }
 ];
 
