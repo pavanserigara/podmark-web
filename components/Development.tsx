@@ -267,7 +267,7 @@ export const Development: React.FC = () => {
             <section className="py-20 md:py-32 text-center bg-gradient-to-b from-transparent to-podPurple/10">
                 <div className="container mx-auto px-6">
                     <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-6 max-w-4xl mx-auto leading-tight">
-                        TELL US WHAT YOU NEED,<br /> WE'LL SHOW YOU HOW TO BUILD IT.
+                        You Imagine the Website ,<br /> We Develop the Experience.
                     </h2>
                     <p className="text-white/60 mb-10 max-w-xl mx-auto">From idea to launch, we handle your digital development end-to-end.</p>
                     <a

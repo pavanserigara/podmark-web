@@ -143,7 +143,7 @@ export const MetaGoogleAds: React.FC = () => {
                             href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Meta%20and%20Google%20Ads%20services."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block px-10 py-4 blue-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-blue-500/25"
+                            className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
                         >
                             Start Your Campaign
                         </a>
@@ -257,7 +257,7 @@ export const MetaGoogleAds: React.FC = () => {
                         href="https://wa.me/918105575795?text=I%27m%20interested%20in%20Meta%20and%20Google%20Ads%20services."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-block px-12 py-5 bg-white text-black font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl"
+                        className="inline-block px-12 py-5 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-2xl shadow-podPurple/30"
                     >
                         Lets Get Connected
                     </a>
