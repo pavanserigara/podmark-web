@@ -8,20 +8,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PROCESS_STEPS = [
     {
-        title: "Space Analysis",
-        desc: "We study the architectural flow, natural light, and unique angles of the space."
+        title: "Consultation & Requirement Analysis",
+        desc: "We understand your vision, space, budget, and lifestyle through detailed discussions and site evaluation."
     },
     {
-        title: "Staging Consultation",
-        desc: "Advising on de-cluttering and arrangement to maximize visual appeal."
+        title: "Design & Planning",
+        desc: "Our team creates layout plans, 3D designs, and material selections to bring your ideas to life before execution."
     },
     {
-        title: "Architectural Photography",
-        desc: "Using tilt-shift lenses and HDR techniques to capture true lines and balanced light."
+        title: "Execution & Project Management",
+        desc: "Skilled professionals handle the complete execution with regular supervision to ensure quality and accuracy."
     },
     {
-        title: "Lifestyle Styling",
-        desc: "Adding human elements or lived-in details to create warmth and context."
+        title: "Final Styling & Handover",
+        desc: "We add finishing touches, conduct quality checks, and hand over a perfectly designed space—ready to enjoy."
     }
 ];
 
@@ -45,8 +45,8 @@ const WHAT_WE_OFFER = [
         )
     },
     {
-        title: "Hospitality Photography",
-        desc: "Hotels, restaurants, and cafes shot to invite and entice guests.",
+        title: "Hospitality Spaces",
+        desc: "Hotels, restaurants, and cafés captured to create inviting, engaging, and memorable experiences.",
         icon: (
             <svg className="w-10 h-10 text-podCyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
@@ -162,20 +162,20 @@ export const InteriorDesign: React.FC = () => {
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             {
-                                title: "Architectural Eye",
-                                desc: "We understand lines, symmetry, and composition to respect the design intent."
+                                title: "Customized Designs for Every Space",
+                                desc: "We create interiors that reflect your lifestyle, taste, and needs—no templates, only personalized designs."
                             },
                             {
-                                title: "Natural Light Mastery",
-                                desc: "Balancing ambient and artificial light for a bright, airy, and true-to-life look."
+                                title: "Expert Designers & Quality Materials",
+                                desc: "Our experienced designers use premium materials and the latest trends to ensure durability, comfort, and elegance."
                             },
                             {
-                                title: "Detail Oriented",
-                                desc: "Capturing the textures, fabrics, and finishes that make the design unique."
+                                title: "End-to-End Project Management",
+                                desc: "From concept to completion, we handle everything—design, execution, and finishing—so you enjoy a stress-free experience."
                             },
                             {
-                                title: "Wide Angle Precision",
-                                desc: "Showcasing the entire room without unnatural distortion."
+                                title: "On-Time Delivery & Transparent Pricing",
+                                desc: "We value your time and budget, delivering projects on schedule with clear, honest pricing and no hidden costs."
                             }
                         ].map((item, i) => (
                             <div key={i} className="p-8 border border-white/10 rounded-3xl bg-[#0E0516] hover:border-podCyan/50 transition-all group overflow-hidden relative">
