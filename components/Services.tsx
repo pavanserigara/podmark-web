@@ -15,6 +15,7 @@ const SERVICES = [
     description: "We help brands grow through strategic content creation and data-driven campaigns designed to increase reach and engagement.",
     features: ["Content Strategy", "Community Management", "Paid Growth", "Analytics"],
     accent: "podPurple",
+    category: "MARKETING",
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1000",
     link: "/social-media"
   },
@@ -23,6 +24,7 @@ const SERVICES = [
     description: "Architecting modern, responsive digital homes that convert visitors into brand advocates through premium UI/UX design.",
     features: ["UI/UX Engineering", "Conversion Optimization", "Brand Identity", "SEO Mastery"],
     accent: "podCyan",
+    category: "DESIGN",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000",
     link: "/development"
   },
@@ -31,6 +33,7 @@ const SERVICES = [
     description: "Multi-channel performance marketing blending Google's search intent with Meta's visual reach to scale growth.",
     features: ["Full-Funnel Strategy", "Google Search & Shopping", "Meta (FB/IG) Mastery", "ROI-Driven Scaling"],
     accent: "podCyan",
+    category: "ADVERTISING",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
     link: "/meta-google-ads"
   },
@@ -39,6 +42,7 @@ const SERVICES = [
     description: "High-end product imagery that highlights every texture. Perfect for high-conversion e-commerce and premium catalogs.",
     features: ["Studio Styling", "E-com Integration", "Detail Focus", "Batch Delivery"],
     accent: "podGold",
+    category: "VISUAL",
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
     link: "/product-shoots"
   },
@@ -46,6 +50,8 @@ const SERVICES = [
     title: "Real Estate Shoots",
     description: "Professional real estate photography showcasing interiors and architectural spaces with cinematic clarity and broker-ready impact.",
     features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
+    accent: "podGold",
+    category: "VISUAL",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
     link: "/real-estate-shoots"
   },
@@ -54,6 +60,7 @@ const SERVICES = [
     description: "Ultra-high-detail photography that captures the fire and craftsmanship of luxury pieces with precision lighting.",
     features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
     accent: "podPurple",
+    category: "VISUAL",
     image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
     link: "/jewellery-shoots"
   },
@@ -62,6 +69,7 @@ const SERVICES = [
     description: "Capturing the raw emotion of your journey through editorial photography and cinematic, mood-driven storytelling.",
     features: ["Editorial Glow", "Cinematic Noir", "Motion Storytelling", "Event Coverage"],
     accent: "podPurple",
+    category: "VISUAL",
     image: "imgs/wed.jpg",
     link: "/wedding-shoots"
   },
@@ -70,6 +78,7 @@ const SERVICES = [
     description: "Transforming physical environments into branded experiences that blend aesthetics with functional dominance.",
     features: ["Space Planning", "Identity Reflection", "3D Rendering", "Material Curation"],
     accent: "podCyan",
+    category: "DESIGN",
     image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
     link: "/interior-design"
   },
@@ -78,6 +87,7 @@ const SERVICES = [
     description: "Empowering next-gen IT professionals with expert-led Microsoft Azure training and strategic infrastructure consulting.",
     features: ["Cloud Architecting", "MCT Certification", "Azure AI/DevOps", "IT Infrastructure"],
     accent: "podPurple",
+    category: "IT",
     image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
     link: "/gk"
   }
@@ -205,11 +215,11 @@ export const Services: React.FC = () => {
       >
         <div className="flex items-center justify-center gap-4 md:gap-6 mb-4">
           <div className="w-8 md:w-16 h-px bg-podGold/40"></div>
-          <span className="text-[9px] md:text-[11px] font-black tracking-[0.6em] uppercase text-podGold">Premier Arsenal</span>
+          <span className="text-[9px] md:text-[11px] font-black tracking-[0.6em] uppercase text-podGold">PODMARK</span>
           <div className="w-8 md:w-16 h-px bg-podGold/40"></div>
         </div>
         <h2 className="text-5xl md:text-[110px] lg:text-[130px] font-black tracking-tighter text-white mb-6 md:mb-8 leading-[0.8] select-none uppercase">
-          ELITE <span className="text-podGold drop-shadow-[0_0_30px_rgba(189,153,112,0.3)]">SERVICES.</span>
+          OUR <span className="text-podGold drop-shadow-[0_0_30px_rgba(189,153,112,0.3)]">SERVICES.</span>
         </h2>
         <p className="text-white/40 text-[9px] md:text-sm font-bold tracking-[0.4em] md:tracking-[0.5em] uppercase max-w-xl md:max-w-2xl mx-auto border-t border-white/5 pt-6 md:pt-8">
           Defined by excellence. Architects of digital dominance and visual prestige.
@@ -251,11 +261,6 @@ export const Services: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-podDark to-transparent lg:hidden"></div>
                 <div className="absolute inset-0 bg-gradient-to-r from-podDark to-transparent hidden lg:block"></div>
 
-                <div className="absolute top-6 left-6 lg:left-auto lg:right-10 z-40">
-                  <div className={`px-5 py-2 rounded-full border border-white/20 backdrop-blur-xl text-[9px] font-black uppercase tracking-widest text-white shadow-xl`}>
-                    0{index + 1} / STRATEGY
-                  </div>
-                </div>
               </div>
 
               {/* Content Section - Bottom on mobile, Left on desktop */}
@@ -263,7 +268,7 @@ export const Services: React.FC = () => {
                 <div className="flex items-center gap-4 mb-4 md:mb-8">
                   <div className={`w-10 h-[2px] ${service.accent === 'podPurple' ? 'bg-podPurple' : service.accent === 'podCyan' ? 'bg-podCyan' : 'bg-podGold'}`}></div>
                   <span className={`font-black text-[9px] md:text-[11px] tracking-[0.5em] uppercase ${service.accent === 'podPurple' ? 'text-podPurple' : service.accent === 'podCyan' ? 'text-podCyan' : 'text-podGold'}`}>
-                    {service.accent === 'podPurple' ? 'CREATIVE' : service.accent === 'podCyan' ? 'DIGITAL' : 'PREMIUM'} ARSENAL
+                    {service.category} SERVICE
                   </span>
                 </div>
 

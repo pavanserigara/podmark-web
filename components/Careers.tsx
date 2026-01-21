@@ -43,14 +43,14 @@ export const Careers: React.FC = () => {
     <section id="careers" ref={sectionRef} className="py-32 bg-podDark relative overflow-hidden">
       {/* Visual background element */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-podPurple/30 to-transparent"></div>
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
+
             <div className="careers-content">
               <div className="inline-block px-4 py-1 rounded-full border border-podPurple/30 bg-podPurple/10 mb-6">
-                <span className="text-[10px] font-black tracking-[0.4em] text-podPurple uppercase">Join Our Tribe</span>
+                <span className="text-[10px] font-black tracking-[0.4em] text-podPurple uppercase">Join Us</span>
               </div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 uppercase">
                 JOIN OUR <span className="text-podPurple">TEAM.</span>
@@ -76,9 +76,9 @@ export const Careers: React.FC = () => {
               <div className="bg-[#1a0b2e] border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group">
                 {/* Accent Background */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-podPurple/10 blur-[60px] rounded-full"></div>
-                
+
                 <h3 className="text-2xl font-black text-white mb-8 uppercase tracking-tighter">Current Openings</h3>
-                
+
                 <div className="flex flex-wrap gap-3 mb-12">
                   {OPENINGS.map((job, i) => (
                     <div key={i} className="px-5 py-3 rounded-xl bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold text-white/80 uppercase tracking-widest hover:border-podPurple/50 hover:bg-podPurple/5 transition-all cursor-default">
@@ -96,10 +96,10 @@ export const Careers: React.FC = () => {
                   </div>
 
                   <div className="pt-4 flex flex-col gap-4">
-                     <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Or direct contact via WhatsApp:</p>
-                     <a 
-                      href="https://wa.me/918105575795" 
-                      target="_blank" 
+                    <p className="text-[10px] font-black text-white/40 uppercase tracking-[0.3em]">Or direct contact via WhatsApp:</p>
+                    <a
+                      href="https://wa.me/918105575795"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#25D366] text-white rounded-2xl font-black text-xs tracking-[0.2em] uppercase hover:scale-105 transition-all shadow-[0_10px_30px_rgba(37,211,102,0.3)] group"
                     >

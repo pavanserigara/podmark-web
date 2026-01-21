@@ -84,7 +84,7 @@ export const About: React.FC = () => {
 
             <div className="pt-8 reveal-text">
               <a href="#contact" className="group flex items-center gap-4 text-podGold font-black tracking-[0.4em] uppercase text-xs transition-all hover:gap-8">
-                Learn our philosophy
+                CONTACT US
                 <span className="text-2xl group-hover:translate-x-2 transition-transform">→</span>
               </a>
             </div>

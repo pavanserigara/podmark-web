@@ -85,11 +85,11 @@ export const Team: React.FC = () => {
             <span className="text-[9px] font-black tracking-[0.4em] text-podGold uppercase">The Core Leadership</span>
           </div>
           <h2 className="text-5xl md:text-8xl font-black tracking-tighter text-white mb-6 uppercase leading-none">
-            THE <span className="text-podGold drop-shadow-[0_0_25px_rgba(189,153,112,0.4)]">ARCHITECTS.</span>
+            OUR <span className="text-podGold drop-shadow-[0_0_25px_rgba(189,153,112,0.4)]">TEAM.</span>
           </h2>
           <div className="w-16 h-1 bg-podGold mx-auto mb-8"></div>
           <p className="text-white/40 text-[10px] md:text-xs font-bold max-w-2xl mx-auto uppercase tracking-[0.4em] leading-relaxed">
-            Meet the visionaries architecting the future of brand impact.
+            The minds behind tomorrow’s most influential brands.
           </p>
         </div>
 
