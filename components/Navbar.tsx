@@ -442,8 +442,8 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="mt-auto pb-10 flex justify-center gap-10 text-white/40">
-            <span className="text-xs tracking-widest font-black uppercase">Instagram</span>
-            <span className="text-xs tracking-widest font-black uppercase">LinkedIn</span>
+            <span className="text-xs tracking-widest font-black uppercase underline decoration-podPurple/30">Instagram</span>
+            <span className="text-xs tracking-widest font-black uppercase underline decoration-podGold/30 text-podGold">Facebook</span>
           </div>
         </div>
       </div>

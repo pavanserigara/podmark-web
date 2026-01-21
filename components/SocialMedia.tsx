@@ -293,24 +293,14 @@ export const SocialMedia: React.FC = () => {
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-hover/icon:text-white transition-colors">Facebook</span>
                         </div>
 
-                        {/* LinkedIn */}
-                        <div className="flex flex-col items-center gap-4 group/icon opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                            <div className="text-white group-hover/icon:text-[#0A66C2] transition-colors duration-500">
-                                <svg className="w-10 h-10 md:w-12 md:h-12" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                </svg>
-                            </div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-hover/icon:text-white transition-colors">LinkedIn</span>
-                        </div>
-
                         {/* Google Business */}
                         <div className="flex flex-col items-center gap-4 group/icon opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-500">
-                            <div className="text-white group-hover/icon:opacity-100 transition-opacity duration-500">
-                                <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 24 24">
-                                    <path d="M12.48 10.92v3.28h4.78c-.19 1.01-.71 1.86-1.57 2.45v2.13h2.54c1.49-1.37 2.35-3.39 2.35-5.77 0-.54-.05-1.07-.15-1.58H12.48z" fill="#4285F4" />
-                                    <path d="M12.48 21c2.43 0 4.47-.81 5.96-2.18l-2.54-2.13c-.71.48-1.62.76-2.54.76-1.94 0-3.59-1.31-4.17-3.07H6.55v2.22c1.35 2.68 4.13 4.42 7.18 4.42z" fill="#34A853" />
-                                    <path d="M8.31 14.38c-.15-.45-.24-.93-.24-1.42s.09-.97.24-1.42V9.32H6.55c-.5 1.01-.79 2.14-.79 3.32s.29 2.31.79 3.32l1.76-1.58z" fill="#FBBC05" />
-                                    <path d="M12.48 7.37c1.32 0 2.51.45 3.44 1.35l2.58-2.58C16.95 4.67 14.91 3.75 12.48 3.75 9.43 3.75 6.65 5.49 5.3 8.17l2.22 2.22c.58-1.76 2.23-3.02 4.96-3.02z" fill="#EA4335" />
+                            <div className="group-hover/icon:opacity-100 transition-opacity duration-500">
+                                <svg className="w-10 h-10 md:w-12 md:h-12" viewBox="0 0 256 262">
+                                    <path d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027" fill="#4285F4" />
+                                    <path d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.054-45.257 13.054-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.284 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1" fill="#34A853" />
+                                    <path d="M56.281 157.121c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.261 72.93l-.527.25C5.465 91.219 0 110.946 0 131.301c0 20.355 5.465 40.082 14.734 58.122l41.547-32.302" fill="#FBBC05" />
+                                    <path d="M130.55 50.452c24.514 0 41.05 10.589 50.479 19.438l35.828-35.053C195.045 12.91 165.744 0 130.55 0 79.49 0 35.393 29.302 14.734 73.181l41.4 32.157c10.445-31.477 39.746-54.886 74.416-54.886" fill="#EA4335" />
                                 </svg>
                             </div>
                             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-hover/icon:text-white transition-colors">Google Business</span>
