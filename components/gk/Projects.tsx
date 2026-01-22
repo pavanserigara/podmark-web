@@ -1,53 +1,21 @@
 
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { PROJECTS, IconMap } from './constants';
-import { ArrowUpRight, Filter } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<string>('All');
-
-  const allTags = useMemo(() => {
-    const tags = new Set<string>();
-    PROJECTS.forEach(project => project.tags.forEach(tag => tags.add(tag)));
-    return ['All', ...Array.from(tags).sort()];
-  }, []);
-
-  const filteredProjects = useMemo(() => {
-    if (activeFilter === 'All') return PROJECTS;
-    return PROJECTS.filter(project => project.tags.includes(activeFilter));
-  }, [activeFilter]);
-
   return (
     <section id="projects" className="py-32 px-6 bg-podDark/50 relative">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-black text-white mb-6">Real-World <span className="text-podCyan">Deployments.</span></h2>
-            <p className="text-slate-400 text-xl">I don't just teach theory. I architect and implement high-stakes infrastructure for global organizations.</p>
-          </div>
-
-          <div className="flex items-center gap-3 bg-white/5 p-2 rounded-2xl border border-white/10 overflow-x-auto no-scrollbar max-w-full">
-            <div className="flex items-center gap-2 px-3 text-slate-500 border-r border-white/10 shrink-0">
-              <Filter className="w-4 h-4" />
-              <span className="text-[10px] font-black uppercase tracking-widest">Filter</span>
-            </div>
-            {allTags.map(tag => (
-              <button
-                key={tag}
-                onClick={() => setActiveFilter(tag)}
-                className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${activeFilter === tag
-                  ? 'bg-podPurple text-white shadow-lg shadow-podPurple/20'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5'
-                  }`}
-              >
-                {tag}
-              </button>
-            ))}
+            <p className="text-slate-400 text-base md:text-xl">I don't just teach theory. I architect and implement high-stakes infrastructure for global organizations.</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 min-h-[400px]">
-          {filteredProjects.map((project, idx) => {
+          {PROJECTS.map((project, idx) => {
             const Icon = IconMap[project.icon];
             return (
               <div
@@ -67,8 +35,7 @@ const Projects: React.FC = () => {
 
                   <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5 mb-8">
                     {project.tags.map(tag => (
-                      <span key={tag} className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter transition-colors ${activeFilter === tag ? 'bg-podPurple/20 text-podPurple' : 'bg-white/5 text-slate-500'
-                        }`}>
+                      <span key={tag} className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-tighter bg-white/5 text-slate-500 transition-colors">
                         {tag}
                       </span>
                     ))}

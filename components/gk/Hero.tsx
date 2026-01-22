@@ -25,15 +25,15 @@ const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 md:mb-8 leading-[1.1] md:leading-[1.05]">
-            Architecting <br className="hidden sm:block" />
+            Empowering<br className="hidden sm:block" />
             <span className="text-impact">
-              Future Systems.
+              Technical Mastery.
             </span>
           </h1>
 
           <p className="text-base sm:text-lg md:text-2xl text-slate-400 max-w-2xl mb-8 md:mb-12 leading-relaxed font-light mx-auto lg:mx-0">
             Gautham Kamath — empowering global IT teams with deep expertise in
-            <span className="text-white font-medium"> Azure, Windows Server 2022, VMware</span> and <span className="text-podCyan font-medium">Gen AI</span>.
+            <span className="text-white font-medium"> Windows Server, Private Cloud, Networking</span> and <span className="text-podCyan font-medium">Microsoft SCCM</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center">
@@ -41,8 +41,8 @@ const Hero: React.FC = () => {
               Start Training
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="#projects" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-podDeepPurple/50 hover:bg-podDeepPurple backdrop-blur-md border border-white/10 text-white rounded-2xl font-bold text-base md:text-lg transition-all hover:scale-105 text-center">
-              View Work
+            <a href="http://www.kamathgautham.blogspot.com" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-podDeepPurple/50 hover:bg-podDeepPurple backdrop-blur-md border border-white/10 text-white rounded-2xl font-bold text-base md:text-lg transition-all hover:scale-105 text-center">
+              Visit Blog
             </a>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
                 <div className="w-3 h-3 rounded-full bg-podGold/50" />
                 <div className="w-3 h-3 rounded-full bg-podCyan/50" />
               </div>
-              <span className="text-slate-500 text-xs">gautham_kamath --expert</span>
+              <span className="text-slate-500 text-xs">gautham_kamath --cv</span>
             </div>
             <div className="p-6 space-y-4">
               <div className="flex gap-3">
@@ -64,10 +64,10 @@ const Hero: React.FC = () => {
                 <span className="text-slate-300">fetch --profile "Gautham Kamath"</span>
               </div>
               <div className="pl-6 text-slate-400 border-l border-podPurple/20 space-y-1">
-                <p><span className="text-podCyan">Role:</span> Microsoft Certified Trainer (MCT)</p>
-                <p><span className="text-podCyan">Core:</span> Azure, Windows Server 03-22</p>
-                <p><span className="text-podCyan">Focus:</span> Hybrid Cloud & Virtualization</p>
-                <p><span className="text-podCyan">GenAI:</span> LLM Deployment on Azure</p>
+                <p><span className="text-podCyan">Role:</span> Technical Trainer & Engineer</p>
+                <p><span className="text-podCyan">Exp:</span> 15+ Years in IT Education</p>
+                <p><span className="text-podCyan">Core:</span> MCSA, MCSE, CCNA, CCNP</p>
+                <p><span className="text-podCyan">Focus:</span> Private Cloud & SCCM</p>
               </div>
               <div className="flex gap-3">
                 <span className="text-podPurple">$</span>

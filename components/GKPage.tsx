@@ -3,8 +3,9 @@ import React, { useEffect } from 'react';
 import Hero from './gk/Hero';
 import About from './gk/About';
 import Expertise from './gk/Expertise';
+import Experience from './gk/Experience';
+import Certificates from './gk/Certificates';
 import Services from './gk/Services';
-import Projects from './gk/Projects';
 import ProjectGallery from './gk/ProjectGallery';
 import Training from './gk/Training';
 import ContactGK from './gk/Contact';
@@ -26,9 +27,13 @@ export const GKPage: React.FC = () => {
                 <div id="expertise">
                     <Expertise />
                 </div>
-                <div id="projects">
-                    <Projects />
+                <div id="experience">
+                    <Experience />
                 </div>
+                <div id="certificates">
+                    <Certificates />
+                </div>
+
                 <ProjectGallery />
                 <div id="services">
                     <Services />
@@ -36,7 +41,7 @@ export const GKPage: React.FC = () => {
                 <div id="training">
                     <Training />
                 </div>
-                <div id="contact-gk">
+                <div id="contact">
                     <ContactGK />
                 </div>
             </main>

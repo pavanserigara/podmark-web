@@ -24,6 +24,8 @@ const Navbar: React.FC = () => {
     { name: 'Home', href: '#' },
     { name: 'About', href: '#about' },
     { name: 'Expertise', href: '#expertise' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Certificates', href: '#certificates' },
     { name: 'Services', href: '#services' },
     { name: 'Training', href: '#training' },
     { name: 'Contact', href: '#contact' },
@@ -62,7 +64,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Toggle */}
-          <button 
+          <button
             className="md:hidden text-white p-2 rounded-lg bg-white/5"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
@@ -81,7 +83,6 @@ const Navbar: React.FC = () => {
               href={link.href}
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-3xl font-black text-white hover:text-pod-cyan transition-colors"
-              style={{ transitionDelay: `${idx * 100}ms` }}
             >
               {link.name}
             </a>

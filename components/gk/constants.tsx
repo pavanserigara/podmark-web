@@ -6,7 +6,7 @@ import {
   Layers, Lock, Workflow, HardDrive, Share2, Award, ShieldAlert,
   Wrench, Building2
 } from 'lucide-react';
-import { Certification, Service, TrainingCourse } from './types';
+import { Certification, Service, TrainingCourse, ExperienceEntry } from './types';
 
 export const CERTIFICATIONS: Certification[] = [
   { id: 'mct', name: 'Microsoft Certified Trainer (MCT)', category: 'Other' },
@@ -31,53 +31,114 @@ export const CERTIFICATIONS: Certification[] = [
   { id: 'comptia_srv', name: 'CompTIA Server+', category: 'CompTIA' },
 ];
 
-export const EXPERIENCE = [
+export const DETAILED_CERTIFICATIONS: Certification[] = [
   {
-    title: "Freelance MCT Trainer",
-    company: "Self-employed",
-    period: "Oct 2014 - Present",
-    location: "Bengaluru, India",
-    description: "Delivering high-end technical solutions and training for global businesses. Focused on maximizing analytical quest and organizational growth through specialized Azure, CompTIA, and Microsoft 365 workshops.",
-    icon: "GraduationCap",
-    color: "podPurple",
-    skills: ["Azure", "CompTIA", "M365", "Consultancy"]
+    id: 'comptia-a',
+    name: 'A+ Certification',
+    category: 'Hardware',
+    issuer: 'CompTIA',
+    description: 'Internationally recognized hardware course designed by CompTIA, completed at IIHT, Udupi.'
   },
   {
-    title: "CCNA & Cyber Security Trainer",
-    company: "Cantonment Indian Army",
+    id: 'comptia-n',
+    name: 'N+ Certification',
+    category: 'Networking',
+    issuer: 'CompTIA',
+    description: 'International recognized networking course designed by CompTIA, USA and completed at IIHT, Udupi.'
+  },
+  {
+    id: 'mcsa-2012',
+    name: 'MCSA: Windows Server 2012',
+    category: 'Microsoft',
+    issuer: 'Microsoft',
+    modules: [
+      '70-410: Installing and Configuring Windows Server 2012',
+      '70-411: Administering Windows Server 2012',
+      '70-412: Configuring Advanced Windows Server 2012 Services'
+    ]
+  },
+  {
+    id: 'mcse-cloud',
+    name: 'MCSE: Private Cloud',
+    category: 'Microsoft',
+    issuer: 'Microsoft',
+    modules: [
+      '70-246: Monitoring and Operating a Private Cloud with System Center 2012',
+      '70-247: Configuring and Deploying a Private Cloud with System Center 2012'
+    ]
+  },
+  {
+    id: 'mcse-messaging',
+    name: 'MCSE: Messaging',
+    category: 'Microsoft',
+    issuer: 'Microsoft',
+    modules: [
+      '70-341: Core Solutions of Microsoft Exchange Server 2013',
+      '70-342: Advanced Solutions of Microsoft Exchange Server 2013'
+    ]
+  },
+  {
+    id: 'mcts-sccm',
+    name: 'MCTS: SCCM',
+    category: 'Microsoft',
+    issuer: 'Microsoft',
+    modules: ['70-243: Administering and Deploying System Center 2012 Configuration Manager']
+  },
+  {
+    id: 'itil-v3',
+    name: 'ITIL Foundation v3',
+    category: 'IT Service Management',
+    issuer: 'ITIL',
+    description: 'ITIL Foundation v3 certification.'
+  },
+  {
+    id: 'mcsa-2016',
+    name: 'MCSA: Windows Server 2016',
+    category: 'Microsoft',
+    issuer: 'Microsoft'
+  }
+];
+
+export const EXPERIENCE: ExperienceEntry[] = [
+  {
+    title: "Freelance Trainer",
+    company: "Self-employed",
+    period: "Oct 2014 - Present",
+    location: "Bengaluru Area, India",
+    description: "To achieve excellence in working as a dynamic professional, offering solutions to businesses using the best available resources where my analytical ability and analyzing quest are used maximum for the growth of the organization and to grow with the organization. Seeking a challenging position in a well established company that offers professional growth and ample opportu nity to learn and enrich my competencies in my profession. ",
+    icon: "GraduationCap",
+    color: "podPurple",
+    skills: ["Azure", "CompTIA", "M365", "Consultancy"],
+    duration: "11 yrs 4 mos"
+  },
+  {
+    title: "CCNA and cyber security",
+    company: "Cantonment indian army",
     period: "Jan 2025 - Feb 2025",
-    location: "Hisar, Haryana",
-    description: "Conducted specialized training for the Indian Army personnel. Focused on networking fundamentals, secure network management, and protection against cyber threats for critical infrastructure.",
+    location: "Hisar, Haryana, India",
+    description: "As an MCT trainer, I conducted training sessions for the Indian Army's cantonment personnel, focusing on CCNA (Cisco Certified Network Associate) and Cyber Security. The training aimed to enhance their understanding of networking fundamentals, secure network management, and effective protection against cyber threats. I delivered practical knowledge and real-world applications to help them strengthen their network infrastructure and safeguard critical systems.",
     icon: "ShieldAlert",
     color: "podGold",
-    skills: ["CCNA", "Cyber Security", "Network Defense"]
+    skills: ["CCNA", "Cyber Security", "Network Defense"],
+    duration: "2 mos"
   },
   {
     title: "Corporate Trainer",
     company: "Micro Academy (I) Pvt LTD",
     period: "Jul 2011 - Oct 2014",
     location: "Bengaluru, India",
-    description: "Provided high-end technical training and recruitment services across India, Africa, and the Middle East. Specialized in enterprise-scale IT infrastructure and systems training.",
+    description: "As an MCT trainer, I conducted training sessions for the Indian Army's cantonment personnel, focusing on CCNA (Cisco Certified Network Associate) and Cyber Security. The training aimed to enhance their understanding of networking fundamentals, secure network management, and effective protection against cyber threats. I delivered practical knowledge and real-world applications to help them strengthen their network infrastructure and safeguard critical systems.",
     icon: "Building2",
     color: "podCyan",
     skills: ["Enterprise Training", "Consultancy", "Global Delivery"]
   },
-  {
-    title: "Technical Trainer",
-    company: "IIHT Ltd",
-    period: "May 2008 - Jun 2011",
-    location: "Global",
-    description: "Empowering students and professionals through intensive IT infrastructure management and systems training programs.",
-    icon: "Award",
-    color: "podPurple",
-    skills: ["IT Infrastructure", "Training Delivery"]
-  },
+
   {
     title: "Computer Service Engineer",
     company: "Genius Computech",
     period: "May 2007 - Jun 2008",
     location: "Udupi, India",
-    description: "Hands-on engineering: installing new IT systems, upgrading hardware/software, and servicing enterprise-grade printers and scanners. Solid foundational hardware roots.",
+    description: "Installing a new IT system, upgrading existing hardware and software, visiting home users to set up their PCs or fix faulty equipment. testing system, servicing printers and scanners.",
     icon: "Wrench",
     color: "podGold",
     skills: ["Hardware Engineering", "PC Repair", "Systems Upgrade"]
