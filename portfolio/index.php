@@ -152,10 +152,11 @@ $portfolio_data = $db->getFullPortfolio();
                                     </h3>
 
                                     <!-- MEDIA GRID -->
-                                    <div
-                                        class="gallery-grid <?php echo (stripos($category['name'], 'reel') !== false) ? 'reels' : ''; ?>">
+                                    <?php $isReelCategory = (stripos($category['name'], 'reel') !== false); ?>
+                                    <div class="gallery-grid <?php echo $isReelCategory ? 'reels' : ''; ?>">
                                         <?php foreach ($category['media'] as $item): ?>
-                                            <div class="gallery-card" data-type="<?php echo $item['media_type']; ?>"
+                                            <div class="gallery-card <?php echo $isReelCategory ? 'reel-card' : ''; ?>"
+                                                data-type="<?php echo $item['media_type']; ?>"
                                                 data-src="<?php echo htmlspecialchars($item['file_path']); ?>">
                                                 <div class="gallery-media-wrapper">
                                                     <?php if ($item['media_type'] === 'video'): ?>
