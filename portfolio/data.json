@@ -1,149 +1,70 @@
 {
     "clients": [
         {
-            "id": 2,
-            "name": "Test client",
-            "description": "tagling of client",
+            "id": 1,
+            "name": "Bougainvillea Homestay",
+            "description": "",
             "logo": "",
-            "created_at": "2026-01-22 06:00:05"
-        },
-        {
-            "id": 3,
-            "name": "Test User 2",
-            "description": "dsafweaf",
-            "logo": "",
-            "created_at": "2026-01-22 06:22:45"
-        },
-        {
-            "id": 4,
-            "name": "Peter",
-            "description": "hello world",
-            "logo": "",
-            "created_at": "2026-01-22 08:37:38"
+            "created_at": "2026-01-22 12:07:55"
         }
     ],
     "categories": [
         {
-            "id": 2,
-            "client_id": "2",
-            "name": "posters"
-        },
-        {
-            "id": 3,
-            "client_id": "3",
-            "name": "reels"
-        },
-        {
-            "id": 4,
-            "client_id": "3",
-            "name": "posters"
-        },
-        {
-            "id": 6,
-            "client_id": 4,
+            "id": 1,
+            "client_id": 1,
             "name": "poster"
         },
         {
-            "id": 7,
-            "client_id": 4,
+            "id": 2,
+            "client_id": 1,
             "name": "reels"
         }
     ],
     "media": [
         {
-            "id": 1,
-            "category_id": "2",
-            "file_path": "uploads\/1769061677_6971bd2d39382_services_jewellery_card_mobile_1768540785029.png",
-            "media_type": "image",
-            "title": "new poster",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:01:17"
-        },
-        {
             "id": 2,
-            "category_id": "2",
-            "file_path": "uploads\/1769062861_6971c1cd887bf_services_cards_visible_mobile_1768540684138.png",
+            "category_id": 1,
+            "file_path": "uploads\/1769080119_697205370cb3b_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
             "media_type": "image",
-            "title": "test2",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:21:01"
-        },
-        {
-            "id": 3,
-            "category_id": "2",
-            "file_path": "uploads\/1769062883_6971c1e35c7af_services_cards_check_mobile_2_1768540699588.png",
-            "media_type": "image",
-            "title": "test3",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:21:23"
-        },
-        {
-            "id": 4,
-            "category_id": "3",
-            "file_path": "uploads\/1769062997_6971c25532853_services_first_card_mobile_1768540673921.png",
-            "media_type": "image",
-            "title": "fefedf",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:23:17"
-        },
-        {
-            "id": 5,
-            "category_id": "4",
-            "file_path": "uploads\/1769063029_6971c27542b5f_services_jewellery_card_mobile_1768540785029.png",
-            "media_type": "image",
-            "title": "eftetr",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:23:49"
-        },
-        {
-            "id": 6,
-            "category_id": "2",
-            "file_path": "uploads\/1769064116_6971c6b47c4f5_services_cards_visible_mobile_1768540684138.png",
-            "media_type": "image",
-            "title": "ujtydgj",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 06:41:56"
-        },
-        {
-            "id": 8,
-            "category_id": 6,
-            "file_path": "uploads\/1769071289_6971e2b96be85_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
-            "media_type": "image",
-            "title": "sffsdf",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 08:41:29"
-        },
-        {
-            "id": 14,
-            "category_id": 7,
-            "file_path": "uploads\/1769079438_6972028e5fb44_compress-Trim.mp4",
-            "media_type": "video",
-            "title": "cccccccccccccccccccccccc",
+            "title": "",
             "link": "",
             "description": "",
             "thumbnail": "",
-            "created_at": "2026-01-22 11:57:18"
-        }
-    ],
-    "updates": [
-        {
-            "id": 1,
-            "title": "juigkkbjnhuigk",
-            "content": "huitgyhbk",
-            "created_at": "2026-01-19 16:06:47"
+            "created_at": "2026-01-22 12:08:39"
         },
         {
-            "id": 2,
-            "title": "juigkkbjnhuigk",
-            "content": "huitgyhbk",
-            "created_at": "2026-01-19 16:14:23"
+            "id": 3,
+            "category_id": 1,
+            "file_path": "uploads\/1769080142_6972054ef17a7_Screenshot2026-01-22161851.png",
+            "media_type": "image",
+            "title": "",
+            "link": "",
+            "description": "",
+            "thumbnail": "",
+            "created_at": "2026-01-22 12:09:02"
+        },
+        {
+            "id": 4,
+            "category_id": 1,
+            "file_path": "uploads\/1769080153_697205599f3c3_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
+            "media_type": "image",
+            "title": "",
+            "link": "",
+            "description": "",
+            "thumbnail": "",
+            "created_at": "2026-01-22 12:09:13"
+        },
+        {
+            "id": 5,
+            "category_id": 2,
+            "file_path": "uploads\/1769080201_69720589d0da8_compress-Trim.mp4",
+            "media_type": "video",
+            "title": "",
+            "link": "",
+            "description": "",
+            "thumbnail": "",
+            "created_at": "2026-01-22 12:10:01"
         }
-    ]
+    ],
+    "updates": []
 }
