@@ -2,57 +2,35 @@
     "clients": [
         {
             "id": 1,
-            "name": "Bougainvillea Homestay",
+            "name": "mrbroke",
             "description": "",
             "logo": "",
-            "created_at": "2026-01-22 12:07:55"
+            "created_at": "2026-01-22 12:38:16"
         }
     ],
     "categories": [
         {
-            "id": 1,
-            "client_id": 1,
-            "name": "poster"
+            "id": 3,
+            "client_id": 2,
+            "name": "reels"
         },
         {
-            "id": 2,
+            "id": 4,
             "client_id": 1,
             "name": "reels"
         }
     ],
     "media": [
         {
-            "id": 2,
-            "category_id": 1,
-            "file_path": "uploads\/1769080119_697205370cb3b_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
-            "media_type": "image",
-            "title": "",
-            "link": "",
-            "description": "",
-            "thumbnail": "",
-            "created_at": "2026-01-22 12:08:39"
-        },
-        {
-            "id": 4,
-            "category_id": 1,
-            "file_path": "uploads\/1769080153_697205599f3c3_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
-            "media_type": "image",
-            "title": "",
-            "link": "",
-            "description": "",
-            "thumbnail": "",
-            "created_at": "2026-01-22 12:09:13"
-        },
-        {
-            "id": 5,
-            "category_id": 2,
-            "file_path": "uploads\/1769080201_69720589d0da8_compress-Trim.mp4",
+            "id": 1,
+            "category_id": 4,
+            "file_path": "uploads\/1769082139_69720d1bd3443_compress.mp4",
             "media_type": "video",
             "title": "",
             "link": "",
             "description": "",
             "thumbnail": "",
-            "created_at": "2026-01-22 12:10:01"
+            "created_at": "2026-01-22 12:42:19"
         }
     ],
     "updates": []

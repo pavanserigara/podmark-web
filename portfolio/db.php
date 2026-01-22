@@ -78,6 +78,11 @@ class JsonDB
           });
      }
 
+     public function getCategoriesByClient($client_id)
+     {
+          return $this->getCategories($client_id);
+     }
+
      public function addCategory($client_id, $name)
      {
           $new = [
