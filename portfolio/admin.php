@@ -2,6 +2,9 @@
 include 'db.php';
 session_start();
 
+$upload_max = ini_get('upload_max_filesize');
+$post_max = ini_get('post_max_size');
+
 $PASS = 'podmark2025';
 
 // Auth Logic
@@ -329,7 +332,11 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 <?php endif; ?>
 
-                <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 40px;">Dashboard</h1>
+                <h1 class="serif" style="font-size: 2.5rem; margin-bottom: 20px;">Dashboard</h1>
+                <div style="font-size: 0.8rem; color: #888; margin-bottom: 40px; display: flex; gap: 20px;">
+                    <span>Max Upload Size: <strong style="color: var(--accent-gold);"><?php echo $upload_max; ?></strong></span>
+                    <span>Post Size Limit: <strong style="color: var(--accent-gold);"><?php echo $post_max; ?></strong></span>
+                </div>
 
                 <!-- 1. Structure -->
                 <section id="structure" style="margin-bottom: 80px;">
