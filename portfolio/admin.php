@@ -509,7 +509,7 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php foreach ($cat['media'] as $media): ?>
                                                 <div class="media-container">
                                                     <?php if ($media['media_type'] == 'video'): ?>
-                                                        <video src="<?php echo $media['file_path']; ?>#t=0.1" class="media-thumb" controls
+                                                        <video src="<?php echo $media['file_path']; ?>#t=15" class="media-thumb" controls
                                                             preload="metadata"
                                                             <?php if (!empty($media['thumbnail'])): ?>poster="<?php echo $media['thumbnail']; ?>"<?php endif; ?>></video>
                                                         <div class="video-play-icon"></div>

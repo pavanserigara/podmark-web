@@ -167,8 +167,8 @@ $portfolio_data = $db->getFullPortfolio();
                                                 data-src="<?php echo htmlspecialchars($item['file_path']); ?>">
                                                 <div class="gallery-media-wrapper">
                                                     <?php if ($item['media_type'] === 'video'): ?>
-                                                        <video src="<?php echo htmlspecialchars($item['file_path']); ?>" loop muted playsinline
-                                                            preload="metadata" onmouseover="this.play()"
+                                                        <video src="<?php echo htmlspecialchars($item['file_path']); ?>#t=15" loop muted
+                                                            playsinline preload="metadata" onmouseover="this.play()"
                                                             onmouseout="this.pause(); this.currentTime = 0;"></video>
                                                     <?php else: ?>
                                                         <img src="<?php echo htmlspecialchars($item['file_path']); ?>" loading="lazy"
