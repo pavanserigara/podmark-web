@@ -43,6 +43,7 @@ $portfolio_data = $db->getFullPortfolio();
 
                 <li><a href="#work">Work</a></li>
                 <li><a href="#story">Story</a></li>
+                <li><a href="blog.php">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="admin.php">Admin</a></li>
                 <li><a href="#contact" class="nav-cta">Let's Talk</a></li>

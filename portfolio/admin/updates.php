@@ -1,6 +1,12 @@
-<header class="admin-header">
-    <h1 class="admin-title">Blog Updates.</h1>
-    <p style="color: var(--text-muted);">Share the latest agency news and updates.</p>
+<header class="admin-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+    <div>
+        <h1 class="admin-title">Blog Updates.</h1>
+        <p style="color: var(--text-muted);">Share the latest agency news and updates.</p>
+    </div>
+    <a href="blog.php" target="_blank" class="btn-admin btn-outline"
+        style="text-decoration: none; border: 1px solid var(--grey); color: var(--text-white); padding: 10px 20px; border-radius: 8px;">
+        <i class="fas fa-external-link-alt"></i> View Live Blog
+    </a>
 </header>
 
 <div class="admin-card">
