@@ -110,6 +110,16 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $db->editCategory($_POST['cat_id'], $_POST['name']);
         $msg = "Category updated.";
     }
+
+    if (isset($_POST['add_update'])) {
+        $db->addUpdate($_POST['title'], $_POST['content']);
+        $msg = "Update posted.";
+    }
+
+    if (isset($_POST['delete_update'])) {
+        $db->deleteUpdate($_POST['update_id']);
+        $msg = "Update deleted.";
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -182,15 +192,23 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .media-thumb {
-            width: 60px;
-            height: 60px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 8px;
             border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .media-thumb:hover {
+            border-color: var(--accent-gold);
+            transform: scale(1.05);
         }
 
         .media-container {
             position: relative;
+            display: inline-block;
         }
 
         .media-del-btn {
@@ -421,9 +439,9 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php foreach ($cat['media'] as $media): ?>
                                                 <div class="media-container">
                                                     <?php if ($media['media_type'] == 'video'): ?>
-                                                        <video src="<?php echo $media['file_path']; ?>" class="media-thumb"></video>
+                                                        <video src="<?php echo $media['file_path']; ?>" class="media-thumb" controls></video>
                                                     <?php else: ?>
-                                                        <img src="<?php echo $media['file_path']; ?>" class="media-thumb">
+                                                        <img src="<?php echo $media['file_path']; ?>" class="media-thumb" alt="<?php echo htmlspecialchars($media['title'] ?? ''); ?>">
                                                     <?php endif; ?>
                                                     <form method="POST" onsubmit="return confirm('Delete this file?');">
                                                         <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
