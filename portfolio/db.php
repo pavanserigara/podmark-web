@@ -48,7 +48,8 @@ class JsonDB
           // Sort by id desc (newest first)
           $c = $this->data['clients'];
           usort($c, function ($a, $b) {
-               return $b['id'] - $a['id']; });
+               return $b['id'] - $a['id'];
+          });
           return $c;
      }
 
@@ -81,7 +82,7 @@ class JsonDB
      {
           $new = [
                'id' => $this->nextId('categories'),
-               'client_id' => $client_id,
+               'client_id' => (int) $client_id,
                'name' => $name
           ];
           $this->data['categories'][] = $new;
@@ -103,7 +104,7 @@ class JsonDB
      {
           $new = [
                'id' => $this->nextId('media'),
-               'category_id' => $category_id,
+               'category_id' => (int) $category_id,
                'file_path' => $file_path,
                'media_type' => $type,
                'title' => $title,
@@ -121,7 +122,8 @@ class JsonDB
      {
           $u = $this->data['updates'];
           usort($u, function ($a, $b) {
-               return strtotime($b['created_at']) - strtotime($a['created_at']); });
+               return strtotime($b['created_at']) - strtotime($a['created_at']);
+          });
           return $u;
      }
 
@@ -136,6 +138,15 @@ class JsonDB
           $this->data['updates'][] = $new;
           $this->save();
           return $new;
+     }
+
+     public function deleteUpdate($id)
+     {
+          $id = (int) $id;
+          $this->data['updates'] = array_values(array_filter($this->data['updates'], function ($u) use ($id) {
+               return $u['id'] != $id;
+          }));
+          $this->save();
      }
 
      // --- DELETE METHODS ---
@@ -172,6 +183,7 @@ class JsonDB
 
      public function deleteMedia($id)
      {
+          $id = (int) $id;
           $this->data['media'] = array_values(array_filter($this->data['media'], function ($m) use ($id) {
                if ($m['id'] == $id) {
                     if (file_exists(__DIR__ . '/' . $m['file_path'])) {
@@ -181,6 +193,52 @@ class JsonDB
                }
                return true;
           }));
+          $this->save();
+     }
+
+     public function deleteCategory($id)
+     {
+          $id = (int) $id;
+          // Remove category
+          $this->data['categories'] = array_values(array_filter($this->data['categories'], function ($c) use ($id) {
+               return $c['id'] != $id;
+          }));
+
+          // Remove associated media
+          $this->data['media'] = array_values(array_filter($this->data['media'], function ($m) use ($id) {
+               if ($m['category_id'] == $id) {
+                    if (file_exists(__DIR__ . '/' . $m['file_path'])) {
+                         @unlink(__DIR__ . '/' . $m['file_path']);
+                    }
+                    return false;
+               }
+               return true;
+          }));
+          $this->save();
+     }
+
+     public function editClient($id, $name, $desc)
+     {
+          $id = (int) $id;
+          foreach ($this->data['clients'] as &$c) {
+               if ($c['id'] == $id) {
+                    $c['name'] = $name;
+                    $c['description'] = $desc;
+                    break;
+               }
+          }
+          $this->save();
+     }
+
+     public function editCategory($id, $name)
+     {
+          $id = (int) $id;
+          foreach ($this->data['categories'] as &$c) {
+               if ($c['id'] == $id) {
+                    $c['name'] = $name;
+                    break;
+               }
+          }
           $this->save();
      }
 

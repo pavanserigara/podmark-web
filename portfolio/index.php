@@ -7,7 +7,7 @@ $portfolio_data = $db->getFullPortfolio();
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Podmark | Premium Digital Agency Portfolio</title>
     <meta name="description"
         content="PODMARK - A creative digital agency crafting impactful brand experiences through strategy, design, and storytelling.">
@@ -37,6 +37,9 @@ $portfolio_data = $db->getFullPortfolio();
             </a>
 
             <ul class="nav-links" id="navLinks">
+                <div class="menu-close" id="menuClose">
+                    <i class="fas fa-times"></i>
+                </div>
 
                 <li><a href="#work">Work</a></li>
                 <li><a href="#story">Story</a></li>
@@ -64,17 +67,17 @@ $portfolio_data = $db->getFullPortfolio();
                 style="margin-bottom: 24px; display: inline-block; border-color: var(--podPurple); color: var(--podCyan);">
                 PREMIUM DIGITAL AGENCY
             </span>
-            <h1 class="title-hero" style="font-size: 5rem; line-height: 1.1; margin-bottom: 30px;">
+            <h1 class="title-hero">
                 PODMARK<br>
                 <span class="gradient-text">DIGITAL.</span>
             </h1>
 
-            <p class="hero-subtitle" style="margin: 0 auto 40px auto;">
+            <p class="hero-subtitle">
                 We craft immersive digital experiences that define the future.
                 Strategy, Design, and Technology blended into perfection.
             </p>
 
-            <div class="cta-group" style="justify-content: center;">
+            <div class="cta-group">
                 <a href="#contact" class="btn btn-primary">
                     Start Your Project
                 </a>
@@ -84,7 +87,17 @@ $portfolio_data = $db->getFullPortfolio();
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
+        <!-- Side Scroll Indicators -->
+        <div class="side-scroll left">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+        <div class="side-scroll right">
+            <span>SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+
+        <!-- Center Scroll Indicator (Legacy/Backup) -->
         <div class="scroll-indicator"></div>
     </header>
 
@@ -289,6 +302,14 @@ $portfolio_data = $db->getFullPortfolio();
                 menuToggle.classList.toggle('active');
                 navLinks.classList.toggle('active');
             });
+
+            const menuClose = document.getElementById('menuClose');
+            if (menuClose) {
+                menuClose.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            }
 
             // Close mobile menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
