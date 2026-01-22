@@ -309,6 +309,15 @@ $portfolio_data = $db->getFullPortfolio();
                 navLinks.classList.toggle('active');
             });
 
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close button handler
             const menuClose = document.getElementById('menuClose');
             if (menuClose) {
                 menuClose.addEventListener('click', () => {
@@ -317,12 +326,16 @@ $portfolio_data = $db->getFullPortfolio();
                 });
             }
 
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                const isMenuOpen = navLinks.classList.contains('active');
+                const clickedInsideMenu = navLinks.contains(e.target);
+                const clickedToggle = menuToggle.contains(e.target);
+
+                if (isMenuOpen && !clickedInsideMenu && !clickedToggle) {
                     menuToggle.classList.remove('active');
                     navLinks.classList.remove('active');
-                });
+                }
             });
 
             // ===== LIGHTBOX FUNCTIONALITY =====

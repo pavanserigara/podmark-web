@@ -264,6 +264,11 @@ body::-webkit-scrollbar-thumb:hover {
     box-shadow: 0 6px 20px rgba(139, 92, 246, 0.5);
 }
 
+/* Menu Close Button (hidden on desktop, shown on mobile) */
+.menu-close {
+    display: none;
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
