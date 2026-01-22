@@ -219,12 +219,19 @@ $portfolio_data = $db->getFullPortfolio();
                     </div>
                     <div>
                         <p class="about-text">
-                            We are a collective of strategists, designers, and developers obsessed with performance. Our
-                            mission is to weaponize your brand with the digital tools needed to dominate your market.
+                            Founded in March 2025, PODMARK is a
+                            creative-driven digital powerhouse built on trust
+                            and teamwork. We partner with elite brands to
+                            architect growth through high-impact strategy
+                            and cinematic storytelling.
+
                         </p>
                         <p class="about-text">
-                            From cinematic storytelling to data-driven campaigns, everything we create is designed to
-                            convert, engage, and scale.
+                            We don't work for you, we work with you, as part
+                            of your brand. At PODMARK, we go beyond
+                            traditional marketing. We partner with you to
+                            grow your brand through creativity, strategy,
+                            and trust.
                         </p>
                         <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">
                             Start Your Project
