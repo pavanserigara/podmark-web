@@ -27,7 +27,7 @@ $portfolio_data = $db->getFullPortfolio();
 <body>
 
     <!-- ANIMATED BACKGROUND (Matched to Main Project) -->
-    <div id="anime-bg" class="animated-bg-grid"></div>
+
 
     <!-- NAVIGATION BAR -->
     <nav class="navbar" id="navbar">
@@ -37,11 +37,12 @@ $portfolio_data = $db->getFullPortfolio();
             </a>
 
             <ul class="nav-links" id="navLinks">
+
                 <li><a href="#work">Work</a></li>
                 <li><a href="#story">Story</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="admin.php">Admin</a></li>
-                <li><a href="#contact" class="nav-cta">Start Project</a></li>
+                <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
             </ul>
 
             <div class="menu-toggle" id="menuToggle">
@@ -54,49 +55,43 @@ $portfolio_data = $db->getFullPortfolio();
 
     <!-- HERO SECTION -->
     <header class="hero">
-        <div class="hero-content">
-            <!-- Premium Badge with Pulsing Dots -->
-            <div class="hero-badge-premium">
-                <span class="dot dot-purple"></span>
-                <span class="badge-text">WE DON'T JUST MARKET</span>
-                <span class="dot dot-cyan"></span>
-            </div>
+        <div class="hero-blobs">
+            <div class="blob"></div>
+        </div>
 
-            <h1 class="title-hero">
-                WE CREATE<br>
-                <span class="gradient-text gradient-glow">IMPACT.</span>
+        <div class="hero-content">
+            <span class="section-badge"
+                style="margin-bottom: 24px; display: inline-block; border-color: var(--podPurple); color: var(--podCyan);">
+                PREMIUM DIGITAL AGENCY
+            </span>
+            <h1 class="title-hero" style="font-size: 5rem; line-height: 1.1; margin-bottom: 30px;">
+                PODMARK<br>
+                <span class="gradient-text">DIGITAL.</span>
             </h1>
 
-            <p class="hero-subtitle">
-                A creative-driven digital powerhouse. We partner with elite brands to architect growth
-                through high-impact strategy and cinematic storytelling.
+            <p class="hero-subtitle" style="margin: 0 auto 40px auto;">
+                We craft immersive digital experiences that define the future.
+                Strategy, Design, and Technology blended into perfection.
             </p>
 
-            <div class="cta-group">
-                <a href="#work" class="btn btn-primary">
-                    View Work
+            <div class="cta-group" style="justify-content: center;">
+                <a href="#contact" class="btn btn-primary">
+                    Start Your Project
                 </a>
-                <a href="#contact" class="btn btn-outline">
-                    Get in Touch
+                <a href="#work" class="btn btn-outline">
+                    View Portfolio
                 </a>
             </div>
         </div>
 
         <!-- Scroll Indicator -->
         <div class="scroll-indicator"></div>
-
-        <!-- Bottom Dots -->
-        <div class="hero-bottom-dots">
-            <div class="dot active"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
     </header>
 
+
+
     <!-- WORK SECTION -->
-    <main id="work" class="section">
+    <section id="work" class="section">
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">
@@ -127,13 +122,9 @@ $portfolio_data = $db->getFullPortfolio();
 
                 <?php foreach ($portfolio_data as $index => $client): ?>
                     <section class="client-block" style="animation-delay: <?php echo $index * 0.1; ?>s;">
-                        <!-- CLIENT INTRO -->
-                        <div class="client-intro">
-                            <h2 class="title-client">
-                                <i class="fas fa-building"
-                                    style="color: var(--primary-purple); font-size: 0.8em; margin-right: 15px;"></i>
-                                <?php echo htmlspecialchars($client['name']); ?>
-                            </h2>
+                        <!-- Client Header (Centered) -->
+                        <div class="client-header">
+                            <h2 class="title-client"><?php echo htmlspecialchars($client['name']); ?></h2>
                             <p class="client-desc"><?php echo htmlspecialchars($client['description']); ?></p>
                         </div>
 
@@ -187,283 +178,230 @@ $portfolio_data = $db->getFullPortfolio();
 
             <?php endif; ?>
         </div>
-    </main>
+        </main>
 
-    <!-- ABOUT SECTION -->
-    <section id="story" class="section section-alt">
-        <div class="container">
-            <div class="about-grid">
-                <div>
-                    <div class="section-badge">
-                        Our Story
+        <!-- ABOUT SECTION -->
+        <section id="story" class="section section-alt">
+            <div class="container">
+                <div class="about-grid">
+                    <div>
+                        <div class="section-badge">
+                            Our Story
+                        </div>
+                        <h2 class="about-lead">
+                            We don't just build websites. We build <span class="gradient-text">Digital Arsenals</span>.
+                        </h2>
+                        <div class="about-divider"></div>
+                        <p class="about-text">
+                            Founded in 2025, PODMARK was born from a simple belief: Brands need more than just
+                            visibility—they need impact.
+                        </p>
                     </div>
-                    <h2 class="about-lead">
-                        We don't just build websites. We build <span class="gradient-text">Digital Arsenals</span>.
-                    </h2>
-                    <div class="about-divider"></div>
-                    <p class="about-text">
-                        Founded in 2025, PODMARK was born from a simple belief: Brands need more than just
-                        visibility—they need impact.
-                    </p>
-                </div>
-                <div>
-                    <p class="about-text">
-                        We are a collective of strategists, designers, and developers obsessed with performance. Our
-                        mission is to weaponize your brand with the digital tools needed to dominate your market.
-                    </p>
-                    <p class="about-text">
-                        From cinematic storytelling to data-driven campaigns, everything we create is designed to
-                        convert, engage, and scale.
-                    </p>
-                    <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">
-                        Start Your Project
-                    </a>
+                    <div>
+                        <p class="about-text">
+                            We are a collective of strategists, designers, and developers obsessed with performance. Our
+                            mission is to weaponize your brand with the digital tools needed to dominate your market.
+                        </p>
+                        <p class="about-text">
+                            From cinematic storytelling to data-driven campaigns, everything we create is designed to
+                            convert, engage, and scale.
+                        </p>
+                        <a href="#contact" class="btn btn-primary" style="margin-top: 30px;">
+                            Start Your Project
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FOOTER -->
-    <footer id="contact" class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand -->
-                <div class="footer-brand">
-                    <h2>PODMARK</h2>
+        <!-- FOOTER -->
+        <footer id="contact" class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Brand -->
+                    <div class="footer-brand">
+                        <h2>PODMARK</h2>
+                        <p>
+                            We create impact. Bespoke digital solutions for ambitious brands.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="footer-head">Explore</h4>
+                        <ul class="footer-links">
+                            <li><a href="#work"><i class="fas fa-chevron-right"
+                                        style="font-size: 0.7rem; margin-right: 8px;"></i> Selected Work</a></li>
+                            <li><a href="#about"><i class="fas fa-chevron-right"
+                                        style="font-size: 0.7rem; margin-right: 8px;"></i> About Us</a></li>
+                            <li><a href="admin.php"><i class="fas fa-chevron-right"
+                                        style="font-size: 0.7rem; margin-right: 8px;"></i> Admin Portal</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="footer-head">Connect</h4>
+                        <ul class="footer-links">
+                            <li><a href="mailto:hello@podmark.agency"><i class="fas fa-envelope"></i>
+                                    hello@podmark.agency</a></li>
+                            <li><a href="https://instagram.com/podmark" target="_blank"><i class="fab fa-instagram"></i>
+                                    Instagram</a></li>
+                            <li><a href="https://linkedin.com/company/podmark" target="_blank"><i
+                                        class="fab fa-linkedin"></i> LinkedIn</a></li>
+                            <li><a href="https://twitter.com/podmark" target="_blank"><i class="fab fa-twitter"></i>
+                                    Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
                     <p>
-                        We create impact. Bespoke digital solutions for ambitious brands.
+                        <i class="fas fa-copyright"></i> 2025 PODMARK Digital Agency. All rights reserved.
+                        Crafted with <i class="fas fa-heart" style="color: var(--primary-pink);"></i> and <i
+                            class="fas fa-coffee"></i>
                     </p>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="footer-head">Explore</h4>
-                    <ul class="footer-links">
-                        <li><a href="#work"><i class="fas fa-chevron-right"
-                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Selected Work</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"
-                                    style="font-size: 0.7rem; margin-right: 8px;"></i> About Us</a></li>
-                        <li><a href="admin.php"><i class="fas fa-chevron-right"
-                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Admin Portal</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact -->
-                <div>
-                    <h4 class="footer-head">Connect</h4>
-                    <ul class="footer-links">
-                        <li><a href="mailto:hello@podmark.agency"><i class="fas fa-envelope"></i>
-                                hello@podmark.agency</a></li>
-                        <li><a href="https://instagram.com/podmark" target="_blank"><i class="fab fa-instagram"></i>
-                                Instagram</a></li>
-                        <li><a href="https://linkedin.com/company/podmark" target="_blank"><i
-                                    class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="https://twitter.com/podmark" target="_blank"><i class="fab fa-twitter"></i>
-                                Twitter</a></li>
-                    </ul>
-                </div>
             </div>
+        </footer>
 
-            <div class="footer-bottom">
-                <p>
-                    <i class="fas fa-copyright"></i> 2025 PODMARK Digital Agency. All rights reserved.
-                    Crafted with <i class="fas fa-heart" style="color: var(--primary-pink);"></i> and <i
-                        class="fas fa-coffee"></i>
-                </p>
-            </div>
+        <!-- LIGHTBOX MODAL -->
+        <div id="lightbox" class="media-modal">
+            <div id="lightbox-content" class="modal-content"></div>
         </div>
-    </footer>
 
-    <!-- LIGHTBOX MODAL -->
-    <div id="lightbox" class="media-modal">
-        <div id="lightbox-content" class="modal-content"></div>
-    </div>
+        <script>
+            // ===== NAVIGATION SCROLL EFFECT =====
+            const navbar = document.getElementById('navbar');
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
 
-    <script>
-        // ===== NAVIGATION SCROLL EFFECT =====
-        const navbar = document.getElementById('navbar');
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Mobile Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // ===== LIGHTBOX FUNCTIONALITY =====
-        const lightbox = document.getElementById('lightbox');
-        const contentBox = document.getElementById('lightbox-content');
-
-        document.querySelectorAll('.gallery-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const src = card.getAttribute('data-src');
-                const type = card.getAttribute('data-type');
-                contentBox.innerHTML = '';
-
-                if (type === 'video') {
-                    const video = document.createElement('video');
-                    video.src = src;
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.style.maxWidth = '100%';
-                    video.style.maxHeight = '90vh';
-                    video.style.borderRadius = '12px';
-                    contentBox.appendChild(video);
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
                 } else {
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.style.maxWidth = '100%';
-                    img.style.maxHeight = '90vh';
-                    img.style.borderRadius = '12px';
-                    contentBox.appendChild(img);
+                    navbar.classList.remove('scrolled');
                 }
-
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden';
             });
-        });
 
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) {
-                lightbox.classList.remove('active');
-                contentBox.innerHTML = '';
-                document.body.style.overflow = 'auto';
-            }
-        });
+            // Mobile Menu Toggle
+            menuToggle.addEventListener('click', () => {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
 
-        // Close lightbox with ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                lightbox.classList.remove('active');
-                contentBox.innerHTML = '';
-                document.body.style.overflow = 'auto';
-            }
-        });
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
 
-        // ===== GSAP ANIMATIONS =====
-        gsap.registerPlugin(ScrollTrigger);
+            // ===== LIGHTBOX FUNCTIONALITY =====
+            const lightbox = document.getElementById('lightbox');
+            const contentBox = document.getElementById('lightbox-content');
 
-        // Animate client blocks on scroll
-        gsap.utils.toArray('.client-block').forEach(section => {
-            gsap.from(section, {
+            document.querySelectorAll('.gallery-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const src = card.getAttribute('data-src');
+                    const type = card.getAttribute('data-type');
+                    contentBox.innerHTML = '';
+
+                    if (type === 'video') {
+                        const video = document.createElement('video');
+                        video.src = src;
+                        video.controls = true;
+                        video.autoplay = true;
+                        video.style.maxWidth = '100%';
+                        video.style.maxHeight = '90vh';
+                        video.style.borderRadius = '12px';
+                        contentBox.appendChild(video);
+                    } else {
+                        const img = document.createElement('img');
+                        img.src = src;
+                        img.style.maxWidth = '100%';
+                        img.style.maxHeight = '90vh';
+                        img.style.borderRadius = '12px';
+                        contentBox.appendChild(img);
+                    }
+
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                    contentBox.innerHTML = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close lightbox with ESC key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    contentBox.innerHTML = '';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // ===== GSAP ANIMATIONS =====
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Animate client blocks on scroll
+            gsap.utils.toArray('.client-block').forEach(section => {
+                gsap.from(section, {
+                    opacity: 0,
+                    y: 80,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 85%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+
+            // Animate gallery cards
+            gsap.utils.toArray('.gallery-card').forEach((card, index) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 0.6,
+                    delay: index * 0.05,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 90%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+
+            // Animate about section
+            gsap.from('.about-grid > div', {
                 opacity: 0,
-                y: 80,
+                x: (index) => index === 0 ? -50 : 50,
                 duration: 1,
+                stagger: 0.3,
                 ease: "power3.out",
                 scrollTrigger: {
-                    trigger: section,
-                    start: "top 85%",
-                    toggleActions: "play none none none"
+                    trigger: '.about-grid',
+                    start: "top 75%",
                 }
             });
-        });
 
-        // Animate gallery cards
-        gsap.utils.toArray('.gallery-card').forEach((card, index) => {
-            gsap.from(card, {
-                opacity: 0,
-                y: 50,
-                duration: 0.6,
-                delay: index * 0.05,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: card,
-                    start: "top 90%",
-                    toggleActions: "play none none none"
-                }
-            });
-        });
+            // Animated Grid Removed for simplicity
 
-        // Animate about section
-        gsap.from('.about-grid > div', {
-            opacity: 0,
-            x: (index) => index === 0 ? -50 : 50,
-            duration: 1,
-            stagger: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: '.about-grid',
-                start: "top 75%",
+            // ===== HERO SLIDER =====
+            if (slides.length > 0) {
+                // Slider removed
             }
-        });
-
-        // ===== ANIME.JS GRID BACKGROUND =====
-        const bgGrid = document.getElementById('anime-bg');
-
-        function createGrid() {
-            if (!bgGrid) return;
-            bgGrid.innerHTML = '';
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            // Optimize for mobile by increasing box size (fewer elements)
-            const boxSize = width < 768 ? 80 : 50;
-            const cols = Math.ceil(width / boxSize);
-            const rows = Math.ceil(height / boxSize);
-
-            bgGrid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-            bgGrid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-
-            const totalItems = cols * rows;
-            const fragment = document.createDocumentFragment();
-
-            for (let i = 0; i < totalItems; i++) {
-                const box = document.createElement('div');
-                box.classList.add('stagger-box');
-                box.style.backgroundColor = '#1a103c';
-                fragment.appendChild(box);
-            }
-            bgGrid.appendChild(fragment);
-
-            animateGrid(cols, rows);
-        }
-
-        function animateGrid(cols, rows) {
-            anime.remove('.stagger-box');
-            anime({
-                targets: '.stagger-box',
-                scale: [
-                    { value: 0.1, easing: 'easeOutSine', duration: 500 },
-                    { value: 1, easing: 'easeInOutQuad', duration: 1200 }
-                ],
-                delay: anime.stagger(200, {
-                    grid: [cols, rows],
-                    from: 'center'
-                }),
-                loop: true,
-                direction: 'alternate',
-                background: [
-                    { value: '#1a103c', easing: 'easeOutSine', duration: 500 },
-                    { value: '#4c1d95', easing: 'easeInOutQuad', duration: 1200 }
-                ]
-            });
-        }
-
-        // Initialize Grid
-        createGrid();
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(createGrid, 400);
-        });
-    </script>
+        </script>
 </body>
 
 </html>

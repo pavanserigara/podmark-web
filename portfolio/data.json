@@ -6,6 +6,20 @@
             "description": "",
             "logo": "",
             "created_at": "2026-01-21 08:04:37"
+        },
+        {
+            "id": 2,
+            "name": "Test client",
+            "description": "tagling of client",
+            "logo": "",
+            "created_at": "2026-01-22 06:00:05"
+        },
+        {
+            "id": 3,
+            "name": "Test User 2",
+            "description": "dsafweaf",
+            "logo": "",
+            "created_at": "2026-01-22 06:22:45"
         }
     ],
     "categories": [
@@ -13,9 +27,85 @@
             "id": 1,
             "client_id": "1",
             "name": "reels"
+        },
+        {
+            "id": 2,
+            "client_id": "2",
+            "name": "posters"
+        },
+        {
+            "id": 3,
+            "client_id": "3",
+            "name": "reels"
+        },
+        {
+            "id": 4,
+            "client_id": "3",
+            "name": "posters"
         }
     ],
-    "media": [],
+    "media": [
+        {
+            "id": 1,
+            "category_id": "2",
+            "file_path": "uploads\/1769061677_6971bd2d39382_services_jewellery_card_mobile_1768540785029.png",
+            "media_type": "image",
+            "title": "new poster",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:01:17"
+        },
+        {
+            "id": 2,
+            "category_id": "2",
+            "file_path": "uploads\/1769062861_6971c1cd887bf_services_cards_visible_mobile_1768540684138.png",
+            "media_type": "image",
+            "title": "test2",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:21:01"
+        },
+        {
+            "id": 3,
+            "category_id": "2",
+            "file_path": "uploads\/1769062883_6971c1e35c7af_services_cards_check_mobile_2_1768540699588.png",
+            "media_type": "image",
+            "title": "test3",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:21:23"
+        },
+        {
+            "id": 4,
+            "category_id": "3",
+            "file_path": "uploads\/1769062997_6971c25532853_services_first_card_mobile_1768540673921.png",
+            "media_type": "image",
+            "title": "fefedf",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:23:17"
+        },
+        {
+            "id": 5,
+            "category_id": "4",
+            "file_path": "uploads\/1769063029_6971c27542b5f_services_jewellery_card_mobile_1768540785029.png",
+            "media_type": "image",
+            "title": "eftetr",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:23:49"
+        },
+        {
+            "id": 6,
+            "category_id": "2",
+            "file_path": "uploads\/1769064116_6971c6b47c4f5_services_cards_visible_mobile_1768540684138.png",
+            "media_type": "image",
+            "title": "ujtydgj",
+            "link": "",
+            "description": "",
+            "created_at": "2026-01-22 06:41:56"
+        }
+    ],
     "updates": [
         {
             "id": 1,
