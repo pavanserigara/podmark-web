@@ -178,14 +178,11 @@ $portfolio_data = $db->getFullPortfolio();
 
                                                 <!-- Overlay -->
                                                 <div class="card-overlay">
-                                                    <div class="project-title">
-                                                        <?php echo (!empty($item['title']) ? htmlspecialchars($item['title']) : 'Untitled Project'); ?>
-                                                    </div>
                                                     <div class="project-meta">
                                                         <i class="fas fa-tag"></i> <?php echo htmlspecialchars($category['name']); ?>
                                                     </div>
-                                                    <div class="view-project-btn">
-                                                        View Case Study <i class="fas fa-arrow-right" style="font-size: 0.8em;"></i>
+                                                    <div class="project-title">
+                                                        <?php echo (!empty($item['title']) ? htmlspecialchars($item['title']) : 'Untitled Project'); ?>
                                                     </div>
                                                 </div>
                                             </div>

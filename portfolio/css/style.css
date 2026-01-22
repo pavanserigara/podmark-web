@@ -1157,7 +1157,8 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--text-white);
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    margin-top: 8px;
     letter-spacing: -0.01em;
     text-transform: uppercase;
     text-shadow: none;
@@ -1172,31 +1173,9 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     align-items: center;
     gap: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
 }
 
-.view-project-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-size: 9px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-white);
-    padding: 10px 18px;
-    background: var(--purple-gradient);
-    border: none;
-    border-radius: 100px;
-    transition: all 0.3s ease;
-    width: fit-content;
-}
-
-.gallery-card:hover .view-project-btn {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-}
 
 /* === ABOUT === */
 .section-alt {

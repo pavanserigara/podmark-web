@@ -121,58 +121,6 @@
             "created_at": "2026-01-22 08:41:29"
         },
         {
-            "id": 9,
-            "category_id": 7,
-            "file_path": "uploads\/1769075494_6971f3264e24b_compress.mp4",
-            "media_type": "video",
-            "title": "fsasddf",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 10:51:34"
-        },
-        {
-            "id": 10,
-            "category_id": 7,
-            "file_path": "uploads\/1769076495_6971f70f92152_compress.mp4",
-            "media_type": "video",
-            "title": "fsasddf",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 11:08:15"
-        },
-        {
-            "id": 11,
-            "category_id": 7,
-            "file_path": "uploads\/1769078160_6971fd90d6761_Podmark_PremiumDigitalAgencyPortfolio-GoogleChrome2026-01-2115-26-58.mp4",
-            "media_type": "video",
-            "title": "gggggggggggggggggggggggg",
-            "link": "",
-            "description": "",
-            "created_at": "2026-01-22 11:36:00"
-        },
-        {
-            "id": 12,
-            "category_id": 7,
-            "file_path": "uploads\/1769078902_6972007600298_Podmark_PremiumDigitalAgencyPortfolio-GoogleChrome2026-01-2115-26-58.mp4",
-            "media_type": "video",
-            "title": "gggggggggggggggggggggggg",
-            "link": "",
-            "description": "",
-            "thumbnail": "",
-            "created_at": "2026-01-22 11:48:22"
-        },
-        {
-            "id": 13,
-            "category_id": 7,
-            "file_path": "uploads\/1769078964_697200b43ca1f_compress.mp4",
-            "media_type": "video",
-            "title": "vvvvvvvvvvvvvvvvvvvvvv",
-            "link": "",
-            "description": "",
-            "thumbnail": "uploads\/1769078964_thumb_697200b43c7a9_Screenshot2026-01-22161851.png",
-            "created_at": "2026-01-22 11:49:24"
-        },
-        {
             "id": 14,
             "category_id": 7,
             "file_path": "uploads\/1769079438_6972028e5fb44_compress-Trim.mp4",
