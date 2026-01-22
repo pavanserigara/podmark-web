@@ -100,7 +100,7 @@ class JsonDB
           return array_values($m);
      }
 
-     public function addMedia($category_id, $file_path, $type, $title = '', $link = '', $desc = '')
+     public function addMedia($category_id, $file_path, $type, $title = '', $link = '', $desc = '', $thumbnail = '')
      {
           $new = [
                'id' => $this->nextId('media'),
@@ -110,6 +110,7 @@ class JsonDB
                'title' => $title,
                'link' => $link,
                'description' => $desc,
+               'thumbnail' => $thumbnail,
                'created_at' => date('Y-m-d H:i:s')
           ];
           $this->data['media'][] = $new;

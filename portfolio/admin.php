@@ -42,6 +42,15 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
             mkdir('uploads', 0777, true);
         }
 
+        // Handle thumbnail upload if provided
+        $thumbnail_path = '';
+        if (isset($_FILES['thumbnail']) && $_FILES['thumbnail']['error'] === UPLOAD_ERR_OK) {
+            $thumb_name = preg_replace('/[^a-zA-Z0-9\._-]/', '', $_FILES['thumbnail']['name']);
+            $thumb_unique = time() . "_thumb_" . uniqid() . "_" . $thumb_name;
+            $thumbnail_path = "uploads/" . $thumb_unique;
+            move_uploaded_file($_FILES['thumbnail']['tmp_name'], $thumbnail_path);
+        }
+
         for ($i = 0; $i < $total; $i++) {
             $error_code = $_FILES['files']['error'][$i];
             $name = $_FILES['files']['name'][$i];
@@ -53,7 +62,7 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 $target = "uploads/" . $unique_name;
 
                 if (move_uploaded_file($_FILES['files']['tmp_name'][$i], $target)) {
-                    $db->addMedia($_POST['cat_id'], $target, $_POST['type'], $title);
+                    $db->addMedia($_POST['cat_id'], $target, $_POST['type'], $title, '', '', $thumbnail_path);
                     $success_count++;
                 } else {
                     $errors[] = "Failed to move $name";
@@ -199,6 +208,7 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid #333;
             transition: all 0.3s ease;
             cursor: pointer;
+            background: #1a1a1a;
         }
 
         .media-thumb:hover {
@@ -209,6 +219,10 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
         .media-container {
             position: relative;
             display: inline-block;
+        }
+
+        .media-container video {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
         }
 
         .media-del-btn {
@@ -226,6 +240,49 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
             align-items: center;
             justify-content: center;
             font-size: 10px;
+            z-index: 10;
+        }
+
+        /* Play icon overlay for videos */
+        .media-container video::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .video-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .video-play-icon::after {
+            content: '▶';
+            color: #000;
+            font-size: 12px;
+            margin-left: 2px;
+        }
+
+        .media-container:hover .video-play-icon {
+            opacity: 1;
         }
     </style>
 </head>
@@ -364,6 +421,12 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input type="file" name="files[]" multiple required style="color: white;"
                                     accept="image/*,video/*">
                             </div>
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 5px; font-size: 0.8rem; color: #888;">
+                                    Video Thumbnail (Optional - for videos only)</label>
+                                <input type="file" name="thumbnail" style="color: white;" accept="image/*">
+                                <small style="color: #666; display: block; margin-top: 5px;">Upload a custom thumbnail image for videos. If not provided, the first frame will be used.</small>
+                            </div>
                             <button type="submit" name="upload" class="btn btn-gold"
                                 style="padding: 15px 40px; border: none; cursor: pointer;">Upload Content</button>
                         </form>
@@ -439,9 +502,13 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <?php foreach ($cat['media'] as $media): ?>
                                                 <div class="media-container">
                                                     <?php if ($media['media_type'] == 'video'): ?>
-                                                        <video src="<?php echo $media['file_path']; ?>" class="media-thumb" controls></video>
+                                                        <video src="<?php echo $media['file_path']; ?>#t=0.1" class="media-thumb" controls
+                                                            preload="metadata"
+                                                            <?php if (!empty($media['thumbnail'])): ?>poster="<?php echo $media['thumbnail']; ?>"<?php endif; ?>></video>
+                                                        <div class="video-play-icon"></div>
                                                     <?php else: ?>
-                                                        <img src="<?php echo $media['file_path']; ?>" class="media-thumb" alt="<?php echo htmlspecialchars($media['title'] ?? ''); ?>">
+                                                        <img src="<?php echo $media['file_path']; ?>" class="media-thumb"
+                                                            alt="<?php echo htmlspecialchars($media['title'] ?? ''); ?>">
                                                     <?php endif; ?>
                                                     <form method="POST" onsubmit="return confirm('Delete this file?');">
                                                         <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
