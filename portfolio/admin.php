@@ -1,4 +1,7 @@
 <?php
+@ini_set('upload_max_filesize', '100M');
+@ini_set('post_max_size', '100M');
+
 include 'db.php';
 session_start();
 
@@ -37,6 +40,10 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $title = $_POST['title'] ?? '';
         $success_count = 0;
         $errors = [];
+
+        if (!is_dir('uploads')) {
+            mkdir('uploads', 0777, true);
+        }
 
         for ($i = 0; $i < $total; $i++) {
             $error_code = $_FILES['files']['error'][$i];
@@ -339,7 +346,8 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div style="margin-bottom: 20px;">
                                 <label style="display: block; margin-bottom: 5px; font-size: 0.8rem; color: #888;">Select
                                     Files</label>
-                                <input type="file" name="files[]" multiple required style="color: white;">
+                                <input type="file" name="files[]" multiple required style="color: white;"
+                                    accept="image/*,video/*">
                             </div>
                             <button type="submit" name="upload" class="btn btn-gold"
                                 style="padding: 15px 40px; border: none; cursor: pointer;">Upload Content</button>
@@ -360,40 +368,59 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                             ?>
                             <div class="manage-item" style="display: block; margin-bottom: 30px;">
                                 <!-- Client Manage Row -->
-                                <div style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #333;">
-                                    <form method="POST" style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
+                                <div
+                                    style="background: #1a1a1a; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #333;">
+                                    <form method="POST"
+                                        style="display: flex; gap: 15px; align-items: flex-end; flex-wrap: wrap;">
                                         <input type="hidden" name="client_id" value="<?php echo $client['id']; ?>">
                                         <div style="flex: 1; min-width: 200px;">
-                                            <label style="display:block; font-size: 0.7rem; color: #888; margin-bottom: 5px;">Client Name</label>
-                                            <input type="text" name="name" value="<?php echo htmlspecialchars($client['name']); ?>" style="width: 100%; padding: 8px; background: #000; border: 1px solid #333; color: white;">
+                                            <label
+                                                style="display:block; font-size: 0.7rem; color: #888; margin-bottom: 5px;">Client
+                                                Name</label>
+                                            <input type="text" name="name"
+                                                value="<?php echo htmlspecialchars($client['name']); ?>"
+                                                style="width: 100%; padding: 8px; background: #000; border: 1px solid #333; color: white;">
                                         </div>
                                         <div style="flex: 2; min-width: 300px;">
-                                            <label style="display:block; font-size: 0.7rem; color: #888; margin-bottom: 5px;">Tagline</label>
-                                            <input type="text" name="desc" value="<?php echo htmlspecialchars($client['description']); ?>" style="width: 100%; padding: 8px; background: #000; border: 1px solid #333; color: white;">
+                                            <label
+                                                style="display:block; font-size: 0.7rem; color: #888; margin-bottom: 5px;">Tagline</label>
+                                            <input type="text" name="desc"
+                                                value="<?php echo htmlspecialchars($client['description']); ?>"
+                                                style="width: 100%; padding: 8px; background: #000; border: 1px solid #333; color: white;">
                                         </div>
                                         <div style="display: flex; gap: 10px;">
-                                            <button type="submit" name="edit_client" class="btn btn-gold" style="padding: 8px 15px; font-size: 0.7rem; border: none; cursor: pointer;">Save</button>
-                                            <button type="submit" name="delete_client" class="btn-delete" onsubmit="return confirm('DELETE CLIENT? This will delete ALL categories and media inside it.');">Delete</button>
+                                            <button type="submit" name="edit_client" class="btn btn-gold"
+                                                style="padding: 8px 15px; font-size: 0.7rem; border: none; cursor: pointer;">Save</button>
+                                            <button type="submit" name="delete_client" class="btn-delete"
+                                                onsubmit="return confirm('DELETE CLIENT? This will delete ALL categories and media inside it.');">Delete</button>
                                         </div>
                                     </form>
                                 </div>
 
                                 <!-- Categories for this Client -->
                                 <?php foreach ($client['categories'] as $cat): ?>
-                                    <div class="manage-sub" style="margin-bottom: 20px; background: #111; padding: 15px; border-radius: 6px;">
-                                        <form method="POST" style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
+                                    <div class="manage-sub"
+                                        style="margin-bottom: 20px; background: #111; padding: 15px; border-radius: 6px;">
+                                        <form method="POST"
+                                            style="display: flex; gap: 15px; align-items: center; margin-bottom: 15px;">
                                             <input type="hidden" name="cat_id" value="<?php echo $cat['id']; ?>">
                                             <div style="flex: 1;">
-                                                <input type="text" name="name" value="<?php echo htmlspecialchars($cat['name']); ?>" style="width: 100%; padding: 5px; background: #000; border: 1px solid #333; color: var(--accent-gold); font-weight: 700;">
+                                                <input type="text" name="name" value="<?php echo htmlspecialchars($cat['name']); ?>"
+                                                    style="width: 100%; padding: 5px; background: #000; border: 1px solid #333; color: var(--accent-gold); font-weight: 700;">
                                             </div>
                                             <div style="display: flex; gap: 10px;">
-                                                <button type="submit" name="edit_cat" class="btn btn-gold" style="padding: 5px 10px; font-size: 0.6rem; border: none; cursor: pointer;">Update Name</button>
-                                                <button type="submit" name="delete_cat" class="btn-delete" style="padding: 5px 10px; font-size: 0.6rem;" onsubmit="return confirm('Delete this category?');">Delete Category</button>
+                                                <button type="submit" name="edit_cat" class="btn btn-gold"
+                                                    style="padding: 5px 10px; font-size: 0.6rem; border: none; cursor: pointer;">Update
+                                                    Name</button>
+                                                <button type="submit" name="delete_cat" class="btn-delete"
+                                                    style="padding: 5px 10px; font-size: 0.6rem;"
+                                                    onsubmit="return confirm('Delete this category?');">Delete Category</button>
                                             </div>
                                         </form>
 
                                         <div class="media-row">
-                                            <?php if (empty($cat['media'])) echo "<small style='color:#444;'>No media.</small>"; ?>
+                                            <?php if (empty($cat['media']))
+                                                echo "<small style='color:#444;'>No media.</small>"; ?>
                                             <?php foreach ($cat['media'] as $media): ?>
                                                 <div class="media-container">
                                                     <?php if ($media['media_type'] == 'video'): ?>
@@ -418,12 +445,18 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <!-- 4. Manage Updates -->
                 <section id="updates">
                     <h3 style="color: var(--accent-gold); margin-bottom: 20px;">4. Service Updates</h3>
-                    <div style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 8px; margin-bottom: 30px;">
+                    <div
+                        style="background: #111; padding: 30px; border: 1px solid #222; border-radius: 8px; margin-bottom: 30px;">
                         <h4>Post New Update</h4>
                         <form method="POST" style="margin-top: 20px;">
-                            <input type="text" name="title" style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: white;" placeholder="Update Title" required>
-                            <textarea name="content" style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: white; height: 100px;" placeholder="Content" required></textarea>
-                            <button type="submit" name="add_update" class="btn btn-gold" style="width: 100%; border: none; cursor: pointer;">Post Update</button>
+                            <input type="text" name="title"
+                                style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: white;"
+                                placeholder="Update Title" required>
+                            <textarea name="content"
+                                style="width: 100%; padding: 12px; margin-bottom: 10px; background: #000; border: 1px solid #333; color: white; height: 100px;"
+                                placeholder="Content" required></textarea>
+                            <button type="submit" name="add_update" class="btn btn-gold"
+                                style="width: 100%; border: none; cursor: pointer;">Post Update</button>
                         </form>
                     </div>
 
@@ -435,7 +468,8 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
                             <div class="manage-item">
                                 <div>
                                     <h4 style="color: var(--accent-gold);"><?php echo htmlspecialchars($up['title']); ?></h4>
-                                    <p style="font-size: 0.8rem; color: #888;"><?php echo htmlspecialchars($up['content']); ?></p>
+                                    <p style="font-size: 0.8rem; color: #888;"><?php echo htmlspecialchars($up['content']); ?>
+                                    </p>
                                     <small style="color: #444;"><?php echo $up['created_at']; ?></small>
                                 </div>
                                 <form method="POST" onsubmit="return confirm('Delete this update?');">
