@@ -45,7 +45,7 @@
                         <?php echo date('M d, Y', strtotime($up['created_at'])); ?>
                     </p>
                 </div>
-                <form method="POST" onsubmit="return confirm('Delete this update?');">
+                <form action="admin.php?view=updates" method="POST">
                     <input type="hidden" name="update_id" value="<?php echo $up['id']; ?>">
                     <button type="submit" name="delete_update" class="btn-admin btn-danger" style="padding: 10px 20px;">
                         <i class="fas fa-trash"></i> Delete

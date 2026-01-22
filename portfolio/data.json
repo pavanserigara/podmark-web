@@ -33,17 +33,6 @@
             "created_at": "2026-01-22 12:08:39"
         },
         {
-            "id": 3,
-            "category_id": 1,
-            "file_path": "uploads\/1769080142_6972054ef17a7_Screenshot2026-01-22161851.png",
-            "media_type": "image",
-            "title": "",
-            "link": "",
-            "description": "",
-            "thumbnail": "",
-            "created_at": "2026-01-22 12:09:02"
-        },
-        {
             "id": 4,
             "category_id": 1,
             "file_path": "uploads\/1769080153_697205599f3c3_WhatsAppImage2026-01-22at2.04.10PM.jpeg",
@@ -66,12 +55,5 @@
             "created_at": "2026-01-22 12:10:01"
         }
     ],
-    "updates": [
-        {
-            "id": 1,
-            "title": "piuij",
-            "content": "uyokhlnjh hyt6uyghj urfuj ygt86573ed hgtyu6",
-            "created_at": "2026-01-22 11:29:14"
-        }
-    ]
+    "updates": []
 }

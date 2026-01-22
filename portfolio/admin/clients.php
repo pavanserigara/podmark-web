@@ -64,8 +64,7 @@
                             <?php echo htmlspecialchars($client['description']); ?>
                         </p>
                     </div>
-                    <form method="POST"
-                        onsubmit="return confirm('Deleting client will delete all its categories and media. Confirm?');">
+                    <form action="admin.php?view=clients" method="POST">
                         <input type="hidden" name="client_id" value="<?php echo $client['id']; ?>">
                         <button type="submit" name="delete_client" class="btn-admin btn-danger"
                             style="padding: 8px 16px; font-size: 0.8rem;">
@@ -78,7 +77,7 @@
                 <div
                     style="padding-left: 30px; border-left: 2px solid var(--light-grey); display: flex; flex-direction: column; gap: 10px;">
                     <?php
-                    $cats = $db->getCategoriesByClient($client['id']);
+                    $cats = $db->getCategories($client['id']);
                     foreach ($cats as $cat):
                         ?>
                         <div
@@ -86,7 +85,7 @@
                             <span style="font-size: 0.95rem;">
                                 <?php echo htmlspecialchars($cat['name']); ?>
                             </span>
-                            <form method="POST" onsubmit="return confirm('Delete this category and its media?');">
+                            <form action="admin.php?view=clients" method="POST">
                                 <input type="hidden" name="cat_id" value="<?php echo $cat['id']; ?>">
                                 <button type="submit" name="delete_cat" class="btn-admin btn-danger"
                                     style="padding: 6px 12px; font-size: 0.75rem; border: none;">

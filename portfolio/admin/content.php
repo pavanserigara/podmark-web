@@ -86,10 +86,11 @@
                         <?php endif; ?>
                         
                         <div class="gallery-actions">
-                            <form method="POST" onsubmit="return confirm('Delete this media file?');">
+                            <form action="admin.php?view=content" method="POST">
                                 <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
-                                <button type="submit" name="delete_media" class="btn-admin btn-danger" style="padding: 10px;">
-                                    <i class="fas fa-trash"></i>
+                                <input type="hidden" name="delete_media" value="1"> <!-- Hidden input for reliability -->
+                                <button type="submit" class="btn-admin btn-danger" style="padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 2px solid white;">
+                                    <i class="fas fa-trash-alt" style="font-size: 1.2rem;"></i>
                                 </button>
                             </form>
                         </div>
