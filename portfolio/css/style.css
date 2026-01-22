@@ -1006,12 +1006,34 @@ body::-webkit-scrollbar-thumb:hover {
 /* Reel Card with 9:16 Aspect Ratio */
 .gallery-card.reel-card {
     height: 0;
-    padding-bottom: 177.78%; /* 9:16 aspect ratio (16/9 * 100) */
+    padding-bottom: 177.78%;
+    /* 9:16 aspect ratio (16/9 * 100) */
     position: relative;
 }
 
 .gallery-card.reel-card .gallery-media-wrapper,
 .gallery-card.reel-card .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-grid.posters {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Poster Card with 4:5 Aspect Ratio */
+.gallery-card.poster-card {
+    height: 0;
+    padding-bottom: 125%;
+    /* 4:5 aspect ratio (5/4 * 100) */
+    position: relative;
+}
+
+.gallery-card.poster-card .gallery-media-wrapper,
+.gallery-card.poster-card .card-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -1365,236 +1387,257 @@ body::-webkit-scrollbar-thumb:hover {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-/* === RESPONSIVE === */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 5vw;
-    }
-    
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
+
+    /* === RESPONSIVE === */
+    @media (max-width: 1024px) {
+        .container {
+            padding: 0 5vw;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .side-scroll {
+            display: none;
+        }
     }
 
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .side-scroll {
-        display: none;
-    }
-}
+    @media (max-width: 768px) {
 
-@media (max-width: 768px) {
-    /* Critical Fix for Zoom & Width */
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-        position: relative;
+        /* Critical Fix for Zoom & Width */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .hero,
+        .section,
+        .footer,
+        .navbar {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .title-hero {
+            font-size: clamp(2rem, 10vw, 3rem);
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .section {
+            padding: 80px 0;
+            min-height: auto;
+            /* Allow content to dictate height but keep it substantial */
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 0 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .cta-group {
+            flex-direction: column;
+            width: 100%;
+            gap: 12px;
+            padding: 0;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px 24px;
+            font-size: 14px;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(14, 5, 22, 0.98);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2000;
+            padding: 60px 40px;
+        }
+
+        .nav-links.active {
+            right: 0;
+        }
+
+        .nav-links li a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .menu-close {
+            display: block;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 2001;
+        }
+
+        .about-lead {
+            font-size: 1.5rem;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .about-divider {
+            margin: 20px 0;
+        }
+
+        .client-block {
+            width: 100%;
+            padding: 0;
+            margin-bottom: 40px;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+        }
+
+        .client-header {
+            padding: 40px 20px 30px;
+        }
+
+        .title-client {
+            font-size: 1.8rem;
+        }
+
+        .category-block {
+            margin: 15px 0;
+            padding: 25px 20px;
+            border-radius: 0;
+            border-left: none;
+            border-right: none;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 0 15px 25px;
+        }
+
+        .gallery-card {
+            height: 400px;
+            border-radius: 12px;
+        }
+
+        .gallery-card.reel-card {
+            padding-bottom: 177.78%;
+            /* Maintain 9:16 ratio on mobile */
+            height: 0;
+        }
+
+        .gallery-card.poster-card {
+            padding-bottom: 125%;
+            /* Maintain 4:5 ratio on mobile */
+            height: 0;
+        }
+
+        .footer {
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            margin: 0 auto;
+        }
+
+        .footer-links a {
+            font-size: 0.9rem;
+            justify-content: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+        }
+
+        .project-title {
+            font-size: 16px;
+        }
     }
 
-    .hero, .section, .footer, .navbar {
-        width: 100%;
-        max-width: 100%;
-        overflow-x: hidden;
-        margin-left: 0;
-        margin-right: 0;
-    }
+    @media (max-width: 480px) {
+        .title-hero {
+            font-size: 2.22rem;
+        }
 
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 20px;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
+        .gallery-card {
+            height: 350px;
+        }
 
-    .title-hero {
-        font-size: clamp(2rem, 10vw, 3rem);
-        margin-bottom: 20px;
-        word-break: break-word;
-    }
+        .gallery-card.reel-card {
+            padding-bottom: 177.78%;
+            /* Maintain 9:16 ratio on small screens */
+            height: 0;
+        }
 
-    .hero-subtitle {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-        padding: 0 10px;
-    }
+        .gallery-card.poster-card {
+            padding-bottom: 125%;
+            /* Maintain 4:5 ratio on small screens */
+            height: 0;
+        }
 
-    .section {
-        padding: 80px 0;
-        min-height: auto; /* Allow content to dictate height but keep it substantial */
+        .nav-links li a {
+            font-size: 1.5rem;
+        }
     }
-
-    .hero {
-        min-height: 100vh;
-        padding: 120px 0 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .hero-content {
-        width: 100%;
-        padding: 0 20px;
-    }
-
-    .cta-group {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-        padding: 0;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 14px 24px;
-        font-size: 14px;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: rgba(14, 5, 22, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 2000;
-        padding: 60px 40px;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links li a {
-        font-size: 1.8rem;
-        font-weight: 800;
-        color: #fff;
-    }
-
-    .menu-close {
-        display: block;
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        font-size: 2rem;
-        color: #fff;
-        cursor: pointer;
-        padding: 10px;
-        z-index: 2001;
-    }
-
-    .about-lead {
-        font-size: 1.5rem;
-        line-height: 1.3;
-        margin-bottom: 20px;
-    }
-
-    .about-text {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 16px;
-    }
-
-    .about-divider {
-        margin: 20px 0;
-    }
-
-    .client-block {
-        width: 100%;
-        padding: 0;
-        margin-bottom: 40px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-    }
-
-    .client-header {
-        padding: 40px 20px 30px;
-    }
-
-    .title-client {
-        font-size: 1.8rem;
-    }
-
-    .category-block {
-        margin: 15px 0;
-        padding: 25px 20px;
-        border-radius: 0;
-        border-left: none;
-        border-right: none;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 15px 25px;
-    }
-
-    .gallery-card {
-        height: 400px;
-        border-radius: 12px;
-    }
-    
-    .gallery-card.reel-card {
-        padding-bottom: 177.78%; /* Maintain 9:16 ratio on mobile */
-        height: 0;
-    }
-
-    .footer {
-        padding: 80px 0 40px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .footer-brand p {
-        font-size: 0.95rem;
-        margin: 0 auto;
-    }
-
-    .footer-links a {
-        font-size: 0.9rem;
-        justify-content: center;
-    }
-
-    .footer-bottom p {
-        font-size: 0.8rem;
-    }
-
-    .project-title {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    .title-hero {
-        font-size: 2.22rem;
-    }
-    
-    .gallery-card {
-        height: 350px;
-    }
-    
-    .gallery-card.reel-card {
-        padding-bottom: 177.78%; /* Maintain 9:16 ratio on small screens */
-        height: 0;
-    }
-    
-    .nav-links li a {
-        font-size: 1.5rem;
-    }
-}

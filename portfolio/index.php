@@ -152,16 +152,24 @@ $portfolio_data = $db->getFullPortfolio();
                                     </h3>
 
                                     <!-- MEDIA GRID -->
-                                    <?php $isReelCategory = (stripos($category['name'], 'reel') !== false); ?>
-                                    <div class="gallery-grid <?php echo $isReelCategory ? 'reels' : ''; ?>">
+                                    <?php
+                                    $isReelCategory = (stripos($category['name'], 'reel') !== false);
+                                    $isPosterCategory = (stripos($category['name'], 'poster') !== false);
+                                    $gridClass = $isReelCategory ? 'reels' : ($isPosterCategory ? 'posters' : '');
+                                    ?>
+                                    <div class="gallery-grid <?php echo $gridClass; ?>">
                                         <?php foreach ($category['media'] as $item): ?>
-                                            <div class="gallery-card <?php echo $isReelCategory ? 'reel-card' : ''; ?>"
+                                            <?php
+                                            $cardClass = $isReelCategory ? 'reel-card' : ($isPosterCategory ? 'poster-card' : '');
+                                            ?>
+                                            <div class="gallery-card <?php echo $cardClass; ?>"
                                                 data-type="<?php echo $item['media_type']; ?>"
                                                 data-src="<?php echo htmlspecialchars($item['file_path']); ?>">
                                                 <div class="gallery-media-wrapper">
                                                     <?php if ($item['media_type'] === 'video'): ?>
                                                         <video src="<?php echo htmlspecialchars($item['file_path']); ?>" loop muted playsinline
-                                                            onmouseover="this.play()" onmouseout="this.pause()"></video>
+                                                            preload="metadata" onmouseover="this.play()"
+                                                            onmouseout="this.pause(); this.currentTime = 0;"></video>
                                                     <?php else: ?>
                                                         <img src="<?php echo htmlspecialchars($item['file_path']); ?>" loading="lazy"
                                                             alt="<?php echo htmlspecialchars($item['title'] ?: 'Project'); ?>">
