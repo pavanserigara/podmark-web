@@ -30,6 +30,10 @@
                 class="admin-nav-item <?php echo (isset($_GET['view']) && $_GET['view'] == 'updates') ? 'active' : ''; ?>">
                 <i class="fas fa-bullhorn"></i> Blog Updates
             </a>
+            <a href="admin.php?view=reset-password"
+                class="admin-nav-item <?php echo (isset($_GET['view']) && $_GET['view'] == 'reset-password') ? 'active' : ''; ?>">
+                <i class="fas fa-shield-alt"></i> Security
+            </a>
             <div style="margin-top: auto; height: 50px;"></div>
             <a href="index.php" target="_blank" class="admin-nav-item">
                 <i class="fas fa-external-link-alt"></i> View Site
@@ -46,5 +50,12 @@
                 style="background: rgba(40, 167, 69, 0.1); border: 1px solid var(--success); color: var(--success); padding: 20px; border-radius: 12px; margin-bottom: 30px;">
                 <i class="fas fa-check-circle"></i>
                 <?php echo $msg; ?>
+            </div>
+        <?php endif; ?>
+        <?php if (isset($error) && $error): ?>
+            <div
+                style="background: rgba(220, 53, 69, 0.1); border: 1px solid var(--danger); color: var(--danger); padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <?php echo $error; ?>
             </div>
         <?php endif; ?>

@@ -68,4 +68,18 @@ CREATE TABLE `updates` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Seed default admin (password: podmark2025)
+INSERT INTO `users` (`username`, `password`) VALUES ('admin', '$2y$10$w8.B8E.Ushf/pG.Wp5e3G.058rVzLhFp8H7zGqXn4Ld2E5qA7p2G.');
+
 COMMIT;

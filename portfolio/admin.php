@@ -5,11 +5,9 @@ session_start();
 $upload_max = ini_get('upload_max_filesize');
 $post_max = ini_get('post_max_size');
 
-$PASS = 'podmark2025';
-
 // Auth Logic
 if (isset($_POST['login'])) {
-    if ($_POST['password'] === $PASS) {
+    if ($db->login($_POST['password'])) {
         $_SESSION['admin'] = true;
     } else {
         $error = "Incorrect password.";
@@ -84,6 +82,18 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['delete_update'])) {
         $db->deleteUpdate($_POST['update_id']);
         $msg = "Update deleted.";
+    }
+    if (isset($_POST['change_password'])) {
+        if ($db->login($_POST['current_pass'])) {
+            if (!empty($_POST['new_pass'])) {
+                $db->updatePassword($_POST['new_pass']);
+                $msg = "Password updated successfully.";
+            } else {
+                $error = "New password cannot be empty.";
+            }
+        } else {
+            $error = "Current password incorrect.";
+        }
     }
 }
 

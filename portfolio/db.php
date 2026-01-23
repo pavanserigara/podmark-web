@@ -32,6 +32,25 @@ class Database
         }
     }
 
+    // --- AUTH ---
+    public function login($password)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM users WHERE username = 'admin' LIMIT 1");
+        $stmt->execute();
+        $user = $stmt->fetch();
+        if ($user && password_verify($password, $user['password'])) {
+            return true;
+        }
+        return false;
+    }
+
+    public function updatePassword($new_password)
+    {
+        $hash = password_hash($new_password, PASSWORD_DEFAULT);
+        $stmt = $this->pdo->prepare("UPDATE users SET password = ? WHERE username = 'admin'");
+        return $stmt->execute([$hash]);
+    }
+
     // --- CLIENTS ---
     public function getClients()
     {
@@ -54,6 +73,17 @@ class Database
 
     public function deleteClient($id)
     {
+        // Delete all files associated with this client's media
+        $stmt = $this->pdo->prepare("SELECT m.file_path, m.thumbnail FROM media m JOIN categories c ON m.category_id = c.id WHERE c.client_id = ?");
+        $stmt->execute([$id]);
+        $mediaBatch = $stmt->fetchAll();
+        foreach ($mediaBatch as $m) {
+            if (!empty($m['file_path']) && file_exists(__DIR__ . '/' . $m['file_path']))
+                @unlink(__DIR__ . '/' . $m['file_path']);
+            if (!empty($m['thumbnail']) && file_exists(__DIR__ . '/' . $m['thumbnail']))
+                @unlink(__DIR__ . '/' . $m['thumbnail']);
+        }
+
         $stmt = $this->pdo->prepare("DELETE FROM clients WHERE id = ?");
         return $stmt->execute([$id]);
     }
@@ -85,6 +115,17 @@ class Database
 
     public function deleteCategory($id)
     {
+        // Delete files associated with this category's media
+        $stmt = $this->pdo->prepare("SELECT file_path, thumbnail FROM media WHERE category_id = ?");
+        $stmt->execute([$id]);
+        $mediaBatch = $stmt->fetchAll();
+        foreach ($mediaBatch as $m) {
+            if (!empty($m['file_path']) && file_exists(__DIR__ . '/' . $m['file_path']))
+                @unlink(__DIR__ . '/' . $m['file_path']);
+            if (!empty($m['thumbnail']) && file_exists(__DIR__ . '/' . $m['thumbnail']))
+                @unlink(__DIR__ . '/' . $m['thumbnail']);
+        }
+
         $stmt = $this->pdo->prepare("DELETE FROM categories WHERE id = ?");
         return $stmt->execute([$id]);
     }
@@ -106,11 +147,16 @@ class Database
 
     public function deleteMedia($id)
     {
-        $stmt = $this->pdo->prepare("SELECT file_path FROM media WHERE id = ?");
+        $stmt = $this->pdo->prepare("SELECT file_path, thumbnail FROM media WHERE id = ?");
         $stmt->execute([$id]);
         $m = $stmt->fetch();
-        if ($m && file_exists(__DIR__ . '/' . $m['file_path'])) {
-            @unlink(__DIR__ . '/' . $m['file_path']);
+        if ($m) {
+            if (!empty($m['file_path']) && file_exists(__DIR__ . '/' . $m['file_path'])) {
+                @unlink(__DIR__ . '/' . $m['file_path']);
+            }
+            if (!empty($m['thumbnail']) && file_exists(__DIR__ . '/' . $m['thumbnail'])) {
+                @unlink(__DIR__ . '/' . $m['thumbnail']);
+            }
         }
 
         $stmt = $this->pdo->prepare("DELETE FROM media WHERE id = ?");
