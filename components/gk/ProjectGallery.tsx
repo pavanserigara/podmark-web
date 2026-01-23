@@ -8,8 +8,8 @@ const ProjectGallery: React.FC = () => {
     <section id="gallery" className="py-32 px-6 bg-podDark overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center lg:text-left">
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter">Project <span className="text-impact">Visuals.</span></h2>
-          <p className="text-slate-400 text-xl max-w-2xl">A glimpse into the high-performance environments and architectural designs I've delivered.</p>
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tighter">Gallery <span className="text-impact"></span></h2>
+
         </div>
 
         <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
