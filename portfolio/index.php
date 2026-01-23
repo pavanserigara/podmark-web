@@ -254,7 +254,7 @@ $portfolio_data = $db->getFullPortfolio();
                     <div class="footer-brand">
                         <h2>PODMARK</h2>
                         <p>
-                            We create impact. Bespoke digital solutions for ambitious brands.
+                            “We Don’t Just Market, We Create Impact.”
                         </p>
                     </div>
 
@@ -264,8 +264,10 @@ $portfolio_data = $db->getFullPortfolio();
                         <ul class="footer-links">
                             <li><a href="#work"><i class="fas fa-chevron-right"
                                         style="font-size: 0.7rem; margin-right: 8px;"></i> Selected Work</a></li>
-                            <li><a href="#about"><i class="fas fa-chevron-right"
-                                        style="font-size: 0.7rem; margin-right: 8px;"></i> About Us</a></li>
+                            <li><a href="#story"><i class="fas fa-chevron-right"
+                                        style="font-size: 0.7rem; margin-right: 8px;"></i> Our Story</a></li>
+                            <li><a href="blog.php"><i class="fas fa-chevron-right"
+                                        style="font-size: 0.7rem; margin-right: 8px;"></i> Agency Blog</a></li>
                             <li><a href="admin.php"><i class="fas fa-chevron-right"
                                         style="font-size: 0.7rem; margin-right: 8px;"></i> Admin Portal</a></li>
                         </ul>
@@ -275,14 +277,15 @@ $portfolio_data = $db->getFullPortfolio();
                     <div>
                         <h4 class="footer-head">Connect</h4>
                         <ul class="footer-links">
-                            <li><a href="mailto:hello@podmark.agency"><i class="fas fa-envelope"></i>
-                                    hello@podmark.agency</a></li>
-                            <li><a href="https://instagram.com/podmark" target="_blank"><i class="fab fa-instagram"></i>
+                            <li><a href="mailto:sales@podmark.in"><i class="fas fa-envelope"></i>
+                                    sales@podmark.in</a></li>
+                            <li><a href="https://wa.me/918105575795" target="_blank"><i class="fab fa-whatsapp"></i>
+                                    WhatsApp</a></li>
+                            <li><a href="https://www.instagram.com/podmark_udupi/" target="_blank"><i
+                                        class="fab fa-instagram"></i>
                                     Instagram</a></li>
-                            <li><a href="https://linkedin.com/company/podmark" target="_blank"><i
-                                        class="fab fa-linkedin"></i> LinkedIn</a></li>
-                            <li><a href="https://twitter.com/podmark" target="_blank"><i class="fab fa-twitter"></i>
-                                    Twitter</a></li>
+                            <li><a href="https://www.facebook.com/people/Podmark-Udupi/61577674136463/#"
+                                    target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
                         </ul>
                     </div>
                 </div>

@@ -1093,7 +1093,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .gallery-card:hover {
-    transform: translateY(-5px);
     border-color: var(--podPurple);
     box-shadow: none;
 }
@@ -1115,7 +1114,6 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .gallery-card:hover {
-    transform: translateY(-10px) scale(1.02);
     border-color: var(--podPurple);
     box-shadow: none;
 }
@@ -1130,7 +1128,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .gallery-card:hover .gallery-media-wrapper {
-    transform: scale(1.1);
+    transform: none;
 }
 
 
@@ -1156,7 +1154,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .gallery-card:hover img,
 .gallery-card:hover video {
-    transform: scale(1.1);
+    transform: none;
 }
 
 /* Info Overlay */

@@ -244,11 +244,52 @@ if (isset($_GET['id'])) {
     <?php endif; ?>
 
     <!-- FOOTER -->
-    <footer class="footer" style="margin-top: 100px;">
+    <footer id="contact" class="footer" style="margin-top: 100px;">
         <div class="container">
+            <div class="footer-grid">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <h2>PODMARK</h2>
+                    <p>
+                        “We Don’t Just Market, We Create Impact.”
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-head">Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.php#work"><i class="fas fa-chevron-right"
+                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Selected Work</a></li>
+                        <li><a href="index.php#story"><i class="fas fa-chevron-right"
+                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Our Story</a></li>
+                        <li><a href="blog.php"><i class="fas fa-chevron-right"
+                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Agency Blog</a></li>
+                        <li><a href="admin.php"><i class="fas fa-chevron-right"
+                                    style="font-size: 0.7rem; margin-right: 8px;"></i> Admin Portal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-head">Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:sales@podmark.in"><i class="fas fa-envelope"></i>
+                                sales@podmark.in</a></li>
+                        <li><a href="https://wa.me/918105575795" target="_blank"><i class="fab fa-whatsapp"></i>
+                                WhatsApp</a></li>
+                        <li><a href="https://www.instagram.com/podmark_udupi/" target="_blank"><i
+                                    class="fab fa-instagram"></i>
+                                Instagram</a></li>
+                        <li><a href="https://www.facebook.com/people/Podmark-Udupi/61577674136463/#" target="_blank"><i
+                                    class="fab fa-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy;
-                    <?php echo date('Y'); ?> PODMARK. All rights reserved.
+                <p>
+                    <i class="fas fa-copyright"></i> 2025 PODMARK Digital Agency. All rights reserved.
                 </p>
             </div>
         </div>
