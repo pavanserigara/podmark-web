@@ -22,7 +22,7 @@ if (isset($_GET['logout'])) {
 }
 
 $is_auth = isset($_SESSION['admin']);
-$msg = "";
+$msg = $_GET['msg'] ?? "";
 
 // Handle Actions
 if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {

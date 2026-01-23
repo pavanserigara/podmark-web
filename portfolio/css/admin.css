@@ -330,3 +330,36 @@ body {
     max-width: 450px;
     text-align: center;
 }
+
+/* Progress Bar */
+.progress-container {
+    margin-top: 25px;
+    display: none;
+}
+
+.progress-bar-bg {
+    background: var(--grey);
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.progress-bar-fill {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    width: 0%;
+    height: 100%;
+    transition: width 0.2s ease;
+    box-shadow: 0 0 10px rgba(189, 153, 112, 0.4);
+}
+
+.progress-info {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}

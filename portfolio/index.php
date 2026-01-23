@@ -168,9 +168,14 @@ $portfolio_data = $db->getFullPortfolio();
                                                 data-src="<?php echo htmlspecialchars($item['file_path']); ?>">
                                                 <div class="gallery-media-wrapper">
                                                     <?php if ($item['media_type'] === 'video'): ?>
-                                                        <video src="<?php echo htmlspecialchars($item['file_path']); ?>#t=15" loop muted
-                                                            playsinline preload="metadata" onmouseover="this.play()"
-                                                            onmouseout="this.pause(); this.currentTime = 0;"></video>
+                                                        <video
+                                                            src="<?php echo htmlspecialchars($item['file_path']); ?><?php echo empty($item['thumbnail']) ? '#t=15' : ''; ?>"
+                                                            loop muted playsinline preload="metadata"
+                                                            onmouseover="<?php echo !empty($item['thumbnail']) ? 'this.currentTime = 15;' : ''; ?> this.play();"
+                                                            onmouseout="this.pause(); <?php echo !empty($item['thumbnail']) ? 'this.load();' : 'this.currentTime = 15;'; ?>"
+                                                            data-poster="<?php echo !empty($item['thumbnail']) ? htmlspecialchars($item['thumbnail']) : ''; ?>"
+                                                            <?php if (!empty($item['thumbnail']))
+                                                                echo 'poster="' . htmlspecialchars($item['thumbnail']) . '"'; ?>></video>
                                                     <?php else: ?>
                                                         <img src="<?php echo htmlspecialchars($item['file_path']); ?>" loading="lazy"
                                                             alt="<?php echo htmlspecialchars($item['title'] ?: 'Project'); ?>">
@@ -361,6 +366,8 @@ $portfolio_data = $db->getFullPortfolio();
                         video.src = src;
                         video.controls = true;
                         video.autoplay = true;
+                        const poster = card.querySelector('video').getAttribute('data-poster');
+                        if (poster) video.setAttribute('poster', poster);
                         video.style.maxWidth = '100%';
                         video.style.maxHeight = '90vh';
                         video.style.borderRadius = '12px';
