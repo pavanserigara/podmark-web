@@ -9,45 +9,52 @@
         <div class="grid-2">
             <div>
                 <div class="form-group">
-                    <label class="form-label">Target Category</label>
-                    <select name="cat_id" class="form-input" required>
-                        <option value="">Select Category...</option>
+                    <label class="form-label">Step 1: Select Client</label>
+                    <select id="client_select" class="form-input" required onchange="updateCategories()">
+                        <option value="">Choose Client...</option>
                         <?php
-                        $pf = $db->getFullPortfolio();
-                        foreach ($pf as $entry) {
-                            echo "<optgroup label='" . htmlspecialchars($entry['client']['name']) . "'>";
-                            foreach ($entry['categories'] as $cat) {
-                                echo "<option value='{$cat['id']}'>" . htmlspecialchars($cat['name']) . "</option>";
-                            }
-                            echo "</optgroup>";
-                        }
+                        $clients = $db->getClients();
+                        $cat_data = [];
+                        foreach ($clients as $client):
+                            $cats = $db->getCategories($client['id']);
+                            $cat_data[$client['id']] = $cats;
                         ?>
+                            <option value="<?php echo $client['id']; ?>"><?php echo htmlspecialchars($client['name']); ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
+
                 <div class="form-group">
-                    <label class="form-label">Media Type</label>
-                    <select name="type" class="form-input" required>
-                        <option value="video">Video (MP4)</option>
-                        <option value="image">Image (JPG/PNG)</option>
+                    <label class="form-label">Step 2: Select Category</label>
+                    <select name="cat_id" id="category_select" class="form-input" required disabled onchange="handleCategoryLogic()">
+                        <option value="">First select a client...</option>
                     </select>
                 </div>
+
+                <div class="form-group">
+                    <label class="form-label">Media Type (Auto-detected)</label>
+                    <div id="media_type_display" style="background: rgba(255,255,255,0.05); padding: 14px 20px; border-radius: 12px; border: 1px solid var(--grey); color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Select category...
+                    </div>
+                    <input type="hidden" name="type" id="media_type_hidden" value="image">
+                </div>
+            </div>
+
+            <div>
                 <div class="form-group">
                     <label class="form-label">Project Title</label>
                     <input type="text" name="title" class="form-input" placeholder="e.g. Summer Campaign 2025">
                 </div>
-            </div>
-            <div>
                 <div class="form-group">
                     <label class="form-label">Select Media Files</label>
-                    <input type="file" name="files[]" multiple required class="form-input" accept="image/*,video/*">
-                    <small style="color: var(--text-muted);">You can select multiple files.</small>
+                    <input type="file" name="files[]" id="file_input" multiple required class="form-input">
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="thumb_group" style="display: none;">
                     <label class="form-label">Video Thumbnail (Optional)</label>
                     <input type="file" name="thumbnail" class="form-input" accept="image/*">
-                    <small style="color: var(--text-muted);">Custom preview image for videos.</small>
+                    <small style="color: var(--text-muted);">Required for high-end video previews.</small>
                 </div>
-                <div style="margin-top: 40px;">
+                <div style="margin-top: 30px;">
                     <button type="submit" name="upload" class="btn-admin btn-primary" style="width: 100%;">
                         <i class="fas fa-cloud-upload-alt"></i> Start Upload
                     </button>
@@ -57,16 +64,74 @@
     </form>
 </div>
 
+<script>
+    const categoryMapping = <?php echo json_encode($cat_data); ?>;
+
+    function updateCategories() {
+        const client_id = document.getElementById('client_select').value;
+        const catSelect = document.getElementById('category_select');
+        
+        catSelect.innerHTML = '<option value="">Choose Category...</option>';
+        
+        if (client_id && categoryMapping[client_id]) {
+            catSelect.disabled = false;
+            categoryMapping[client_id].forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat.id;
+                opt.dataset.name = cat.name.toLowerCase();
+                opt.textContent = cat.name.charAt(0).toUpperCase() + cat.name.slice(1);
+                catSelect.appendChild(opt);
+            });
+        } else {
+            catSelect.disabled = true;
+            catSelect.innerHTML = '<option value="">First select a client...</option>';
+            resetLogic();
+        }
+    }
+
+    function handleCategoryLogic() {
+        const catSelect = document.getElementById('category_select');
+        const selectedOption = catSelect.options[catSelect.selectedIndex];
+        const categoryName = selectedOption.dataset.name || "";
+        
+        const typeDisplay = document.getElementById('media_type_display');
+        const typeHidden = document.getElementById('media_type_hidden');
+        const thumbGroup = document.getElementById('thumb_group');
+        const fileInput = document.getElementById('file_input');
+
+        if (categoryName === 'reels') {
+            typeDisplay.innerHTML = '<i class="fas fa-video"></i> VIDEO (MP4)';
+            typeHidden.value = 'video';
+            thumbGroup.style.display = 'block';
+            fileInput.accept = 'video/mp4,video/x-m4v,video/*';
+        } else if (categoryName === 'poster') {
+            typeDisplay.innerHTML = '<i class="fas fa-image"></i> IMAGE (JPG/PNG)';
+            typeHidden.value = 'image';
+            thumbGroup.style.display = 'none';
+            fileInput.accept = 'image/*';
+        } else {
+            resetLogic();
+        }
+    }
+
+    function resetLogic() {
+        document.getElementById('media_type_display').textContent = 'Select category...';
+        document.getElementById('thumb_group').style.display = 'none';
+        document.getElementById('file_input').accept = '';
+    }
+</script>
+
 <div class="admin-card">
     <h3 class="card-title">Gallery Management</h3>
     <?php
     $pf = $db->getFullPortfolio();
+    if (empty($pf)) echo "<p style='color: var(--text-muted);'>No media found.</p>";
     foreach ($pf as $entry):
         foreach ($entry['categories'] as $cat):
             if (empty($cat['media'])) continue;
     ?>
         <div style="margin-bottom: 40px;">
-            <h5 style="color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid var(--grey); padding-bottom: 10px;">
+            <h5 style="color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid var(--grey); padding-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">
                 <?php echo htmlspecialchars($entry['client']['name']); ?> / <?php echo htmlspecialchars($cat['name']); ?>
             </h5>
             <div class="admin-gallery">
@@ -88,7 +153,7 @@
                         <div class="gallery-actions">
                             <form action="admin.php?view=content" method="POST">
                                 <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
-                                <input type="hidden" name="delete_media" value="1"> <!-- Hidden input for reliability -->
+                                <input type="hidden" name="delete_media" value="1">
                                 <button type="submit" class="btn-admin btn-danger" style="padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 2px solid white;">
                                     <i class="fas fa-trash-alt" style="font-size: 1.2rem;"></i>
                                 </button>

@@ -10,11 +10,6 @@
     ],
     "categories": [
         {
-            "id": 3,
-            "client_id": 2,
-            "name": "reels"
-        },
-        {
             "id": 4,
             "client_id": 1,
             "name": "reels"

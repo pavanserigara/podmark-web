@@ -1,52 +1,71 @@
--- Drop old tables if they exist to start fresh with the new structure
-DROP TABLE IF EXISTS media;
-DROP TABLE IF EXISTS categories;
-DROP TABLE IF EXISTS clients;
-DROP TABLE IF EXISTS site_updates;
+-- Podmark Database Export
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
--- Clients Table
-CREATE TABLE clients (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- --------------------------------------------------------
 
--- Categories within each client (e.g., Posters, Reels, Branding)
-CREATE TABLE categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    client_id INT NOT NULL,
-    name VARCHAR(100) NOT NULL,
-    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
-);
+--
+-- Table structure for table `clients`
+--
 
--- Media files for each category
-CREATE TABLE media (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    category_id INT NOT NULL,
-    file_path VARCHAR(255) NOT NULL,
-    media_type ENUM('image', 'video') DEFAULT 'image',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
-);
+CREATE TABLE `clients` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `logo` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Site Updates (for the news/blog section)
-CREATE TABLE site_updates (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    content TEXT NOT NULL,
-    image_url VARCHAR(255),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+-- --------------------------------------------------------
 
--- Sample Data for Initial Look
-INSERT INTO clients (name, description) VALUES ('BOUGAINVILLEA HOMESTAY', 'A premium homestay experience nestled in nature.');
-SET @client_id = LAST_INSERT_ID();
+--
+-- Table structure for table `categories`
+--
 
-INSERT INTO categories (client_id, name) VALUES (@client_id, 'Posters');
-SET @cat_id = LAST_INSERT_ID();
+CREATE TABLE `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `client_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `client_id` (`client_id`),
+  CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Using placeholders for media until actual files are uploaded
-INSERT INTO media (category_id, file_path) VALUES (@cat_id, 'https://images.unsplash.com/photo-1602322624020-6e4359629671?auto=format&fit=crop&q=80');
-INSERT INTO media (category_id, file_path) VALUES (@cat_id, 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&q=80');
-INSERT INTO media (category_id, file_path) VALUES (@cat_id, 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80');
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `media`
+--
+
+CREATE TABLE `media` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category_id` int(11) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `media_type` varchar(50) NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
+  `description` text DEFAULT NULL,
+  `thumbnail` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `category_id` (`category_id`),
+  CONSTRAINT `media_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `updates`
+--
+
+CREATE TABLE `updates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+COMMIT;

@@ -1,4 +1,38 @@
-php_value upload_max_filesize 100M
-php_value post_max_size 100M
-php_value max_execution_time 300
-php_value max_input_time 300
+# Podmark - Production Server Settings (Optimized for Hostinger)
+
+# 1. PHP PHP Environment Settings
+<IfModule mod_php.c>
+    php_value upload_max_filesize 100M
+    php_value post_max_size 100M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+    php_value memory_limit 256M
+</IfModule>
+
+# 2. Security: Prevent directory listing
+Options -Indexes
+
+# 3. Security: Protect sensitive files
+<FilesMatch "^\.|\.json$|\.sql$|config\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 4. Enable Gzip Compression (if supported)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# 5. Handle trailing slashes and basic canonicalization
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+# RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [L,R=301]

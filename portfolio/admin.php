@@ -28,8 +28,11 @@ $msg = "";
 if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
     // --- CREATE ACTIONS ---
     if (isset($_POST['add_client'])) {
-        $db->addClient($_POST['name'], $_POST['desc']);
-        $msg = "Client added successfully.";
+        $client_id = $db->addClient($_POST['name'], $_POST['desc']);
+        // Automatically add fixed categories
+        $db->addCategory($client_id, 'poster');
+        $db->addCategory($client_id, 'reels');
+        $msg = "Client added with Poster and Reels categories.";
     }
     if (isset($_POST['add_cat'])) {
         $db->addCategory($_POST['client_id'], $_POST['cat_name']);

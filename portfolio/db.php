@@ -1,267 +1,154 @@
 <?php
-// JSON Database Helper
-// Replaces SQLite/MySQL to work on ANY PHP setup (even without drivers)
+// PODMARK DATABASE CONFIGURATION
+require_once 'config.php';
 
-class JsonDB
+class Database
 {
-     private $file;
-     private $data;
+    private $host = DB_HOST;
+    private $db = DB_NAME;
+    private $user = DB_USER;
+    private $pass = DB_PASS;
+    private $charset = 'utf8mb4';
+    private $pdo;
 
-     public function __construct($filename = 'data.json')
-     {
-          $this->file = __DIR__ . '/' . $filename;
-          if (!file_exists($this->file)) {
-               // Initialize with empty structure
-               $this->data = [
-                    'clients' => [],
-                    'categories' => [],
-                    'media' => [],
-                    'updates' => []
-               ];
-               $this->save();
-          } else {
-               $this->data = json_decode(file_get_contents($this->file), true);
-          }
-     }
+    public function __construct()
+    {
+        $dsn = "mysql:host=$this->host;dbname=$this->db;charset=$this->charset";
+        $options = [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ];
 
-     private function save()
-     {
-          file_put_contents($this->file, json_encode($this->data, JSON_PRETTY_PRINT));
-     }
+        try {
+            $this->pdo = new PDO($dsn, $this->user, $this->pass, $options);
+        } catch (\PDOException $e) {
+            // Check if local or production for error message
+            if (defined('DB_NAME') && in_array($_SERVER['REMOTE_ADDR'], ['127.0.0.1', '::1'])) {
+                die("Database connection failed. Please ensure MySQL is running and you have imported database.sql into " . DB_NAME . ". Error: " . $e->getMessage());
+            } else {
+                die("Database Connection Error. Please verify your Hostinger DB credentials in config.php. Specific Error: " . $e->getMessage());
+            }
+        }
+    }
 
-     // --- GENERIC ID GENERATOR ---
-     private function nextId($table)
-     {
-          if (empty($this->data[$table]))
-               return 1;
-          $max = 0;
-          foreach ($this->data[$table] as $item) {
-               if ($item['id'] > $max)
-                    $max = $item['id'];
-          }
-          return $max + 1;
-     }
+    // --- CLIENTS ---
+    public function getClients()
+    {
+        $stmt = $this->pdo->query("SELECT * FROM clients ORDER BY id DESC");
+        return $stmt->fetchAll();
+    }
 
-     // --- CLIENTS ---
-     public function getClients()
-     {
-          // Sort by id desc (newest first)
-          $c = $this->data['clients'];
-          usort($c, function ($a, $b) {
-               return $b['id'] - $a['id'];
-          });
-          return $c;
-     }
+    public function addClient($name, $desc, $logo_url = '')
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO clients (name, description, logo) VALUES (?, ?, ?)");
+        $stmt->execute([$name, $desc, $logo_url]);
+        return $this->pdo->lastInsertId();
+    }
 
-     public function addClient($name, $desc, $logo_url = '')
-     {
-          $new = [
-               'id' => $this->nextId('clients'),
-               'name' => $name,
-               'description' => $desc,
-               'logo' => $logo_url,
-               'created_at' => date('Y-m-d H:i:s')
-          ];
-          $this->data['clients'][] = $new;
-          $this->save();
-          return $new;
-     }
+    public function editClient($id, $name, $desc)
+    {
+        $stmt = $this->pdo->prepare("UPDATE clients SET name = ?, description = ? WHERE id = ?");
+        return $stmt->execute([$name, $desc, $id]);
+    }
 
-     // --- CATEGORIES ---
-     public function getCategories($client_id = null)
-     {
-          if ($client_id === null)
-               return $this->data['categories'];
+    public function deleteClient($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM clients WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
 
-          return array_filter($this->data['categories'], function ($c) use ($client_id) {
-               return $c['client_id'] == $client_id;
-          });
-     }
+    // --- CATEGORIES ---
+    public function getCategories($client_id = null)
+    {
+        if ($client_id === null) {
+            $stmt = $this->pdo->query("SELECT * FROM categories");
+        } else {
+            $stmt = $this->pdo->prepare("SELECT * FROM categories WHERE client_id = ?");
+            $stmt->execute([$client_id]);
+        }
+        return $stmt->fetchAll();
+    }
 
-     public function getCategoriesByClient($client_id)
-     {
-          return $this->getCategories($client_id);
-     }
+    public function addCategory($client_id, $name)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO categories (client_id, name) VALUES (?, ?)");
+        $stmt->execute([$client_id, $name]);
+        return $this->pdo->lastInsertId();
+    }
 
-     public function addCategory($client_id, $name)
-     {
-          $new = [
-               'id' => $this->nextId('categories'),
-               'client_id' => (int) $client_id,
-               'name' => $name
-          ];
-          $this->data['categories'][] = $new;
-          $this->save();
-          return $new;
-     }
+    public function editCategory($id, $name)
+    {
+        $stmt = $this->pdo->prepare("UPDATE categories SET name = ? WHERE id = ?");
+        return $stmt->execute([$name, $id]);
+    }
 
-     // --- MEDIA ---
-     public function getMedia($category_id)
-     {
-          $m = array_filter($this->data['media'], function ($item) use ($category_id) {
-               return $item['category_id'] == $category_id;
-          });
-          // Reset keys
-          return array_values($m);
-     }
+    public function deleteCategory($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM categories WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
 
-     public function addMedia($category_id, $file_path, $type, $title = '', $link = '', $desc = '', $thumbnail = '')
-     {
-          $new = [
-               'id' => $this->nextId('media'),
-               'category_id' => (int) $category_id,
-               'file_path' => $file_path,
-               'media_type' => $type,
-               'title' => $title,
-               'link' => $link,
-               'description' => $desc,
-               'thumbnail' => $thumbnail,
-               'created_at' => date('Y-m-d H:i:s')
-          ];
-          $this->data['media'][] = $new;
-          $this->save();
-          return $new;
-     }
+    // --- MEDIA ---
+    public function getMedia($category_id)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM media WHERE category_id = ?");
+        $stmt->execute([$category_id]);
+        return $stmt->fetchAll();
+    }
 
-     // --- UPDATES ---
-     public function getUpdates()
-     {
-          $u = $this->data['updates'];
-          usort($u, function ($a, $b) {
-               return strtotime($b['created_at']) - strtotime($a['created_at']);
-          });
-          return $u;
-     }
+    public function addMedia($category_id, $file_path, $type, $title = '', $link = '', $desc = '', $thumbnail = '')
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO media (category_id, file_path, media_type, title, link, description, thumbnail) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$category_id, $file_path, $type, $title, $link, $desc, $thumbnail]);
+        return $this->pdo->lastInsertId();
+    }
 
-     public function addUpdate($title, $content)
-     {
-          $new = [
-               'id' => $this->nextId('updates'),
-               'title' => $title,
-               'content' => $content,
-               'created_at' => date('Y-m-d H:i:s')
-          ];
-          $this->data['updates'][] = $new;
-          $this->save();
-          return $new;
-     }
+    public function deleteMedia($id)
+    {
+        $stmt = $this->pdo->prepare("SELECT file_path FROM media WHERE id = ?");
+        $stmt->execute([$id]);
+        $m = $stmt->fetch();
+        if ($m && file_exists(__DIR__ . '/' . $m['file_path'])) {
+            @unlink(__DIR__ . '/' . $m['file_path']);
+        }
 
-     public function deleteUpdate($id)
-     {
-          $id = (int) $id;
-          $this->data['updates'] = array_values(array_filter($this->data['updates'], function ($u) use ($id) {
-               return $u['id'] != $id;
-          }));
-          $this->save();
-     }
+        $stmt = $this->pdo->prepare("DELETE FROM media WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
 
-     // --- DELETE METHODS ---
-     public function deleteClient($id)
-     {
-          // Remove client
-          $this->data['clients'] = array_values(array_filter($this->data['clients'], function ($c) use ($id) {
-               return $c['id'] != $id;
-          }));
+    // --- UPDATES ---
+    public function getUpdates()
+    {
+        $stmt = $this->pdo->query("SELECT * FROM updates ORDER BY created_at DESC");
+        return $stmt->fetchAll();
+    }
 
-          // Find categories to delete
-          $cats_to_delete = [];
-          $this->data['categories'] = array_values(array_filter($this->data['categories'], function ($c) use ($id, &$cats_to_delete) {
-               if ($c['client_id'] == $id) {
-                    $cats_to_delete[] = $c['id'];
-                    return false;
-               }
-               return true;
-          }));
+    public function addUpdate($title, $content)
+    {
+        $stmt = $this->pdo->prepare("INSERT INTO updates (title, content) VALUES (?, ?)");
+        $stmt->execute([$title, $content]);
+        return $this->pdo->lastInsertId();
+    }
 
-          // Remove associated media
-          $this->data['media'] = array_values(array_filter($this->data['media'], function ($m) use ($cats_to_delete) {
-               if (in_array($m['category_id'], $cats_to_delete)) {
-                    if (file_exists(__DIR__ . '/' . $m['file_path'])) {
-                         @unlink(__DIR__ . '/' . $m['file_path']);
-                    }
-                    return false;
-               }
-               return true;
-          }));
+    public function deleteUpdate($id)
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM updates WHERE id = ?");
+        return $stmt->execute([$id]);
+    }
 
-          $this->save();
-     }
-
-     public function deleteMedia($id)
-     {
-          $id = (int) $id;
-          $this->data['media'] = array_values(array_filter($this->data['media'], function ($m) use ($id) {
-               if ($m['id'] == $id) {
-                    if (file_exists(__DIR__ . '/' . $m['file_path'])) {
-                         @unlink(__DIR__ . '/' . $m['file_path']);
-                    }
-                    return false;
-               }
-               return true;
-          }));
-          $this->save();
-     }
-
-     public function deleteCategory($id)
-     {
-          $id = (int) $id;
-          // Remove category
-          $this->data['categories'] = array_values(array_filter($this->data['categories'], function ($c) use ($id) {
-               return $c['id'] != $id;
-          }));
-
-          // Remove associated media
-          $this->data['media'] = array_values(array_filter($this->data['media'], function ($m) use ($id) {
-               if ($m['category_id'] == $id) {
-                    if (file_exists(__DIR__ . '/' . $m['file_path'])) {
-                         @unlink(__DIR__ . '/' . $m['file_path']);
-                    }
-                    return false;
-               }
-               return true;
-          }));
-          $this->save();
-     }
-
-     public function editClient($id, $name, $desc)
-     {
-          $id = (int) $id;
-          foreach ($this->data['clients'] as &$c) {
-               if ($c['id'] == $id) {
-                    $c['name'] = $name;
-                    $c['description'] = $desc;
-                    break;
-               }
-          }
-          $this->save();
-     }
-
-     public function editCategory($id, $name)
-     {
-          $id = (int) $id;
-          foreach ($this->data['categories'] as &$c) {
-               if ($c['id'] == $id) {
-                    $c['name'] = $name;
-                    break;
-               }
-          }
-          $this->save();
-     }
-
-     // --- Helper to get full tree for frontend ---
-     public function getFullPortfolio()
-     {
-          $clients = $this->getClients();
-          foreach ($clients as &$client) {
-               $client['categories'] = $this->getCategories($client['id']);
-               foreach ($client['categories'] as &$cat) {
-                    $cat['media'] = $this->getMedia($cat['id']);
-               }
-          }
-          return $clients;
-     }
+    // --- Helper ---
+    public function getFullPortfolio()
+    {
+        $clients = $this->getClients();
+        foreach ($clients as &$client) {
+            $client['categories'] = $this->getCategories($client['id']);
+            foreach ($client['categories'] as &$cat) {
+                $cat['media'] = $this->getMedia($cat['id']);
+            }
+        }
+        return $clients;
+    }
 }
 
-// Global instance
-$db = new JsonDB();
-?>
+$db = new Database();
