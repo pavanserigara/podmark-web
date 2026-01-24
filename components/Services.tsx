@@ -70,7 +70,7 @@ const SERVICES = [
     features: ["Editorial Glow", "Cinematic Noir", "Motion Storytelling", "Event Coverage"],
     accent: "podPurple",
     category: "VISUAL",
-    image: "imgs/wed.jpg",
+    image: "/images/wed.avif",
     link: "/wedding-shoots"
   },
   {

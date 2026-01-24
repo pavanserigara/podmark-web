@@ -29,30 +29,24 @@ const Clients: React.FC = () => {
 
                 {/* 3-2-1 Matrix Layout */}
                 <div className="flex flex-col items-center gap-6 md:gap-8 mb-12">
-                    {/* Row 1: 3 Partners */}
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full max-w-5xl">
+                    {/* Row 1: 3 Partners (2 cols on mobile, 3 on desktop) */}
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full max-w-5xl">
                         {featured.slice(0, 3).map((client, idx) => (
-                            <div key={client.name} className="w-full sm:w-[calc(33.33%-1.5rem)]">
-                                <PartnerTile client={client} index={idx} />
-                            </div>
+                            <PartnerTile key={client.name} client={client} index={idx} />
                         ))}
                     </div>
 
-                    {/* Row 2: 2 Partners */}
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full max-w-3xl">
+                    {/* Row 2: 2 Partners (2 cols on mobile and desktop) */}
+                    <div className="grid grid-cols-2 gap-4 md:gap-8 w-full max-w-3xl">
                         {featured.slice(3, 5).map((client, idx) => (
-                            <div key={client.name} className="w-full sm:w-[calc(50%-1.5rem)]">
-                                <PartnerTile client={client} index={idx + 3} />
-                            </div>
+                            <PartnerTile key={client.name} client={client} index={idx + 3} />
                         ))}
                     </div>
 
-                    {/* Row 3: 1 Partner */}
-                    <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full max-w-sm">
+                    {/* Row 3: 1 Partner (1 col on all screens) */}
+                    <div className="grid grid-cols-1 gap-4 md:gap-8 w-full max-w-sm">
                         {featured.slice(5, 6).map((client, idx) => (
-                            <div key={client.name} className="w-full">
-                                <PartnerTile client={client} index={idx + 5} />
-                            </div>
+                            <PartnerTile key={client.name} client={client} index={idx + 5} />
                         ))}
                     </div>
                 </div>
