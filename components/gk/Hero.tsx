@@ -41,9 +41,14 @@ const Hero: React.FC = () => {
               Start Training
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </a>
-            <a href="http://www.kamathgautham.blogspot.com" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 md:px-10 py-4 md:py-5 bg-podDeepPurple/50 hover:bg-podDeepPurple backdrop-blur-md border border-white/10 text-white rounded-2xl font-bold text-base md:text-lg transition-all hover:scale-105 text-center">
-              Visit Blog
-            </a>
+            <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20IT%20Training%20By%20Gautham%20Kamath."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
+                        >
+                            KNOW MORE
+                        </a>
           </div>
         </div>
 

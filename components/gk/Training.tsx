@@ -35,7 +35,14 @@ const Training: React.FC = () => {
               </div>
 
               <button className="w-full py-4 bg-purple-gradient text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-podPurple/10 group-hover:shadow-podPurple/30">
-                Learn More
+                <a
+                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20IT%20Training%20By%20Gautham%20Kamath."
+                            target="_blank"
+                            rel="noopener noreferrer"
+
+                        >
+                            KNOW MORE
+                        </a>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
