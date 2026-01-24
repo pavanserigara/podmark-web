@@ -266,4 +266,3 @@ export const CORPORATE_CLIENTS = [
 export const IconMap: Record<string, React.ElementType> = {
   Cloud, Server, Shield, Cpu, GraduationCap, Briefcase, Terminal, Monitor, Network, Database, Globe, Zap, Code, Layers, Lock, Workflow, HardDrive, Share2, Award, ShieldAlert, Wrench, Building2
 };
-up
