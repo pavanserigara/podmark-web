@@ -83,7 +83,7 @@ const Certificates: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    {/* <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                         {CORPORATE_CLIENTS.map((client, idx) => (
                             <div
                                 key={idx}
@@ -112,7 +112,7 @@ const Certificates: React.FC = () => {
                                 </span>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
 
                     {/* Logo Marquee Strip */}
                     <div className="mt-20 -mx-4 sm:-mx-6 bg-white/[0.02] border-y border-white/5 py-10 overflow-hidden relative">

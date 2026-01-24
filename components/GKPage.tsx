@@ -34,7 +34,7 @@ export const GKPage: React.FC = () => {
                     <Certificates />
                 </div>
 
-                <ProjectGallery />
+                {/* <ProjectGallery /> */}
                 <div id="services">
                     <Services />
                 </div>
