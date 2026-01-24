@@ -88,7 +88,7 @@ const Certificates: React.FC = () => {
                                 key={idx}
                                 className="group relative aspect-video rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col items-center justify-center p-4 transition-all duration-300 hover:bg-white/[0.05] hover:border-podGold/20"
                             >
-                                <div className="relative w-full h-12 flex items-center justify-center filter grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
+                                <div className="relative w-full h-12 flex items-center justify-center transition-all duration-500">
                                     <img
                                         src={client.logoPath || `https://logo.clearbit.com/${client.domain}`}
                                         alt={client.name}
