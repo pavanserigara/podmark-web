@@ -132,7 +132,7 @@ const Certificates: React.FC = () => {
                     </div>
 
                     {/* Impact Metrics */}
-                    <div className="mt-24 flex flex-wrap justify-center gap-x-12 gap-y-8 pt-12 border-t border-white/5">
+                    {/* <div className="mt-24 flex flex-wrap justify-center gap-x-12 gap-y-8 pt-12 border-t border-white/5">
                         <div className="flex flex-col items-center md:items-start gap-2">
                             <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">15+</span>
                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none">Years of<br />Experience</span>
@@ -145,7 +145,7 @@ const Certificates: React.FC = () => {
                             <span className="text-4xl md:text-5xl font-black text-white tracking-tighter">10k+</span>
                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] leading-none">Professionals<br />Trained</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
