@@ -23,7 +23,7 @@ const Clients: React.FC = () => {
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Industry Giants</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter uppercase">
-                        Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-podPurple via-white to-podCyan">Alliances.</span>
+                        Corporate <span className="text-transparent bg-clip-text bg-gradient-to-r from-podPurple via-white to-podCyan">Trainings.</span>
                     </h2>
                 </div>
 

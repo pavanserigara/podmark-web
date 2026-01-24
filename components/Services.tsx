@@ -16,7 +16,7 @@ const SERVICES = [
     features: ["Content Strategy", "Community Management", "Paid Growth", "Analytics"],
     accent: "podPurple",
     category: "MARKETING",
-    image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/insta.avif",
     link: "/social-media"
   },
   {
@@ -25,7 +25,7 @@ const SERVICES = [
     features: ["UI/UX Engineering", "Conversion Optimization", "Brand Identity", "SEO Mastery"],
     accent: "podCyan",
     category: "DESIGN",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Web Design.avif",
     link: "/development"
   },
   {
@@ -34,7 +34,7 @@ const SERVICES = [
     features: ["Full-Funnel Strategy", "Google Search & Shopping", "Meta (FB/IG) Mastery", "ROI-Driven Scaling"],
     accent: "podCyan",
     category: "ADVERTISING",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Meta & Google Adsavif",
     link: "/meta-google-ads"
   },
   {
@@ -43,7 +43,7 @@ const SERVICES = [
     features: ["Studio Styling", "E-com Integration", "Detail Focus", "Batch Delivery"],
     accent: "podGold",
     category: "VISUAL",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Product Shoots.avif",
     link: "/product-shoots"
   },
   {
@@ -52,7 +52,7 @@ const SERVICES = [
     features: ["Interior Cinema", "Aerial Perspectives", "HDR Processing", "Virtual Tours"],
     accent: "podGold",
     category: "VISUAL",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Real Estate Shoots.avif",
     link: "/real-estate-shoots"
   },
   {
@@ -61,7 +61,7 @@ const SERVICES = [
     features: ["Macro Precision", "Luxury Lighting", "Creative Direction", "Post-Production"],
     accent: "podPurple",
     category: "VISUAL",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Jewellery Shoots.avif",
     link: "/jewellery-shoots"
   },
   {
@@ -79,7 +79,7 @@ const SERVICES = [
     features: ["Space Planning", "Identity Reflection", "3D Rendering", "Material Curation"],
     accent: "podCyan",
     category: "DESIGN",
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/Interior Design.avif",
     link: "/interior-design"
   },
   {
@@ -88,7 +88,7 @@ const SERVICES = [
     features: ["Cloud Architecting", "MCT Certification", "Azure AI/DevOps", "IT Infrastructure"],
     accent: "podPurple",
     category: "IT",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1000",
+    image: "/images/IT Training & Consultant.png",
     link: "/gk"
   }
 ];

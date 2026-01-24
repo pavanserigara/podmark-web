@@ -207,7 +207,7 @@ export const PROJECTS = [
 ];
 
 export const GALLERY_IMAGES = [
-  { url: "https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=1200&auto=format&fit=crop", title: "Enterprise Datacenter", category: "Hardware" },
+  { url: "/images/gk.jpg", title: "Enterprise Datacenter", category: "Hardware" },
   { url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000", title: "Cloud Architecture Flow", category: "Azure" },
   { url: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000", title: "Cyber Defense Systems", category: "Security" },
   { url: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000", title: "Training Masterclass", category: "MCT" },
