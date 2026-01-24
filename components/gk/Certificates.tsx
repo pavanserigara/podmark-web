@@ -117,7 +117,7 @@ const Certificates: React.FC = () => {
                     <div className="mt-20 -mx-4 sm:-mx-6 bg-white/[0.02] border-y border-white/5 py-10 overflow-hidden relative">
                         <div className="flex whitespace-nowrap animate-marquee">
                             {[...CORPORATE_CLIENTS, ...CORPORATE_CLIENTS].map((client, i) => (
-                                <div key={i} className="flex flex-col items-center gap-4 mx-12 transition-all duration-300">
+                                <div key={i} className="flex flex-col items-center gap-4 mx-6 transition-all duration-300">
                                     <div className="w-16 h-12 flex items-center justify-center">
                                         <img
                                             src={client.logoPath || `https://logo.clearbit.com/${client.domain}`}
