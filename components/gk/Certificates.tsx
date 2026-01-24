@@ -78,7 +78,7 @@ const Certificates: React.FC = () => {
                             Trusted by Industry <span className="text-podGold">Leaders.</span>
                         </h2>
                         <p className="text-slate-400 text-sm max-w-xl">
-                            Delivering professional-grade training and consultancy for top-tier technology corporations worldwide.
+                            Delivering professional-grade training and consultancy for top-tier technology corporations.
                         </p>
                     </div>
 
@@ -111,6 +111,24 @@ const Certificates: React.FC = () => {
                                 </span>
                             </div>
                         ))}
+                    </div>
+
+                    {/* Logo Marquee Strip */}
+                    <div className="mt-20 -mx-4 sm:-mx-6 bg-white/[0.02] border-y border-white/5 py-10 overflow-hidden relative">
+                        <div className="flex whitespace-nowrap animate-marquee">
+                            {[...CORPORATE_CLIENTS, ...CORPORATE_CLIENTS].map((client, i) => (
+                                <div key={i} className="flex flex-col items-center gap-4 mx-12 transition-all duration-300">
+                                    <div className="w-16 h-12 flex items-center justify-center">
+                                        <img
+                                            src={client.logoPath || `https://logo.clearbit.com/${client.domain}`}
+                                            alt={client.name}
+                                            className="max-w-full max-h-full object-contain"
+                                        />
+                                    </div>
+                                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{client.name}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
 
                     {/* Impact Metrics */}
