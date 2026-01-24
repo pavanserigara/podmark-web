@@ -211,7 +211,7 @@ export const Services: React.FC = () => {
       {/* Intro Header - Positioned with top offset for spacing */}
       <div
         ref={headerRef}
-        className="relative lg:absolute lg:top-[12%] z-50 w-full max-w-6xl px-6 text-center flex flex-col items-center justify-center pointer-events-none mb-16 lg:mb-0"
+        className="relative md:absolute md:top-[12%] z-50 w-full max-w-6xl px-6 text-center flex flex-col items-center justify-center pointer-events-none mb-16 md:mb-0"
       >
         <div className="flex items-center justify-center gap-4 md:gap-6 mb-4">
           <div className="w-8 md:w-16 h-px bg-podGold/40"></div>
@@ -229,13 +229,13 @@ export const Services: React.FC = () => {
       {/* Cards Stack Container - Centered Vertically and Horizontally */}
       <div
         ref={cardsContainerRef}
-        className="relative lg:absolute lg:inset-0 z-10 w-full flex flex-col items-center lg:justify-center px-4 md:px-6"
+        className="relative md:absolute md:inset-0 z-10 w-full flex flex-col items-center md:justify-center px-4 md:px-6"
       >
-        <div className="relative w-full max-w-5xl flex flex-col gap-8 lg:block lg:h-[500px]">
+        <div className="relative w-full max-w-5xl flex flex-col gap-8 md:block md:h-[500px]">
           {SERVICES.map((service, index) => (
             <div
               key={index}
-              className="service-card relative lg:absolute w-full h-auto lg:h-full bg-[#12071d] rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] border border-white/10 shadow-[0_60px_160px_-40px_rgba(0,0,0,1)] flex flex-col lg:flex-row-reverse overflow-hidden group"
+              className="service-card relative md:absolute w-full h-auto md:h-full bg-[#12071d] rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] border border-white/10 shadow-[0_60px_160px_-40px_rgba(0,0,0,1)] flex flex-col md:flex-row-reverse overflow-hidden group"
               style={{
                 zIndex: 10 + index,
                 opacity: 1,
