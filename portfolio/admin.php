@@ -95,6 +95,19 @@ if ($is_auth && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = "Current password incorrect.";
         }
     }
+    if (isset($_POST['update_thumbnail'])) {
+        if (isset($_FILES['new_thumbnail']) && $_FILES['new_thumbnail']['error'] === UPLOAD_ERR_OK) {
+            $thumb_name = preg_replace('/[^a-zA-Z0-9\._-]/', '', $_FILES['new_thumbnail']['name']);
+            $thumb_unique = time() . "_thumb_" . uniqid() . "_" . $thumb_name;
+            $thumbnail_path = "uploads/" . $thumb_unique;
+            if (move_uploaded_file($_FILES['new_thumbnail']['tmp_name'], $thumbnail_path)) {
+                $db->updateMediaThumbnail($_POST['media_id'], $thumbnail_path);
+                $msg = "Thumbnail updated successfully.";
+            } else {
+                $error = "Failed to save thumbnail.";
+            }
+        }
+    }
 }
 
 // Layout Logic
@@ -109,7 +122,12 @@ if (!$is_auth) {
     if (file_exists($file)) {
         include $file;
     } else {
-        include 'admin/dashboard.php';
+        // Fallback or 404
+        if ($view === 'dashboard') {
+            include 'admin/dashboard.php';
+        } else {
+            echo "<div class='admin-card'><h3>Page Not Found</h3></div>";
+        }
     }
 
     include 'admin/layout_bottom.php';

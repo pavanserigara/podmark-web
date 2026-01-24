@@ -183,58 +183,102 @@
 
 <div class="admin-card">
     <h3 class="card-title">Gallery Management</h3>
+
     <?php
-    $pf = $db->getFullPortfolio();
-    if (empty($pf))
-        echo "<p style='color: var(--text-muted);'>No media found.</p>";
-    foreach ($pf as $entry):
-        foreach ($entry['categories'] as $cat):
-            if (empty($cat['media']))
+    $portfolio = $db->getFullPortfolio();
+    if (empty($portfolio)):
+        echo "<p style='color: var(--text-muted); text-align: center; padding: 50px;'>No media found.</p>";
+    else:
+        foreach ($portfolio as $client):
+            $hasMedia = false;
+            foreach ($client['categories'] as $cat) {
+                if (!empty($cat['media'])) {
+                    $hasMedia = true;
+                    break;
+                }
+            }
+            if (!$hasMedia)
                 continue;
             ?>
-            <div style="margin-bottom: 40px;">
-                <h5
-                    style="color: var(--primary); margin-bottom: 15px; border-bottom: 1px solid var(--grey); padding-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em;">
-                    <?php echo htmlspecialchars($entry['client']['name']); ?> / <?php echo htmlspecialchars($cat['name']); ?>
-                </h5>
-                <div class="admin-gallery">
-                    <?php foreach ($cat['media'] as $media): ?>
-                        <div class="gallery-item">
-                            <?php if ($media['media_type'] == 'video'): ?>
-                                <video src="<?php echo $media['file_path']; ?><?php echo empty($media['thumbnail']) ? '#t=15' : ''; ?>"
-                                    class="gallery-thumb" muted playsinline preload="metadata"
-                                    onmouseover="<?php echo !empty($media['thumbnail']) ? 'this.currentTime = 15;' : ''; ?> this.play();"
-                                    onmouseout="this.pause(); <?php echo !empty($media['thumbnail']) ? 'this.load();' : 'this.currentTime = 15;'; ?>"
-                                    <?php if (!empty($media['thumbnail']))
-                                        echo 'poster="' . $media['thumbnail'] . '"'; ?>></video>
-                                <div
-                                    style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
-                                    VIDEO
-                                </div>
-                            <?php else: ?>
-                                <img src="<?php echo $media['file_path']; ?>" class="gallery-thumb" alt="">
-                                <div
-                                    style="position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px;">
-                                    IMAGE
-                                </div>
-                            <?php endif; ?>
 
-                            <div class="gallery-actions">
-                                <form action="admin.php?view=content" method="POST">
-                                    <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
-                                    <input type="hidden" name="delete_media" value="1">
-                                    <button type="submit" class="btn-admin btn-danger"
-                                        style="padding: 12px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border: 2px solid white;">
-                                        <i class="fas fa-trash-alt" style="font-size: 1.2rem;"></i>
-                                    </button>
-                                </form>
-                            </div>
+            <div class="client-brand-section" style="margin-bottom: 80px;">
+                <!-- ULTRA-VISIBLE CLIENT HEADER -->
+                <div
+                    style="background: var(--grey); border-left: 6px solid yellow; padding: 25px 35px; margin-bottom: 30px; display: flex; align-items: center; gap: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <div
+                        style="width: 50px; height: 50px; background: yellow; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #000; font-size: 1.5rem;">
+                        <i class="fas fa-user-tag"></i>
+                    </div>
+                    <div>
+                        <h4
+                            style="font-size: 2rem; font-weight: 950; color: yellow; text-transform: uppercase; letter-spacing: 0.1em; margin: 0; line-height: 1;">
+                            <?php echo htmlspecialchars($client['name']); ?>
+                        </h4>
+                        <div
+                            style="font-size: 0.8rem; color: #fff; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-top: 8px; opacity: 0.8;">
+                            CLIENT REELS & MEDIA
                         </div>
-                    <?php endforeach; ?>
+                    </div>
                 </div>
+
+                <?php foreach ($client['categories'] as $cat):
+                    if (empty($cat['media']))
+                        continue;
+                    ?>
+                    <div style="margin-bottom: 50px; padding-left: 30px;">
+                        <h5
+                            style="color: var(--primary); margin-bottom: 25px; text-transform: uppercase; font-size: 1rem; letter-spacing: 0.2em; font-weight: 800; display: flex; align-items: center; gap: 15px;">
+                            <i class="fas fa-folder-open"></i>
+                            <?php echo htmlspecialchars($cat['name']); ?>
+                        </h5>
+
+                        <div class="admin-gallery"
+                            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 25px;">
+                            <?php foreach ($cat['media'] as $media): ?>
+                                <div class="gallery-item" style="border: 1px solid var(--grey); background: #000; height: 250px;">
+                                    <?php if ($media['media_type'] == 'video'): ?>
+                                        <video <?php if (!empty($media['thumbnail'])): ?> data-src="<?php echo $media['file_path']; ?>"
+                                                preload="none" poster="<?php echo $media['thumbnail']; ?>" <?php else: ?>
+                                                src="<?php echo $media['file_path']; ?>#t=0.1" preload="metadata" <?php endif; ?>
+                                            class="gallery-thumb" muted playsinline
+                                            onmouseover="if(this.dataset.src && !this.src) this.src = this.dataset.src; this.play();"
+                                            onmouseout="this.pause(); <?php echo !empty($media['thumbnail']) ? 'this.load();' : 'this.currentTime = 0.1;'; ?>"></video>
+                                    <?php else: ?>
+                                        <img src="<?php echo $media['file_path']; ?>" class="gallery-thumb" alt="" loading="lazy">
+                                    <?php endif; ?>
+
+                                    <!-- OVERLAY FOR CLIENT IDENTITY -->
+                                    <div
+                                        style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.9); padding: 15px; border-top: 3px solid yellow; z-index: 10;">
+                                        <div
+                                            style="color: yellow; font-size: 14px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; text-align: center; margin-bottom: 4px;">
+                                            <?php echo htmlspecialchars($client['name']); ?>
+                                        </div>
+                                        <div
+                                            style="color: #fff; font-size: 9px; text-transform: uppercase; font-weight: 700; text-align: center; opacity: 0.7;">
+                                            <?php echo htmlspecialchars($cat['name']); ?>
+                                            <?php echo !empty($media['title']) ? ' • ' . htmlspecialchars($media['title']) : ''; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="gallery-actions">
+                                        <form action="admin.php?view=content" method="POST"
+                                            onsubmit="return confirm('Really delete this asset?');">
+                                            <input type="hidden" name="media_id" value="<?php echo $media['id']; ?>">
+                                            <input type="hidden" name="delete_media" value="1">
+                                            <button type="submit" class="btn-admin btn-danger"
+                                                style="width: 60px; height: 60px; border-radius: 50%; font-size: 1.5rem; justify-content: center;">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-            <?php
-        endforeach;
-    endforeach;
-    ?>
+
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>

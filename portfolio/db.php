@@ -163,6 +163,20 @@ class Database
         return $stmt->execute([$id]);
     }
 
+    public function updateMediaThumbnail($id, $thumbnail_path)
+    {
+        // Delete old thumbnail if exists
+        $stmt = $this->pdo->prepare("SELECT thumbnail FROM media WHERE id = ?");
+        $stmt->execute([$id]);
+        $m = $stmt->fetch();
+        if ($m && !empty($m['thumbnail']) && file_exists(__DIR__ . '/' . $m['thumbnail'])) {
+            @unlink(__DIR__ . '/' . $m['thumbnail']);
+        }
+
+        $stmt = $this->pdo->prepare("UPDATE media SET thumbnail = ? WHERE id = ?");
+        return $stmt->execute([$thumbnail_path, $id]);
+    }
+
     // --- UPDATES ---
     public function getUpdates()
     {

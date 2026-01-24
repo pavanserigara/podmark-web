@@ -1157,6 +1157,43 @@ body::-webkit-scrollbar-thumb:hover {
     transform: none;
 }
 
+.gallery-video-static {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: #000;
+}
+
+.video-play-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(var(--podPurpleRGB, 123, 72, 255), 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 3;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.8;
+}
+
+.gallery-card:hover .video-play-hint {
+    transform: translate(-50%, -50%) scale(1.15);
+    background: var(--podPurple);
+    border-color: var(--podPurple);
+    opacity: 1;
+    box-shadow: 0 0 30px rgba(123, 72, 255, 0.5);
+}
+
 /* Info Overlay */
 .card-overlay {
     position: absolute;

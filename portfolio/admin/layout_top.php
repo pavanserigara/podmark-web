@@ -26,6 +26,10 @@
                 class="admin-nav-item <?php echo (isset($_GET['view']) && $_GET['view'] == 'content') ? 'active' : ''; ?>">
                 <i class="fas fa-cloud-upload-alt"></i> Upload & Media
             </a>
+            <a href="admin.php?view=thumbnails"
+                class="admin-nav-item <?php echo (isset($_GET['view']) && $_GET['view'] == 'thumbnails') ? 'active' : ''; ?>">
+                <i class="fas fa-images"></i> Thumbnails
+            </a>
             <a href="admin.php?view=updates"
                 class="admin-nav-item <?php echo (isset($_GET['view']) && $_GET['view'] == 'updates') ? 'active' : ''; ?>">
                 <i class="fas fa-bullhorn"></i> Blog Updates
