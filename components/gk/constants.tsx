@@ -248,19 +248,19 @@ export const TIMELINE = [
 ];
 
 export const CORPORATE_CLIENTS = [
-  { name: "HP", domain: "hp.com", logoPath: "/images/hp_logo.png" },
-  { name: "Dell", domain: "dell.com", logoPath: "/images/dell_logo.png" },
-  { name: "Wipro", domain: "wipro.com", logoPath: "/images/wipro_logo.png" },
-  { name: "HCL", domain: "hcltech.com", logoPath: "/images/hcl_logo.png" },
-  { name: "CGI", domain: "cgi.com", logoPath: "/images/cgi_logo.png" },
-  { name: "Cognizant", domain: "cognizant.com", logoPath: "/images/cognizant_logo.png" },
-  { name: "Mphasis", domain: "mphasis.com", logoPath: "/images/mphasis_logo.png" },
-  { name: "ITC InfoTech", domain: "itcinfotech.com", logoPath: "/images/itc_infotech_logo.png" },
-  { name: "Mindtree", domain: "mindtree.com", logoPath: "/images/mindtree_logo.png" },
-  { name: "Capgemini", domain: "capgemini.com", logoPath: "/images/capgemini_logo.png" },
-  { name: "CSC", domain: "dxc.com", logoPath: "/images/csc_logo.png" },
-  { name: "Logica", domain: "cgi.com" },
-  { name: "EMC2", domain: "dell.com", logoPath: "/images/emc2_logo.png" }
+  { name: "HP", domain: "hp.com", logoPath: "/images/logo/hp_logo.png" },
+  { name: "Dell", domain: "dell.com", logoPath: "/images/logo/dell_logo.png" },
+  { name: "Wipro", domain: "wipro.com", logoPath: "/images/logo/wipro_logo.png" },
+  { name: "HCL", domain: "hcltech.com", logoPath: "/images/logo/hcl_logo.png" },
+  { name: "CGI", domain: "cgi.com", logoPath: "/images/logo/cgi_logo.png" },
+  { name: "Cognizant", domain: "cognizant.com", logoPath: "/images/logo/cognizant_logo.png" },
+  { name: "Mphasis", domain: "mphasis.com", logoPath: "/images/logo/mphasis_logo.png" },
+  { name: "ITC InfoTech", domain: "itcinfotech.com", logoPath: "/images/logo/itc_infotech_logo.png" },
+  { name: "Mindtree", domain: "mindtree.com", logoPath: "/images/logo/mindtree_logo.png" },
+  { name: "Capgemini", domain: "capgemini.com", logoPath: "/images/logo/capgemini_logo.png" },
+  { name: "CSC", domain: "dxc.com", logoPath: "/images/logo/csc_logo.png" },
+  { name: "Logica", domain: "cgi.com", logoPath: "/images/logo/cgi_logo.png" },
+  { name: "EMC2", domain: "dell.com", logoPath: "/images/logo/emc2_logo.png" }
 ];
 
 export const IconMap: Record<string, React.ElementType> = {

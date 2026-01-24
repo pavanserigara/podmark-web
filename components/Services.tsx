@@ -179,9 +179,9 @@ export const Services: React.FC = () => {
     mm.add("(max-width: 768px)", () => {
       cards.forEach((card: any) => {
         gsap.fromTo(card,
-          { opacity: 0, y: 30 },
+          { autoAlpha: 0, y: 30 },
           {
-            opacity: 1,
+            autoAlpha: 1,
             y: 0,
             duration: 0.8,
             scrollTrigger: {
@@ -238,7 +238,7 @@ export const Services: React.FC = () => {
               className="service-card relative lg:absolute w-full h-auto lg:h-full bg-[#12071d] rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] border border-white/10 shadow-[0_60px_160px_-40px_rgba(0,0,0,1)] flex flex-col lg:flex-row-reverse overflow-hidden group"
               style={{
                 zIndex: 10 + index,
-                opacity: 1, // Let GSAP handle initial state per screen size if needed, but defaults to visible for flow
+                opacity: 1,
                 visibility: 'visible',
                 ...willChangeStyle
               }}

@@ -1,7 +1,6 @@
 
 import React, { useEffect } from 'react';
 import Hero from './gk/Hero';
-import Clients from './gk/Clients';
 import About from './gk/About';
 import Expertise from './gk/Expertise';
 import Experience from './gk/Experience';
@@ -34,7 +33,6 @@ export const GKPage: React.FC = () => {
                 <div id="certificates">
                     <Certificates />
                 </div>
-                <Clients />
 
                 <ProjectGallery />
                 <div id="services">
