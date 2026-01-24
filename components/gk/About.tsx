@@ -18,7 +18,7 @@ const About: React.FC = () => {
                         </div>
                         {/* Experience Floating Card */}
                         <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 bg-podDeepPurple border border-white/10 p-4 md:p-6 rounded-xl md:rounded-2xl shadow-2xl backdrop-blur-md">
-                            <p className="text-3xl md:text-4xl font-bold text-podPurple mb-1">15+</p>
+                            <p className="text-3xl md:text-4xl font-bold text-podPurple mb-1">18+</p>
                             <p className="text-[10px] md:text-sm font-medium text-slate-400">Years of IT Training Experience</p>
                         </div>
                     </div>

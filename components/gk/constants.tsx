@@ -102,7 +102,7 @@ export const DETAILED_CERTIFICATIONS: Certification[] = [
 export const EXPERIENCE: ExperienceEntry[] = [
   {
     title: "Freelance Trainer",
-    company: "Self-employed",
+    company: "Spearheaded large-scale technical training initiatives, successfully educating 30,000+ staff members at top-tier firms",
     period: "Oct 2014 - Present",
     location: "Bengaluru Area, India",
     description: "To achieve excellence in working as a dynamic professional, offering solutions to businesses using the best available resources where my analytical ability and analyzing quest are used maximum for the growth of the organization and to grow with the organization. Seeking a challenging position in a well established company that offers professional growth and ample opportu nity to learn and enrich my competencies in my profession. ",
@@ -122,27 +122,6 @@ export const EXPERIENCE: ExperienceEntry[] = [
     skills: ["CCNA", "Cyber Security", "Network Defense"],
     duration: "2 mos"
   },
-  {
-    title: "Corporate Trainer",
-    company: "Micro Academy (I) Pvt LTD",
-    period: "Jul 2011 - Oct 2014",
-    location: "Bengaluru, India",
-    description: "As an MCT trainer, I conducted training sessions for the Indian Army's cantonment personnel, focusing on CCNA (Cisco Certified Network Associate) and Cyber Security. The training aimed to enhance their understanding of networking fundamentals, secure network management, and effective protection against cyber threats. I delivered practical knowledge and real-world applications to help them strengthen their network infrastructure and safeguard critical systems.",
-    icon: "Building2",
-    color: "podCyan",
-    skills: ["Enterprise Training", "Consultancy", "Global Delivery"]
-  },
-
-  {
-    title: "Computer Service Engineer",
-    company: "Genius Computech",
-    period: "May 2007 - Jun 2008",
-    location: "Udupi, India",
-    description: "Installing a new IT system, upgrading existing hardware and software, visiting home users to set up their PCs or fix faulty equipment. testing system, servicing printers and scanners.",
-    icon: "Wrench",
-    color: "podGold",
-    skills: ["Hardware Engineering", "PC Repair", "Systems Upgrade"]
-  }
 ];
 
 export const SERVICES: Service[] = [

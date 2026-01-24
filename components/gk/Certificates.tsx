@@ -68,6 +68,7 @@ const Certificates: React.FC = () => {
                 </div>
 
                 {/* Corporate Corporate Training Partners Section */}
+
                 <div className="pt-20 border-t border-white/5">
                     <div className="flex flex-col items-center text-center mb-16">
                         <div className="flex items-center gap-3 mb-6">
@@ -148,7 +149,7 @@ const Certificates: React.FC = () => {
                     </div> */}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

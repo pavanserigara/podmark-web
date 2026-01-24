@@ -33,7 +33,7 @@ const Hero: React.FC = () => {
 
           <p className="text-base sm:text-lg md:text-2xl text-slate-400 max-w-2xl mb-8 md:mb-12 leading-relaxed font-light mx-auto lg:mx-0">
             Gautham Kamath — empowering global IT teams with deep expertise in
-            <span className="text-white font-medium"> Windows Server, Private Cloud, Networking</span> and <span className="text-podCyan font-medium">Microsoft SCCM</span>.
+            <span className="text-white font-medium"> Windows Server,Azure,O365,AWS,AI,Cyber Security,Networking</span> and <span className="text-podCyan font-medium">Microsoft SCCM</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start items-center">
@@ -42,13 +42,13 @@ const Hero: React.FC = () => {
               <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-                            href="https://wa.me/918105575795?text=I%27m%20interested%20in%20IT%20Training%20By%20Gautham%20Kamath."
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
-                        >
-                            KNOW MORE
-                        </a>
+              href="https://wa.me/918105575795?text=I%27m%20interested%20in%20IT%20Training%20By%20Gautham%20Kamath."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-10 py-4 purple-gradient text-white font-black tracking-widest uppercase rounded-full hover:scale-105 transition-transform shadow-lg shadow-podPurple/25"
+            >
+              KNOW MORE
+            </a>
           </div>
         </div>
 
@@ -69,8 +69,8 @@ const Hero: React.FC = () => {
                 <span className="text-slate-300">fetch --profile "Gautham Kamath"</span>
               </div>
               <div className="pl-6 text-slate-400 border-l border-podPurple/20 space-y-1">
-                <p><span className="text-podCyan">Role:</span> Technical Trainer & Engineer</p>
-                <p><span className="text-podCyan">Exp:</span> 15+ Years in IT Education</p>
+                <p><span className="text-podCyan">Role:</span>Microsoft Certified Trainer</p>
+                <p><span className="text-podCyan">Exp:</span> 18+ Years in IT Education</p>
                 <p><span className="text-podCyan">Core:</span> MCSA, MCSE, CCNA, CCNP</p>
                 <p><span className="text-podCyan">Focus:</span> Private Cloud & SCCM</p>
               </div>

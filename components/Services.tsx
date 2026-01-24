@@ -34,7 +34,7 @@ const SERVICES = [
     features: ["Full-Funnel Strategy", "Google Search & Shopping", "Meta (FB/IG) Mastery", "ROI-Driven Scaling"],
     accent: "podCyan",
     category: "ADVERTISING",
-    image: "/images/Meta & Google Ads.avif",
+    image: "/images/Meta & Google Ads.jpg",
     link: "/meta-google-ads"
   },
   {
